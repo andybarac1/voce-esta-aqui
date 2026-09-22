@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <base href="../">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
   <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="experiencia-2/styles.css?v=1">
 </head>
 <body>
   <div class="app-shell">
@@ -69,43 +70,88 @@
           <h3 id="destinationName">PARIS</h3>
           <p id="destinationCountry">FRANÇA · 48.8566° N, 2.3522° E</p>
           <div class="ticket-rule" aria-hidden="true"></div>
-          <p class="ticket-copy">ESCOLHA O CENÁRIO. DEPOIS, USE O SEU PRÓPRIO CELULAR PARA FAZER A SELFIE DIANTE DA TELA.</p>
+          <p class="ticket-copy">ENTRE NA PAISAGEM E CRIE UMA LEMBRANÇA COM A SUA CARA.</p>
           <button class="primary-button" id="enterButton" type="button">
-            <span>USAR ESTE CENÁRIO</span>
+            <span>ENTRAR NESTE LUGAR</span>
             <span aria-hidden="true">↗</span>
           </button>
         </div>
+        <div class="quick-list" id="quickList" aria-label="Lista rápida de destinos"></div>
       </aside>
     </main>
   </div>
 
   <dialog class="booth" id="boothDialog">
-    <div class="phone-experience">
-      <button class="close-button phone-close" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
+    <div class="booth-scene" id="boothScene">
+      <img class="booth-background" id="boothBackground" src="assets/paris.jpg" alt="">
+      <div class="booth-tint" aria-hidden="true"></div>
+      <header class="booth-header">
+        <div>
+          <p class="step">02 / ENTRE NA PAISAGEM</p>
+          <h2 id="boothTitle">PARIS</h2>
+        </div>
+        <button class="close-button" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
+      </header>
 
-      <section class="phone-instructions" id="phoneInstructions">
-        <p class="step">02 / PREPARE O SEU CELULAR</p>
-        <h2 id="phoneTitle">SELFIE EM PARIS</h2>
-        <p class="phone-lead">A TV SERÁ O SEU CENÁRIO. A FOTO É FEITA COM A CÂMERA DO SEU PRÓPRIO CELULAR.</p>
-        <ol>
-          <li><strong>1</strong><span>ABRA A CÂMERA DO SEU CELULAR.</span></li>
-          <li><strong>2</strong><span>POSICIONE-SE DIANTE DA TELA.</span></li>
-          <li><strong>3</strong><span>QUANDO ESTIVER PRONTO, TOQUE ABAIXO.</span></li>
-        </ol>
-        <button class="primary-button phone-start" id="startPhoneSceneButton" type="button"><span>ESTOU PRONTO</span><span aria-hidden="true">→</span></button>
+      <section class="question-view" id="questionView">
+        <p class="question-kicker">ANTES DA FOTO</p>
+        <h2 id="questionText">COMO VOCÊ POSARIA EM PARIS?</h2>
+        <p>OBSERVE A PAISAGEM. EM SEGUIDA, VOCÊ TERÁ ALGUNS SEGUNDOS PARA FAZER A SUA SELFIE.</p>
+        <button class="primary-button question-button" id="startInspirationButton" type="button">VER A PAISAGEM <span aria-hidden="true">→</span></button>
+        <small>COMEÇA AUTOMATICAMENTE EM <span id="questionTimer">8</span>S</small>
       </section>
 
-      <section class="phone-scene" id="phoneScene" hidden>
-        <img id="phoneBackground" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
-        <div class="scene-countdown"><span>O CENÁRIO MUDA EM</span><strong id="sceneTimer">10</strong><span>SEGUNDOS</span></div>
-        <div class="scene-progress"><span id="sceneProgress"></span></div>
+      <section class="inspiration-view" id="inspirationView" hidden>
+        <div class="inspiration-copy">
+          <p id="inspirationPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
+          <span>OLHE COM CALMA. A SELFIE COMEÇA EM <strong id="inspirationTimer">10</strong>S.</span>
+        </div>
+        <div class="timer-track" aria-hidden="true"><span id="timerProgress"></span></div>
       </section>
 
-      <section class="phone-end" id="phoneEnd" hidden>
-        <p class="step">03 / ENCERRAMENTO</p>
-        <h2>PRONTO.<br>VOCÊ ESTEVE AQUI.</h2>
-        <p>CONFIRA A FOTO NO SEU CELULAR.</p>
-        <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
+      <div class="booth-content" id="boothContent" hidden>
+        <div class="camera-ticket">
+          <div class="camera-frame" id="cameraFrame">
+            <video id="cameraVideo" playsinline muted autoplay></video>
+            <img id="uploadedPreview" alt="Sua foto enviada">
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <span class="camera-dot" aria-hidden="true"></span>
+              <strong>POSICIONE-SE AQUI</strong>
+              <small>ATIVE A CÂMERA OU ENVIE UMA FOTO</small>
+            </div>
+            <div class="countdown" id="countdown" aria-live="assertive"></div>
+          </div>
+          <div class="camera-caption">
+            <span id="boothLocation">PARIS, FRANÇA</span>
+            <span>MPF — 2026</span>
+          </div>
+        </div>
+
+        <div class="booth-controls">
+          <p class="booth-instruction" id="boothInstruction">PREPARE SUA MELHOR POSE. DEPOIS DO TOQUE, A FOTO SAI EM 3 SEGUNDOS.</p>
+          <button class="secondary-button" id="cameraButton" type="button">ATIVAR CÂMERA</button>
+          <label class="secondary-button upload-button" for="photoUpload">ENVIAR FOTO</label>
+          <input id="photoUpload" type="file" accept="image/*" hidden>
+          <button class="shutter-button" id="shutterButton" type="button" disabled aria-label="Tirar foto">
+            <span></span>
+          </button>
+          <p class="privacy-note">A FOTO É PROCESSADA NESTA TELA E NÃO É ENVIADA PARA A INTERNET.</p>
+        </div>
+      </div>
+
+      <div class="result-view" id="resultView" hidden>
+        <canvas id="resultCanvas" width="1600" height="1200"></canvas>
+        <div class="result-actions">
+          <button class="secondary-button" id="retakeButton" type="button">REFAZER</button>
+          <button class="primary-button" id="downloadButton" type="button">BAIXAR LEMBRANÇA ↓</button>
+        </div>
+      </div>
+
+      <section class="end-view" id="endView" hidden>
+        <p class="step">03 / FIM DA EXPERIÊNCIA</p>
+        <h2>VOCÊ<br>ESTEVE<br>AQUI.</h2>
+        <p>SUA LEMBRANÇA FOI CRIADA. OBRIGADO POR VIAJAR COM A GENTE.</p>
+        <button class="primary-button" id="restartButton" type="button">ESCOLHER OUTRO LUGAR <span aria-hidden="true">↺</span></button>
       </section>
     </div>
   </dialog>
@@ -117,6 +163,6 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=4"></script>
+  <script src="experiencia-2/app.js?v=1"></script>
 </body>
 </html>

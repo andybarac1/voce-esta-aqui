@@ -146,7 +146,7 @@ button { color: inherit; }
 .zoom-controls button:hover { background: var(--orange); }
 .map-status { position: absolute; left: 24px; bottom: 24px; padding: 9px 12px; background: var(--ink); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: .07em; }
 
-.destination-panel { min-height: 0; display: grid; grid-template-rows: minmax(260px, 1fr) auto; background: var(--paper); overflow: hidden; }
+.destination-panel { min-height: 0; display: grid; grid-template-rows: minmax(210px, 39%) auto 1fr; background: var(--paper); overflow: hidden; }
 .destination-photo-wrap { position: relative; overflow: hidden; border-bottom: 2px solid var(--ink); background: var(--orange); }
 .destination-photo { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: opacity 220ms ease, transform 760ms var(--ease-out); }
 .destination-photo.is-changing { opacity: 0; transform: scale(1.12); }
@@ -247,30 +247,6 @@ button { color: inherit; }
 .idle-tip span { display: block; margin-bottom: 6px; color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
 .idle-tip strong { font-size: 13px; line-height: 1.35; }
 .idle-tip button { position: absolute; top: 8px; right: 9px; width: 30px; height: 30px; border: 0; background: transparent; font-size: 25px; cursor: pointer; }
-
-.phone-experience { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--pink); }
-.phone-close { position: absolute; z-index: 20; top: 30px; right: 34px; border-color: var(--ink); color: var(--ink); background: var(--paper); }
-.phone-close:hover { background: var(--ink); color: var(--white); }
-.phone-instructions { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; padding: clamp(50px, 7vw, 130px); text-align: center; }
-.phone-instructions[hidden] { display: none; }
-.phone-instructions h2 { max-width: 13ch; margin: 12px 0 24px; font-size: clamp(58px, 7.7vw, 145px); line-height: .82; letter-spacing: -.1em; }
-.phone-lead { max-width: 63ch; margin: 0; font-size: clamp(15px, 1.2vw, 22px); line-height: 1.4; font-weight: 700; }
-.phone-instructions ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: min(1120px, 92vw); margin: 38px 0 8px; padding: 0; list-style: none; }
-.phone-instructions li { min-height: 130px; display: grid; grid-template-columns: 65px 1fr; align-items: center; gap: 12px; padding: 18px; border: 2px solid var(--ink); background: var(--paper); text-align: left; font-weight: 700; }
-.phone-instructions li strong { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--orange); font-size: 27px; }
-.phone-start { width: min(540px, 86vw); }
-.phone-scene { position: absolute; inset: 0; background: var(--ink); }
-.phone-scene[hidden] { display: none; }
-.phone-scene > img { width: 100%; height: 100%; display: block; object-fit: cover; animation: scenic-in 900ms var(--ease-out) both; }
-.scene-countdown { position: absolute; right: 26px; bottom: 28px; display: flex; align-items: baseline; gap: 8px; padding: 9px 12px; background: rgba(23,23,25,.74); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: .06em; }
-.scene-countdown strong { font-size: 23px; }
-.scene-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: rgba(255,255,255,.32); }
-.scene-progress span { display: block; width: 100%; height: 100%; background: var(--pink); transform-origin: left; }
-.phone-end { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; padding: 7vw; text-align: center; background: var(--orange); }
-.phone-end[hidden] { display: none; }
-.phone-end h2 { margin: 15px 0 25px; font-size: clamp(72px, 9vw, 170px); line-height: .77; letter-spacing: -.1em; }
-.phone-end > p:not(.step) { font-size: clamp(15px, 1.2vw, 22px); font-weight: 700; }
-.phone-end .primary-button { width: min(580px, 86vw); }
 
 .toast { position: fixed; z-index: 100; left: 50%; bottom: 28px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; padding: 13px 18px; background: var(--ink); color: var(--white); font-size: 12px; font-weight: 700; transition: 260ms ease; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }

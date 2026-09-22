@@ -1,6 +1,11 @@
 # Você está aqui — experiência interativa
 
-Aplicação de tela grande inspirada na identidade visual da Magnum Photos e da Martin Parr Foundation. O visitante escolhe um destino em um mapa-múndi, entra na paisagem com a câmera ou uma foto enviada e baixa uma lembrança personalizada.
+Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e da Martin Parr Foundation. O visitante escolhe um destino em um mapa-múndi e usa a paisagem como cenário de selfie.
+
+## Experiências disponíveis
+
+- `/` — Experiência 1: a TV exibe o cenário em tela cheia e o visitante faz a selfie com o próprio celular.
+- `/experiencia-2/` — Experiência 2 preservada: câmera integrada, upload e geração de lembrança para download.
 
 O mapa-base usa uma projeção Robinson com fronteiras do Natural Earth, disponibilizada em domínio público/CC0 pelo Wikimedia Commons.
 
