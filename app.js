@@ -11,31 +11,31 @@ const destinations = [
   { id: "lisboa", name: "Lisboa", country: "Portugal", code: "LIS / PT", lat: 38.7223, lon: -9.1393, image: "assets/lisboa.jpg", alt: "Praça do Comércio em Lisboa" },
   { id: "machu-picchu", name: "Machu Picchu", country: "Peru", code: "CUZ / PE", lat: -13.1631, lon: -72.545, image: "assets/machu-picchu.jpg", alt: "Ruínas de Machu Picchu" },
   { id: "madrid", name: "Madri", country: "Espanha", code: "MAD / ES", lat: 40.4168, lon: -3.7038, image: "assets/madrid.jpg", alt: "Palácio de Cibeles em Madri" },
-  { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", code: "SAO / BR", lat: -23.5614, lon: -46.6559, image: "assets/masp-sp.jpg", alt: "Museu de Arte de São Paulo" },
+  { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", code: "SAO / BR", lat: -23.5614, lon: -46.6559, dx: -1.8, dy: -0.8, image: "assets/masp-sp.jpg", alt: "Museu de Arte de São Paulo" },
   { id: "moscou", name: "Moscou", country: "Rússia", code: "MOW / RU", lat: 55.7558, lon: 37.6173, image: "assets/moscou.jpg", alt: "Catedral de São Basílio em Moscou" },
-  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC / US", lat: 40.6892, lon: -74.0445, image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade em Nova York" },
-  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", code: "RIO / BR", lat: -22.9519, lon: -43.2105, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
+  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC / US", lat: 40.6892, lon: -74.0445, dx: -1.2, dy: 0.5, image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade em Nova York" },
+  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", code: "RIO / BR", lat: -22.9519, lon: -43.2105, dx: -1.1, dy: 0.35, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
 
 const destinationPhrases = {
-  "paris": "EM PARIS, ATÉ O CÉU PARECE POSAR.",
-  "china": "ALGUNS CAMINHOS ATRAVESSAM SÉCULOS.",
-  "coliseu": "ROMA TRANSFORMA PASSADO EM CENÁRIO.",
-  "dubai": "ONDE A CIDADE DECIDIU TOCAR O CÉU.",
-  "egito": "DIANTE DO TEMPO, TODO MUNDO FICA PEQUENO.",
-  "fuji": "UM SEGUNDO DE SILÊNCIO ANTES DO CLIQUE.",
-  "hollywood": "AQUI, TODO VISITANTE GANHA UM PAPEL.",
-  "italia": "NEM TUDO PRECISA ESTAR RETO PARA SER INESQUECÍVEL.",
-  "jerusalem": "CAMADAS DE HISTÓRIA EM CADA DIREÇÃO.",
-  "lisboa": "A LUZ CHEGA PRIMEIRO EM LISBOA.",
-  "machu-picchu": "UMA CIDADE ESCONDIDA ACIMA DAS NUVENS.",
-  "madrid": "A CIDADE É UMA PRAÇA CHEIA DE ENCONTROS.",
-  "masp-sp": "SÃO PAULO TAMBÉM PARA PARA VER ARTE.",
-  "moscou": "COR, GEOMETRIA E UM POUCO DE ESPANTO.",
-  "nova-yorke": "TODO MUNDO CHEGA COM UMA HISTÓRIA.",
-  "rio-de-janeiro": "A PAISAGEM FAZ QUESTÃO DE PARTICIPAR.",
-  "savana-africana": "NO HORIZONTE, NINGUÉM TEM PRESSA."
+  "paris": "PARIS TEM MAIS DE 130 MUSEUS — E A TORRE EIFFEL AINDA ROUBA A CENA.",
+  "china": "A GRANDE MURALHA SE ESTENDE POR MAIS DE 20 MIL QUILÔMETROS.",
+  "coliseu": "O COLISEU RECEBIA CERCA DE 50 MIL ESPECTADORES NA ROMA ANTIGA.",
+  "dubai": "DUBAI ABRIGA O BURJ KHALIFA, O EDIFÍCIO MAIS ALTO DO MUNDO.",
+  "egito": "A GRANDE PIRÂMIDE FOI A CONSTRUÇÃO MAIS ALTA DO MUNDO POR MILÊNIOS.",
+  "fuji": "O MONTE FUJI É UM VULCÃO E UM DOS MAIORES SÍMBOLOS DO JAPÃO.",
+  "hollywood": "O LETREIRO DE HOLLYWOOD FOI CRIADO EM 1923 COMO PROPAGANDA IMOBILIÁRIA.",
+  "italia": "A TORRE DE PISA COMEÇOU A INCLINAR AINDA DURANTE A CONSTRUÇÃO.",
+  "jerusalem": "JERUSALÉM É UMA DAS CIDADES HABITADAS MAIS ANTIGAS DO MUNDO.",
+  "lisboa": "LISBOA É CONHECIDA COMO A CIDADE DAS SETE COLINAS.",
+  "machu-picchu": "MACHU PICCHU FOI CONSTRUÍDA PELOS INCAS A 2.430 METROS DE ALTITUDE.",
+  "madrid": "MADRI TEM UMA DAS MAIORES CONCENTRAÇÕES DE ARTE DA EUROPA.",
+  "masp-sp": "O VÃO LIVRE DO MASP TEM 74 METROS E É UM MARCO DA AVENIDA PAULISTA.",
+  "moscou": "A PRAÇA VERMELHA É O CORAÇÃO HISTÓRICO DE MOSCOU.",
+  "nova-yorke": "A ESTÁTUA DA LIBERDADE FOI UM PRESENTE DA FRANÇA AOS ESTADOS UNIDOS.",
+  "rio-de-janeiro": "O CRISTO REDENTOR ESTÁ A 710 METROS ACIMA DO NÍVEL DO MAR.",
+  "savana-africana": "A SAVANA ABRIGA ALGUMAS DAS MAIORES MIGRAÇÕES DE ANIMAIS DO PLANETA."
 };
 
 const $ = selector => document.querySelector(selector);
@@ -44,12 +44,22 @@ const elements = {
   flash: $("#photoFlash"), index: $("#photoIndex"), name: $("#destinationName"), country: $("#destinationCountry"),
   code: $("#destinationCode"), phrase: $("#ticketPhrase"), status: $("#mapStatus"), enter: $("#enterButton"), dialog: $("#boothDialog"),
   instructions: $("#phoneInstructions"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"),
-  sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), prepTimer: $("#prepTimer"),
+  end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), readyPrompt: $("#readyPrompt"), readyTimer: $("#readyTimer"),
+  restartPrompt: $("#restartPrompt"), restartTimer: $("#restartTimer"), scenarioPrompt: $("#scenarioPrompt"),
+  scenarioPromptName: $("#scenarioPromptName"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
 let sceneInterval = null;
 let sceneTimeout = null;
+let selectionPromptTimeout = null;
+let selectionPromptHideTimeout = null;
+let readyPromptTimeout = null;
+let readyCountdownInterval = null;
+let prepCountdownInterval = null;
+let endingTimeout = null;
+let restartCountdownInterval = null;
 let idleTimeout = null;
 let tipTimeout = null;
 let tipIndex = 0;
@@ -81,21 +91,25 @@ function createPins() {
     pin.type = "button";
     pin.className = "map-pin";
     pin.dataset.id = destination.id;
-    pin.style.left = `${point.x}%`;
-    pin.style.top = `${point.y}%`;
+    pin.style.left = `${point.x + (destination.dx || 0)}%`;
+    pin.style.top = `${point.y + (destination.dy || 0)}%`;
     pin.setAttribute("aria-label", `${destination.name}, ${destination.country}`);
     pin.innerHTML = `<span class="pin-label">${destination.short || destination.name}</span>`;
     pin.addEventListener("click", event => {
       event.stopPropagation();
-      selectDestination(destination);
+      selectDestination(destination, true);
     });
     fragment.append(pin);
   });
   elements.pins.append(fragment);
 }
 
-function selectDestination(destination) {
-  if (!destination || destination.id === selected?.id) return;
+function selectDestination(destination, fromUser = false) {
+  if (!destination) return;
+  if (destination.id === selected?.id) {
+    if (fromUser) scheduleScenarioPrompt();
+    return;
+  }
   selected = destination;
   const index = destinations.indexOf(destination);
   elements.photo.classList.add("is-changing");
@@ -116,6 +130,22 @@ function selectDestination(destination) {
   elements.phrase.textContent = destinationPhrases[destination.id];
   elements.status.textContent = `${destination.name.toUpperCase()} · CENÁRIO SELECIONADO`;
   document.querySelectorAll(".map-pin").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
+  if (fromUser) scheduleScenarioPrompt();
+}
+
+function hideScenarioPrompt() {
+  clearTimeout(selectionPromptTimeout);
+  clearTimeout(selectionPromptHideTimeout);
+  elements.scenarioPrompt.hidden = true;
+}
+
+function scheduleScenarioPrompt() {
+  hideScenarioPrompt();
+  selectionPromptTimeout = setTimeout(() => {
+    elements.scenarioPromptName.textContent = selected.name.toUpperCase();
+    elements.scenarioPrompt.hidden = false;
+    selectionPromptHideTimeout = setTimeout(hideScenarioPrompt, 5000);
+  }, 10000);
 }
 
 const mapController = (() => {
@@ -219,7 +249,8 @@ const mapController = (() => {
 })();
 
 function openExperience() {
-  clearSceneTimers();
+  clearExperienceTimers();
+  hideScenarioPrompt();
   elements.phoneTitle.textContent = `SELFIE EM ${selected.name.toUpperCase()}`;
   elements.background.src = selected.image;
   elements.background.alt = selected.alt;
@@ -227,33 +258,62 @@ function openExperience() {
   elements.scene.hidden = true;
   elements.popup.hidden = true;
   elements.end.hidden = true;
+  elements.readyPrompt.hidden = true;
+  elements.restartPrompt.hidden = true;
   elements.closeButton.hidden = false;
   elements.dialog.showModal();
+  readyPromptTimeout = setTimeout(showReadyPrompt, 10000);
 }
 
-function clearSceneTimers() {
+function clearExperienceTimers() {
   clearInterval(sceneInterval);
   clearTimeout(sceneTimeout);
+  clearTimeout(readyPromptTimeout);
+  clearInterval(readyCountdownInterval);
+  clearInterval(prepCountdownInterval);
+  clearTimeout(endingTimeout);
+  clearInterval(restartCountdownInterval);
+}
+
+function showReadyPrompt() {
+  let remaining = 5;
+  elements.readyTimer.textContent = remaining;
+  elements.readyPrompt.hidden = false;
+  readyCountdownInterval = setInterval(() => {
+    remaining -= 1;
+    elements.readyTimer.textContent = Math.max(0, remaining);
+    if (remaining <= 0) startPhoneScene();
+  }, 1000);
 }
 
 function startPhoneScene() {
+  clearTimeout(readyPromptTimeout);
+  clearInterval(readyCountdownInterval);
   elements.instructions.hidden = true;
   elements.end.hidden = true;
   elements.scene.hidden = true;
+  elements.readyPrompt.hidden = true;
   elements.popup.hidden = false;
   elements.closeButton.hidden = true;
-  sceneTimeout = setTimeout(showPhoneScene, 2400);
+  let remaining = 7;
+  elements.prepTimer.textContent = remaining;
+  prepCountdownInterval = setInterval(() => {
+    remaining -= 1;
+    elements.prepTimer.textContent = Math.max(0, remaining);
+    if (remaining <= 0) showPhoneScene();
+  }, 1000);
 }
 
 function showPhoneScene() {
+  clearInterval(prepCountdownInterval);
   elements.popup.hidden = true;
   elements.scene.hidden = false;
-  let remaining = 10;
+  let remaining = 15;
   elements.sceneTimer.textContent = remaining;
   elements.sceneProgress.style.transition = "none";
   elements.sceneProgress.style.transform = "scaleX(1)";
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    elements.sceneProgress.style.transition = "transform 10s linear";
+    elements.sceneProgress.style.transition = "transform 15s linear";
     elements.sceneProgress.style.transform = "scaleX(0)";
   }));
   sceneInterval = setInterval(() => {
@@ -264,15 +324,36 @@ function showPhoneScene() {
 }
 
 function finishPhoneScene() {
-  clearSceneTimers();
+  clearInterval(sceneInterval);
   elements.scene.hidden = true;
   elements.popup.hidden = true;
   elements.end.hidden = false;
   elements.closeButton.hidden = false;
+  elements.restartPrompt.hidden = true;
+  endingTimeout = setTimeout(showRestartPrompt, 5000);
+}
+
+function showRestartPrompt() {
+  let remaining = 5;
+  elements.restartTimer.textContent = remaining;
+  elements.restartPrompt.hidden = false;
+  restartCountdownInterval = setInterval(() => {
+    remaining -= 1;
+    elements.restartTimer.textContent = Math.max(0, remaining);
+    if (remaining <= 0) restartExperience();
+  }, 1000);
+}
+
+function restartExperience() {
+  clearExperienceTimers();
+  elements.dialog.close();
+  elements.restartPrompt.hidden = true;
+  mapController.reset(true);
+  scheduleIdleTip();
 }
 
 function closeExperience() {
-  clearSceneTimers();
+  clearExperienceTimers();
   elements.dialog.close();
   scheduleIdleTip();
 }
@@ -295,8 +376,10 @@ createPins();
 selectDestination(destinations[0]);
 elements.enter.addEventListener("click", openExperience);
 $("#startPhoneSceneButton").addEventListener("click", startPhoneScene);
+$("#scenarioPromptButton").addEventListener("click", openExperience);
+$("#readyPromptButton").addEventListener("click", startPhoneScene);
 $("#closeBoothButton").addEventListener("click", closeExperience);
-$("#restartButton").addEventListener("click", () => { closeExperience(); mapController.reset(true); });
+$("#restartButton").addEventListener("click", restartExperience);
 elements.dialog.addEventListener("cancel", event => { event.preventDefault(); closeExperience(); });
 $("#closeTipButton").addEventListener("click", scheduleIdleTip);
 $("#fullscreenButton").addEventListener("click", async () => {

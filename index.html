@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
   <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <div class="app-shell">
@@ -16,7 +16,7 @@
         <img class="brand brand--mpf" src="assets/mpf.png" alt="Martin Parr Foundation">
       </div>
       <div class="headline">
-        <p class="eyebrow">EXPERIÊNCIA 01 / MAPA INTERATIVO</p>
+        <p class="eyebrow">MAPA INTERATIVO</p>
         <h1>VOCÊ ESTÁ AQUI.</h1>
       </div>
       <div class="topbar-actions">
@@ -34,7 +34,7 @@
       <section class="map-panel" aria-labelledby="mapTitle">
         <div class="map-intro">
           <div>
-            <p class="step">01 / ESCOLHA UM DESTINO</p>
+            <p class="step">ESCOLHA UM DESTINO</p>
             <h2 id="mapTitle">PARA ONDE VOCÊ IRIA?</h2>
           </div>
           <p class="gesture-hint"><span class="gesture-icon" aria-hidden="true">↔</span> ARRASTE &nbsp; <span aria-hidden="true">＋</span> PINÇA PARA ZOOM</p>
@@ -84,7 +84,7 @@
       <button class="close-button phone-close" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
 
       <section class="phone-instructions" id="phoneInstructions">
-        <p class="step">02 / PREPARE O SEU CELULAR</p>
+        <p class="step">PREPARE O SEU CELULAR</p>
         <h2 id="phoneTitle">SELFIE EM PARIS</h2>
         <p class="phone-lead">A TV SERÁ O SEU CENÁRIO. A FOTO É FEITA COM A CÂMERA DO SEU PRÓPRIO CELULAR.</p>
         <ol>
@@ -97,24 +97,38 @@
 
       <section class="phone-scene" id="phoneScene" hidden>
         <img id="phoneBackground" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
-        <div class="scene-countdown"><strong id="sceneTimer">10</strong><span>S</span></div>
+        <div class="scene-countdown"><strong id="sceneTimer">15</strong><span>S</span></div>
         <div class="scene-progress"><span id="sceneProgress"></span></div>
       </section>
 
       <section class="countdown-popup" id="countdownPopup" hidden>
         <span>PREPARE A CÂMERA</span>
-        <strong>VOCÊ TERÁ 10 SEGUNDOS PARA FAZER A SELFIE.</strong>
+        <strong>VOCÊ TERÁ 15 SEGUNDOS PARA FAZER A SELFIE.</strong>
         <small>A PAISAGEM VAI OCUPAR TODA A TELA.</small>
+        <b id="prepTimer">7</b>
       </section>
 
       <section class="phone-end" id="phoneEnd" hidden>
-        <p class="step">03 / ENCERRAMENTO</p>
+        <p class="step">ENCERRAMENTO</p>
         <h2>PRONTO.<br>VOCÊ ESTEVE AQUI.</h2>
         <p>CONFIRA A FOTO NO SEU CELULAR.</p>
-        <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
+        <div class="restart-prompt" id="restartPrompt" hidden>
+          <small>CONTINUAR EM <b id="restartTimer">5</b>S</small>
+          <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
+        </div>
       </section>
+
+      <div class="ready-prompt" id="readyPrompt" hidden>
+        <small>COMEÇANDO AUTOMATICAMENTE EM <b id="readyTimer">5</b>S</small>
+        <button class="primary-button" id="readyPromptButton" type="button"><span>ESTOU PRONTO</span><span aria-hidden="true">→</span></button>
+      </div>
     </div>
   </dialog>
+
+  <aside class="scenario-prompt" id="scenarioPrompt" hidden>
+    <span id="scenarioPromptName">PARIS</span>
+    <button id="scenarioPromptButton" type="button">USAR ESTE CENÁRIO? <b>→</b></button>
+  </aside>
 
   <aside class="idle-tip" id="idleTip" aria-live="polite">
     <button id="closeTipButton" type="button" aria-label="Fechar dica">×</button>
@@ -123,6 +137,6 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
