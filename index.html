@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
   <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
+  <div class="opening-splash" id="openingSplash" role="img" aria-label="Você está aqui. Experiência 01, mapa interativo.">
+    <div class="opening-brands" aria-hidden="true">
+      <img src="assets/magnum.png" alt="">
+      <span></span>
+      <img src="assets/mpf.png" alt="">
+    </div>
+    <div class="opening-title">
+      <p>EXPERIÊNCIA 01 / MAPA INTERATIVO</p>
+      <h1>VOCÊ ESTÁ<br>AQUI.</h1>
+      <small>UMA VIAGEM COMEÇA COM UMA ESCOLHA.</small>
+    </div>
+  </div>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
@@ -70,10 +82,11 @@
           <p id="destinationCountry">FRANÇA · 48.8566° N, 2.3522° E</p>
           <div class="ticket-rule" aria-hidden="true"></div>
           <p class="ticket-copy ticket-phrase" id="ticketPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
-          <div class="ticket-tips" aria-label="Como participar">
-            <span>TOQUE EM UM PIN</span>
-            <span>AGUARDE O CONVITE NA TELA</span>
-            <span>PREPARE A CÂMERA DO CELULAR</span>
+          <div class="ticket-tips" aria-label="Instruções da experiência">
+            <strong class="ticket-tips-title">INSTRUÇÕES DE EMBARQUE</strong>
+            <span><b>01</b> ESCOLHA UM DESTINO NO MAPA</span>
+            <span><b>02</b> PREPARE A CÂMERA DO SEU CELULAR</span>
+            <span><b>03</b> AGUARDE SUA CARONA PARA A FOTO</span>
           </div>
         </div>
       </aside>
@@ -96,6 +109,10 @@
           <li><strong>3</strong><span>QUANDO ESTIVER PRONTO, TOQUE ABAIXO.</span></li>
         </ol>
         <p class="wait-note">EM INSTANTES, UM CONVITE APARECERÁ PARA CONTINUAR.</p>
+        <div class="instruction-logos" aria-label="Magnum Photos e Martin Parr Foundation">
+          <img src="assets/magnum.png" alt="Magnum Photos">
+          <img src="assets/mpf.png" alt="Martin Parr Foundation">
+        </div>
       </section>
 
       <section class="phone-scene" id="phoneScene" hidden>
@@ -119,20 +136,25 @@
 
       <div class="restart-prompt" id="restartPrompt" hidden>
         <small>CONTINUAR EM <b id="restartTimer">5</b>S</small>
-        <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
+        <button class="primary-button" id="restartButton" type="button"><span>VIAJAR PARA OUTRO DESTINO</span><span aria-hidden="true">↺</span></button>
       </div>
 
       <div class="ready-prompt" id="readyPrompt" hidden>
         <small>COMEÇANDO AUTOMATICAMENTE EM <b id="readyTimer">5</b>S</small>
-        <button class="primary-button" id="readyPromptButton" type="button"><span>ESTOU PRONTO</span><span aria-hidden="true">→</span></button>
+        <button class="primary-button" id="readyPromptButton" type="button"><span>APERTE OS CINTOS. VAMOS DECOLAR!</span><span aria-hidden="true">→</span></button>
       </div>
     </div>
   </dialog>
 
   <div class="global-prompt-backdrop" id="globalPromptBackdrop" hidden></div>
   <aside class="scenario-prompt" id="scenarioPrompt" hidden>
-    <span id="scenarioPromptName">PARIS</span>
-    <button id="scenarioPromptButton" type="button">USAR ESTE CENÁRIO? <b>→</b></button>
+    <small class="scenario-prompt-timer"><b id="scenarioPromptTimer">10</b>S</small>
+    <div class="scenario-destination">
+      <span id="scenarioPromptFlag" aria-hidden="true">🇫🇷</span>
+      <strong id="scenarioPromptName">PARIS</strong>
+    </div>
+    <p>APERTE OS CINTOS: SEU DESTINO ESTÁ PRONTO.</p>
+    <button id="scenarioPromptButton" type="button">EMBARCAR NESTE CENÁRIO <b>→</b></button>
   </aside>
 
   <aside class="idle-tip" id="idleTip" aria-live="polite">
@@ -142,6 +164,6 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
