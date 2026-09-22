@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
   <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div class="app-shell">
@@ -69,7 +69,7 @@
           <h3 id="destinationName">PARIS</h3>
           <p id="destinationCountry">FRANÇA · 48.8566° N, 2.3522° E</p>
           <div class="ticket-rule" aria-hidden="true"></div>
-          <p class="ticket-copy">ESCOLHA O CENÁRIO. DEPOIS, USE O SEU PRÓPRIO CELULAR PARA FAZER A SELFIE DIANTE DA TELA.</p>
+          <p class="ticket-copy ticket-phrase" id="ticketPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
           <button class="primary-button" id="enterButton" type="button">
             <span>USAR ESTE CENÁRIO</span>
             <span aria-hidden="true">↗</span>
@@ -97,8 +97,14 @@
 
       <section class="phone-scene" id="phoneScene" hidden>
         <img id="phoneBackground" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
-        <div class="scene-countdown"><span>O CENÁRIO MUDA EM</span><strong id="sceneTimer">10</strong><span>SEGUNDOS</span></div>
+        <div class="scene-countdown"><strong id="sceneTimer">10</strong><span>S</span></div>
         <div class="scene-progress"><span id="sceneProgress"></span></div>
+      </section>
+
+      <section class="countdown-popup" id="countdownPopup" hidden>
+        <span>PREPARE A CÂMERA</span>
+        <strong>VOCÊ TERÁ 10 SEGUNDOS PARA FAZER A SELFIE.</strong>
+        <small>A PAISAGEM VAI OCUPAR TODA A TELA.</small>
       </section>
 
       <section class="phone-end" id="phoneEnd" hidden>
@@ -117,6 +123,6 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

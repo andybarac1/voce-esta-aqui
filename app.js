@@ -18,13 +18,33 @@ const destinations = [
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
 
+const destinationPhrases = {
+  "paris": "EM PARIS, ATÉ O CÉU PARECE POSAR.",
+  "china": "ALGUNS CAMINHOS ATRAVESSAM SÉCULOS.",
+  "coliseu": "ROMA TRANSFORMA PASSADO EM CENÁRIO.",
+  "dubai": "ONDE A CIDADE DECIDIU TOCAR O CÉU.",
+  "egito": "DIANTE DO TEMPO, TODO MUNDO FICA PEQUENO.",
+  "fuji": "UM SEGUNDO DE SILÊNCIO ANTES DO CLIQUE.",
+  "hollywood": "AQUI, TODO VISITANTE GANHA UM PAPEL.",
+  "italia": "NEM TUDO PRECISA ESTAR RETO PARA SER INESQUECÍVEL.",
+  "jerusalem": "CAMADAS DE HISTÓRIA EM CADA DIREÇÃO.",
+  "lisboa": "A LUZ CHEGA PRIMEIRO EM LISBOA.",
+  "machu-picchu": "UMA CIDADE ESCONDIDA ACIMA DAS NUVENS.",
+  "madrid": "A CIDADE É UMA PRAÇA CHEIA DE ENCONTROS.",
+  "masp-sp": "SÃO PAULO TAMBÉM PARA PARA VER ARTE.",
+  "moscou": "COR, GEOMETRIA E UM POUCO DE ESPANTO.",
+  "nova-yorke": "TODO MUNDO CHEGA COM UMA HISTÓRIA.",
+  "rio-de-janeiro": "A PAISAGEM FAZ QUESTÃO DE PARTICIPAR.",
+  "savana-africana": "NO HORIZONTE, NINGUÉM TEM PRESSA."
+};
+
 const $ = selector => document.querySelector(selector);
 const elements = {
   viewport: $("#mapViewport"), canvas: $("#mapCanvas"), pins: $("#pinsLayer"), photo: $("#destinationPhoto"),
   flash: $("#photoFlash"), index: $("#photoIndex"), name: $("#destinationName"), country: $("#destinationCountry"),
-  code: $("#destinationCode"), status: $("#mapStatus"), enter: $("#enterButton"), dialog: $("#boothDialog"),
+  code: $("#destinationCode"), phrase: $("#ticketPhrase"), status: $("#mapStatus"), enter: $("#enterButton"), dialog: $("#boothDialog"),
   instructions: $("#phoneInstructions"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"),
-  sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
@@ -46,7 +66,7 @@ function project(lat, lon) {
   const fraction = position - index;
   const xFactor = xTable[index] + (xTable[index + 1] - xTable[index]) * fraction;
   const yFactor = yTable[index] + (yTable[index + 1] - yTable[index]) * fraction;
-  const projectedX = lon * xFactor;
+  const projectedX = lon * xFactor * .8487;
   const projectedY = Math.sign(lat) * yFactor * 91.296;
   return { x: ((projectedX + 180) / 360) * 100, y: ((91.296 - projectedY) / 182.592) * 100 };
 }
@@ -91,6 +111,7 @@ function selectDestination(destination) {
   elements.name.textContent = destination.name.toUpperCase();
   elements.country.textContent = `${destination.country.toUpperCase()} · ${formatCoordinate(destination.lat, "N", "S")}, ${formatCoordinate(destination.lon, "L", "O")}`;
   elements.code.textContent = destination.code;
+  elements.phrase.textContent = destinationPhrases[destination.id];
   elements.status.textContent = `${destination.name.toUpperCase()} · CENÁRIO SELECIONADO`;
   document.querySelectorAll(".map-pin").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
 }
@@ -202,6 +223,7 @@ function openExperience() {
   elements.background.alt = selected.alt;
   elements.instructions.hidden = false;
   elements.scene.hidden = true;
+  elements.popup.hidden = true;
   elements.end.hidden = true;
   elements.closeButton.hidden = false;
   elements.dialog.showModal();
@@ -215,8 +237,15 @@ function clearSceneTimers() {
 function startPhoneScene() {
   elements.instructions.hidden = true;
   elements.end.hidden = true;
-  elements.scene.hidden = false;
+  elements.scene.hidden = true;
+  elements.popup.hidden = false;
   elements.closeButton.hidden = true;
+  sceneTimeout = setTimeout(showPhoneScene, 2400);
+}
+
+function showPhoneScene() {
+  elements.popup.hidden = true;
+  elements.scene.hidden = false;
   let remaining = 10;
   elements.sceneTimer.textContent = remaining;
   elements.sceneProgress.style.transition = "none";
@@ -235,6 +264,7 @@ function startPhoneScene() {
 function finishPhoneScene() {
   clearSceneTimers();
   elements.scene.hidden = true;
+  elements.popup.hidden = true;
   elements.end.hidden = false;
   elements.closeButton.hidden = false;
 }

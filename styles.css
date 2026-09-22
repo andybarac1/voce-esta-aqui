@@ -12,7 +12,7 @@
 
 * { box-sizing: border-box; }
 
-html, body { margin: 0; min-height: 100%; background: var(--pink); color: var(--ink); }
+html, body { margin: 0; width: 100%; height: 100%; min-height: 100%; background: var(--pink); color: var(--ink); }
 
 body {
   min-width: 320px;
@@ -26,7 +26,7 @@ button, input { font: inherit; }
 button, label { -webkit-tap-highlight-color: transparent; }
 button { color: inherit; }
 
-.app-shell { min-height: 100dvh; display: grid; grid-template-rows: clamp(92px, 10vh, 132px) 1fr; }
+.app-shell { width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; display: grid; grid-template-rows: clamp(92px, 10vh, 132px) minmax(0, 1fr); overflow: hidden; }
 
 .topbar {
   position: relative;
@@ -60,7 +60,7 @@ button { color: inherit; }
 .reset-button svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .icon-button:hover, .reset-button:hover { background: var(--ink); color: var(--white); }
 
-.experience { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) clamp(330px, 27vw, 520px); }
+.experience { height: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) clamp(360px, 27vw, 520px); }
 
 .map-panel { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto 1fr; background: var(--aqua); border-right: 2px solid var(--ink); }
 .map-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding: clamp(19px, 2.2vh, 34px) clamp(22px, 2.6vw, 50px) 14px; }
@@ -146,7 +146,7 @@ button { color: inherit; }
 .zoom-controls button:hover { background: var(--orange); }
 .map-status { position: absolute; left: 24px; bottom: 24px; padding: 9px 12px; background: var(--ink); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: .07em; }
 
-.destination-panel { min-height: 0; display: grid; grid-template-rows: minmax(260px, 1fr) auto; background: var(--paper); overflow: hidden; }
+.destination-panel { height: 100%; min-height: 0; display: grid; grid-template-rows: minmax(0, 56%) minmax(0, 44%); background: var(--orange); overflow: hidden; }
 .destination-photo-wrap { position: relative; overflow: hidden; border-bottom: 2px solid var(--ink); background: var(--orange); }
 .destination-photo { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: opacity 220ms ease, transform 760ms var(--ease-out); }
 .destination-photo.is-changing { opacity: 0; transform: scale(1.12); }
@@ -162,6 +162,7 @@ button { color: inherit; }
 .ticket > p { margin: 0; font-size: clamp(10px, .72vw, 13px); font-weight: 700; }
 .ticket-rule { margin: 17px 0 14px; border-top: 2px dashed var(--ink); }
 .ticket .ticket-copy { max-width: 39ch; line-height: 1.35; }
+.ticket-phrase { font-size: clamp(15px, 1.12vw, 21px) !important; line-height: 1.16 !important; letter-spacing: -.035em; }
 
 .primary-button, .secondary-button {
   min-height: 58px; border: 2px solid var(--ink); padding: 0 19px; font-weight: 700; letter-spacing: .03em; cursor: pointer;
@@ -251,19 +252,19 @@ button { color: inherit; }
 .phone-experience { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--pink); }
 .phone-close { position: absolute; z-index: 20; top: 30px; right: 34px; border-color: var(--ink); color: var(--ink); background: var(--paper); }
 .phone-close:hover { background: var(--ink); color: var(--white); }
-.phone-instructions { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; padding: clamp(50px, 7vw, 130px); text-align: center; }
+.phone-instructions { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; padding: clamp(38px, 5vw, 90px); text-align: center; background: var(--pink); color: var(--ink); }
 .phone-instructions[hidden] { display: none; }
-.phone-instructions h2 { max-width: 13ch; margin: 12px 0 24px; font-size: clamp(58px, 7.7vw, 145px); line-height: .82; letter-spacing: -.1em; }
-.phone-lead { max-width: 63ch; margin: 0; font-size: clamp(15px, 1.2vw, 22px); line-height: 1.4; font-weight: 700; }
-.phone-instructions ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: min(1120px, 92vw); margin: 38px 0 8px; padding: 0; list-style: none; }
-.phone-instructions li { min-height: 130px; display: grid; grid-template-columns: 65px 1fr; align-items: center; gap: 12px; padding: 18px; border: 2px solid var(--ink); background: var(--paper); text-align: left; font-weight: 700; }
+.phone-instructions h2 { max-width: 17ch; margin: 8px 0 18px; padding: 0 22px; font-size: clamp(48px, 5.8vw, 108px); line-height: .86; letter-spacing: -.09em; }
+.phone-lead { max-width: 58ch; margin: 0; padding: 14px 22px; background: var(--ink); color: var(--white); font-size: clamp(17px, 1.35vw, 25px); line-height: 1.34; font-weight: 700; }
+.phone-instructions ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: min(1240px, 92vw); margin: 25px 0 5px; padding: 0; list-style: none; }
+.phone-instructions li { min-height: 112px; display: grid; grid-template-columns: 65px 1fr; align-items: center; gap: 12px; padding: 18px; border: 3px solid var(--ink); background: var(--paper); text-align: left; font-size: clamp(14px, 1vw, 19px); font-weight: 700; }
 .phone-instructions li strong { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--orange); font-size: 27px; }
 .phone-start { width: min(540px, 86vw); }
 .phone-scene { position: absolute; inset: 0; background: var(--ink); }
 .phone-scene[hidden] { display: none; }
 .phone-scene > img { width: 100%; height: 100%; display: block; object-fit: cover; animation: scenic-in 900ms var(--ease-out) both; }
-.scene-countdown { position: absolute; right: 26px; bottom: 28px; display: flex; align-items: baseline; gap: 8px; padding: 9px 12px; background: rgba(23,23,25,.74); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: .06em; }
-.scene-countdown strong { font-size: 23px; }
+.scene-countdown { position: absolute; right: 18px; top: 18px; display: flex; align-items: baseline; gap: 3px; padding: 5px 8px; background: rgba(23,23,25,.58); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: .04em; }
+.scene-countdown strong { font-size: 18px; }
 .scene-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: rgba(255,255,255,.32); }
 .scene-progress span { display: block; width: 100%; height: 100%; background: var(--pink); transform-origin: left; }
 .phone-end { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; padding: 7vw; text-align: center; background: var(--orange); }
@@ -271,6 +272,11 @@ button { color: inherit; }
 .phone-end h2 { margin: 15px 0 25px; font-size: clamp(72px, 9vw, 170px); line-height: .77; letter-spacing: -.1em; }
 .phone-end > p:not(.step) { font-size: clamp(15px, 1.2vw, 22px); font-weight: 700; }
 .phone-end .primary-button { width: min(580px, 86vw); }
+.countdown-popup { position: absolute; z-index: 18; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 8vw; background: var(--ink); color: var(--white); text-align: center; }
+.countdown-popup[hidden] { display: none; }
+.countdown-popup span { color: var(--pink); font-size: clamp(13px, 1vw, 18px); font-weight: 700; letter-spacing: .14em; }
+.countdown-popup strong { max-width: 17ch; font-size: clamp(48px, 6vw, 112px); line-height: .9; letter-spacing: -.08em; }
+.countdown-popup small { padding: 9px 13px; background: var(--orange); color: var(--ink); font-size: clamp(11px, .8vw, 15px); font-weight: 700; }
 
 .toast { position: fixed; z-index: 100; left: 50%; bottom: 28px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; padding: 13px 18px; background: var(--ink); color: var(--white); font-size: 12px; font-weight: 700; transition: 260ms ease; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
@@ -292,7 +298,7 @@ button { color: inherit; }
 
 @media (max-width: 760px) {
   body { overflow: auto; }
-  .app-shell { display: block; }
+  .app-shell { min-height: 100dvh; display: block; }
   .topbar { position: sticky; top: 0; grid-template-columns: 1fr auto; min-height: 86px; padding: 10px 15px; }
   .headline { text-align: right; }
   .headline .eyebrow { display: none; }
