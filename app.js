@@ -42,12 +42,12 @@ const $ = selector => document.querySelector(selector);
 const elements = {
   viewport: $("#mapViewport"), canvas: $("#mapCanvas"), pins: $("#pinsLayer"), photo: $("#destinationPhoto"),
   flash: $("#photoFlash"), index: $("#photoIndex"), name: $("#destinationName"), country: $("#destinationCountry"),
-  code: $("#destinationCode"), phrase: $("#ticketPhrase"), status: $("#mapStatus"), enter: $("#enterButton"), dialog: $("#boothDialog"),
-  instructions: $("#phoneInstructions"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"),
+  code: $("#destinationCode"), phrase: $("#ticketPhrase"), status: $("#mapStatus"), dialog: $("#boothDialog"),
+  instructions: $("#phoneInstructions"), instructionBackground: $("#instructionBackground"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"),
   sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), prepTimer: $("#prepTimer"),
   end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), readyPrompt: $("#readyPrompt"), readyTimer: $("#readyTimer"),
   restartPrompt: $("#restartPrompt"), restartTimer: $("#restartTimer"), scenarioPrompt: $("#scenarioPrompt"),
-  scenarioPromptName: $("#scenarioPromptName"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  scenarioPromptName: $("#scenarioPromptName"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
@@ -137,12 +137,14 @@ function hideScenarioPrompt() {
   clearTimeout(selectionPromptTimeout);
   clearTimeout(selectionPromptHideTimeout);
   elements.scenarioPrompt.hidden = true;
+  elements.globalBackdrop.hidden = true;
 }
 
 function scheduleScenarioPrompt() {
   hideScenarioPrompt();
   selectionPromptTimeout = setTimeout(() => {
     elements.scenarioPromptName.textContent = selected.name.toUpperCase();
+    elements.globalBackdrop.hidden = false;
     elements.scenarioPrompt.hidden = false;
     selectionPromptHideTimeout = setTimeout(hideScenarioPrompt, 5000);
   }, 10000);
@@ -254,12 +256,14 @@ function openExperience() {
   elements.phoneTitle.textContent = `SELFIE EM ${selected.name.toUpperCase()}`;
   elements.background.src = selected.image;
   elements.background.alt = selected.alt;
+  elements.instructionBackground.src = selected.image;
   elements.instructions.hidden = false;
   elements.scene.hidden = true;
   elements.popup.hidden = true;
   elements.end.hidden = true;
   elements.readyPrompt.hidden = true;
   elements.restartPrompt.hidden = true;
+  elements.dialogBackdrop.hidden = true;
   elements.closeButton.hidden = false;
   elements.dialog.showModal();
   readyPromptTimeout = setTimeout(showReadyPrompt, 10000);
@@ -278,6 +282,7 @@ function clearExperienceTimers() {
 function showReadyPrompt() {
   let remaining = 5;
   elements.readyTimer.textContent = remaining;
+  elements.dialogBackdrop.hidden = false;
   elements.readyPrompt.hidden = false;
   readyCountdownInterval = setInterval(() => {
     remaining -= 1;
@@ -296,6 +301,7 @@ function startPhoneScene() {
   elements.end.hidden = true;
   elements.scene.hidden = true;
   elements.readyPrompt.hidden = true;
+  elements.dialogBackdrop.hidden = true;
   elements.popup.hidden = false;
   elements.closeButton.hidden = true;
   let remaining = 7;
@@ -339,6 +345,7 @@ function finishPhoneScene() {
 function showRestartPrompt() {
   let remaining = 5;
   elements.restartTimer.textContent = remaining;
+  elements.dialogBackdrop.hidden = false;
   elements.restartPrompt.hidden = false;
   restartCountdownInterval = setInterval(() => {
     remaining -= 1;
@@ -364,12 +371,14 @@ function restartExperience() {
   clearExperienceTimers();
   elements.dialog.close();
   elements.restartPrompt.hidden = true;
+  elements.dialogBackdrop.hidden = true;
   mapController.reset(true);
   scheduleIdleTip();
 }
 
 function closeExperience() {
   clearExperienceTimers();
+  elements.dialogBackdrop.hidden = true;
   elements.dialog.close();
   scheduleIdleTip();
 }
@@ -390,8 +399,6 @@ function scheduleIdleTip() {
 
 createPins();
 selectDestination(destinations[0]);
-elements.enter.addEventListener("click", openExperience);
-$("#startPhoneSceneButton").addEventListener("click", startPhoneScene);
 $("#scenarioPromptButton").addEventListener("click", openExperience);
 $("#readyPromptButton").addEventListener("click", startPhoneScene);
 $("#closeBoothButton").addEventListener("click", closeExperience);

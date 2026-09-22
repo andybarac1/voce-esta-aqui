@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
   <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <div class="app-shell">
@@ -70,10 +70,11 @@
           <p id="destinationCountry">FRANÇA · 48.8566° N, 2.3522° E</p>
           <div class="ticket-rule" aria-hidden="true"></div>
           <p class="ticket-copy ticket-phrase" id="ticketPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
-          <button class="primary-button" id="enterButton" type="button">
-            <span>USAR ESTE CENÁRIO</span>
-            <span aria-hidden="true">↗</span>
-          </button>
+          <div class="ticket-tips" aria-label="Como participar">
+            <span>TOQUE EM UM PIN</span>
+            <span>AGUARDE O CONVITE NA TELA</span>
+            <span>PREPARE A CÂMERA DO CELULAR</span>
+          </div>
         </div>
       </aside>
     </main>
@@ -81,6 +82,8 @@
 
   <dialog class="booth" id="boothDialog">
     <div class="phone-experience">
+      <img class="instruction-background" id="instructionBackground" src="assets/paris.jpg" alt="">
+      <div class="dialog-prompt-backdrop" id="dialogPromptBackdrop" hidden></div>
       <button class="close-button phone-close" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
 
       <section class="phone-instructions" id="phoneInstructions">
@@ -92,7 +95,7 @@
           <li><strong>2</strong><span>POSICIONE-SE DIANTE DA TELA.</span></li>
           <li><strong>3</strong><span>QUANDO ESTIVER PRONTO, TOQUE ABAIXO.</span></li>
         </ol>
-        <button class="primary-button phone-start" id="startPhoneSceneButton" type="button"><span>ESTOU PRONTO</span><span aria-hidden="true">→</span></button>
+        <p class="wait-note">EM INSTANTES, UM CONVITE APARECERÁ PARA CONTINUAR.</p>
       </section>
 
       <section class="phone-scene" id="phoneScene" hidden>
@@ -112,11 +115,12 @@
         <p class="step">ENCERRAMENTO</p>
         <h2>PRONTO.<br>VOCÊ ESTEVE AQUI.</h2>
         <p>CONFIRA A FOTO NO SEU CELULAR.</p>
-        <div class="restart-prompt" id="restartPrompt" hidden>
-          <small>CONTINUAR EM <b id="restartTimer">5</b>S</small>
-          <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
-        </div>
       </section>
+
+      <div class="restart-prompt" id="restartPrompt" hidden>
+        <small>CONTINUAR EM <b id="restartTimer">5</b>S</small>
+        <button class="primary-button" id="restartButton" type="button"><span>ESCOLHER OUTRO LUGAR</span><span aria-hidden="true">↺</span></button>
+      </div>
 
       <div class="ready-prompt" id="readyPrompt" hidden>
         <small>COMEÇANDO AUTOMATICAMENTE EM <b id="readyTimer">5</b>S</small>
@@ -125,6 +129,7 @@
     </div>
   </dialog>
 
+  <div class="global-prompt-backdrop" id="globalPromptBackdrop" hidden></div>
   <aside class="scenario-prompt" id="scenarioPrompt" hidden>
     <span id="scenarioPromptName">PARIS</span>
     <button id="scenarioPromptButton" type="button">USAR ESTE CENÁRIO? <b>→</b></button>
@@ -137,6 +142,6 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>
