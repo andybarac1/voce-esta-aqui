@@ -103,7 +103,7 @@ button { color: inherit; }
   position: absolute;
   width: 54px; height: 66px;
   padding: 0;
-  transform: translate(-50%, -87%) scale(var(--pin-scale, 1));
+  transform: translate(-50%, -76.5%) scale(var(--pin-scale, 1));
   transform-origin: 50% 87%;
   background: transparent;
   border: 0;
@@ -282,25 +282,29 @@ button { color: inherit; }
 .countdown-popup small { padding: 9px 13px; background: var(--ink); color: var(--white); font-size: clamp(11px, .8vw, 15px); font-weight: 700; }
 .countdown-popup > b { position: absolute; top: 24px; right: 28px; min-width: 44px; padding: 6px 9px; background: rgba(23,23,25,.75); color: var(--white); font-size: 24px; }
 
-.scenario-prompt { position: fixed; z-index: 60; right: clamp(24px, 3vw, 58px); bottom: clamp(24px, 4vh, 56px); width: min(430px, calc(100vw - 48px)); padding: 18px; border: 2px solid var(--ink); background: var(--orange); box-shadow: 10px 10px 0 var(--ink); animation: prompt-in 420ms var(--ease-out); }
+.scenario-prompt { position: fixed; z-index: 60; left: 50%; top: 50%; width: min(500px, calc(100vw - 48px)); padding: 18px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 12px 12px 0 var(--orange); transform: translate(-50%, -50%); animation: popup-center-in 520ms var(--ease-out); }
 .scenario-prompt[hidden] { display: none; }
+.scenario-prompt::before, .ready-prompt::before, .restart-prompt::before { content: ""; position: fixed; z-index: -1; inset: 0; background: rgba(23,23,25,.42); backdrop-filter: blur(3px); animation: backdrop-in 420ms ease both; }
 .scenario-prompt > span { display: block; margin-bottom: 9px; font-size: 11px; font-weight: 700; letter-spacing: .1em; }
-.scenario-prompt button { width: 100%; min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border: 2px solid var(--ink); background: var(--paper); font-weight: 700; cursor: pointer; }
+.scenario-prompt button { width: 100%; min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border: 2px solid var(--ink); background: var(--orange); box-shadow: 6px 6px 0 var(--ink); font-weight: 700; cursor: pointer; }
 .scenario-prompt button:hover { background: var(--pink); }
 
-.ready-prompt { position: absolute; z-index: 30; left: 50%; bottom: 5vh; width: min(560px, 86vw); padding: 16px; transform: translateX(-50%); border: 2px solid var(--ink); background: var(--orange); box-shadow: 10px 10px 0 var(--ink); animation: prompt-in 420ms var(--ease-out); color: var(--ink); }
+.ready-prompt { position: absolute; z-index: 30; left: 50%; top: 50%; width: min(560px, 86vw); padding: 16px; transform: translate(-50%, -50%); border: 2px solid var(--ink); background: var(--orange); box-shadow: 10px 10px 0 var(--ink); animation: popup-center-in 520ms var(--ease-out); color: var(--ink); }
 .ready-prompt[hidden] { display: none; }
 .ready-prompt small { display: block; margin-bottom: 9px; text-align: center; font-weight: 700; }
 .ready-prompt .primary-button { margin: 0; }
 
-.restart-prompt { width: min(590px, 86vw); padding: 16px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 10px 10px 0 var(--ink); animation: prompt-in 420ms var(--ease-out); }
+.restart-prompt { position: relative; z-index: 2; width: min(590px, 86vw); padding: 16px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 10px 10px 0 var(--ink); animation: popup-rise 520ms var(--ease-out); }
 .restart-prompt[hidden] { display: none; }
 .restart-prompt small { display: block; margin-bottom: 10px; font-weight: 700; }
 .restart-prompt .primary-button { margin: 0; }
 
-@keyframes prompt-in { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-.ready-prompt { animation-name: ready-prompt-in; }
-@keyframes ready-prompt-in { from { opacity: 0; transform: translate(-50%, 28px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@keyframes popup-center-in { from { opacity: 0; transform: translate(-50%, -46%) scale(.88); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes popup-rise { from { opacity: 0; transform: translateY(28px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes auto-press { 0%, 100% { transform: translate(0); box-shadow: 6px 6px 0 var(--ink); } 45%, 65% { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--ink); } }
+.is-auto-clicking { animation: auto-press 560ms ease both !important; }
+#enterButton { background: var(--orange); }
 
 .toast { position: fixed; z-index: 100; left: 50%; bottom: 28px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; padding: 13px 18px; background: var(--ink); color: var(--white); font-size: 12px; font-weight: 700; transition: 260ms ease; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }

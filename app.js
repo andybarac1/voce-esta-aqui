@@ -7,14 +7,14 @@ const destinations = [
   { id: "fuji", name: "Monte Fuji", short: "Fuji", country: "Japão", code: "FJI / JP", lat: 35.3606, lon: 138.7274, image: "assets/fuji.jpg", alt: "Monte Fuji no Japão" },
   { id: "hollywood", name: "Hollywood", country: "Estados Unidos", code: "LAX / US", lat: 34.1341, lon: -118.3215, image: "assets/hollywood.jpg", alt: "Letreiro de Hollywood em Los Angeles" },
   { id: "italia", name: "Torre de Pisa", short: "Pisa", country: "Itália", code: "PSA / IT", lat: 43.7229, lon: 10.3966, image: "assets/italia.jpg", alt: "Torre inclinada de Pisa" },
-  { id: "jerusalem", name: "Jerusalém", country: "Israel", code: "JRS / IL", lat: 31.7683, lon: 35.2137, image: "assets/jerusalem.jpg", alt: "Cidade de Jerusalém" },
+  { id: "jerusalem", name: "Jerusalém", country: "Israel", code: "JRS / IL", lat: 31.7683, lon: 35.2137, dx: -.0833, dy: .1643, image: "assets/jerusalem.jpg", alt: "Cidade de Jerusalém" },
   { id: "lisboa", name: "Lisboa", country: "Portugal", code: "LIS / PT", lat: 38.7223, lon: -9.1393, image: "assets/lisboa.jpg", alt: "Praça do Comércio em Lisboa" },
   { id: "machu-picchu", name: "Machu Picchu", country: "Peru", code: "CUZ / PE", lat: -13.1631, lon: -72.545, image: "assets/machu-picchu.jpg", alt: "Ruínas de Machu Picchu" },
   { id: "madrid", name: "Madri", country: "Espanha", code: "MAD / ES", lat: 40.4168, lon: -3.7038, image: "assets/madrid.jpg", alt: "Palácio de Cibeles em Madri" },
-  { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", code: "SAO / BR", lat: -23.5614, lon: -46.6559, dx: -1.8, dy: -0.8, image: "assets/masp-sp.jpg", alt: "Museu de Arte de São Paulo" },
+  { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", code: "SAO / BR", lat: -23.5614, lon: -46.6559, image: "assets/masp-sp.jpg", alt: "Museu de Arte de São Paulo" },
   { id: "moscou", name: "Moscou", country: "Rússia", code: "MOW / RU", lat: 55.7558, lon: 37.6173, image: "assets/moscou.jpg", alt: "Catedral de São Basílio em Moscou" },
-  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC / US", lat: 40.6892, lon: -74.0445, dx: -1.2, dy: 0.5, image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade em Nova York" },
-  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", code: "RIO / BR", lat: -22.9519, lon: -43.2105, dx: -1.1, dy: 0.35, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
+  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC / US", lat: 40.6892, lon: -74.0445, image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade em Nova York" },
+  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", code: "RIO / BR", lat: -22.9519, lon: -43.2105, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
 
@@ -78,8 +78,8 @@ function project(lat, lon) {
   const yFactor = yTable[index] + (yTable[index + 1] - yTable[index]) * fraction;
   const centralMeridian = 11;
   const projectedLongitude = lon - centralMeridian;
-  const projectedX = projectedLongitude * xFactor * .8487;
-  const projectedY = Math.sign(lat) * yFactor * 91.296;
+  const projectedX = projectedLongitude * xFactor * 1.01;
+  const projectedY = Math.sign(lat) * yFactor * 92;
   return { x: ((projectedX + 180) / 360) * 100, y: ((91.296 - projectedY) / 182.592) * 100 };
 }
 
@@ -282,7 +282,10 @@ function showReadyPrompt() {
   readyCountdownInterval = setInterval(() => {
     remaining -= 1;
     elements.readyTimer.textContent = Math.max(0, remaining);
-    if (remaining <= 0) startPhoneScene();
+    if (remaining <= 0) {
+      clearInterval(readyCountdownInterval);
+      autoPress($("#readyPromptButton"), startPhoneScene);
+    }
   }, 1000);
 }
 
@@ -340,8 +343,21 @@ function showRestartPrompt() {
   restartCountdownInterval = setInterval(() => {
     remaining -= 1;
     elements.restartTimer.textContent = Math.max(0, remaining);
-    if (remaining <= 0) restartExperience();
+    if (remaining <= 0) {
+      clearInterval(restartCountdownInterval);
+      autoPress($("#restartButton"), restartExperience);
+    }
   }, 1000);
+}
+
+function autoPress(button, action) {
+  button.classList.remove("is-auto-clicking");
+  void button.offsetWidth;
+  button.classList.add("is-auto-clicking");
+  setTimeout(() => {
+    button.classList.remove("is-auto-clicking");
+    action();
+  }, 560);
 }
 
 function restartExperience() {
