@@ -66,7 +66,9 @@ function project(lat, lon) {
   const fraction = position - index;
   const xFactor = xTable[index] + (xTable[index + 1] - xTable[index]) * fraction;
   const yFactor = yTable[index] + (yTable[index + 1] - yTable[index]) * fraction;
-  const projectedX = lon * xFactor * .8487;
+  const centralMeridian = 11;
+  const projectedLongitude = lon - centralMeridian;
+  const projectedX = projectedLongitude * xFactor * .8487;
   const projectedY = Math.sign(lat) * yFactor * 91.296;
   return { x: ((projectedX + 180) / 360) * 100, y: ((91.296 - projectedY) / 182.592) * 100 };
 }
