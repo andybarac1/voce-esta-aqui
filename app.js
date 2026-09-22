@@ -113,7 +113,7 @@ function createDestinationControls() {
 }
 
 function selectDestination(destination, focusMap = false) {
-  if (!destination || destination.id === selected.id && !focusMap) return;
+  if (!destination || destination.id === selected?.id && !focusMap) return;
   selected = destination;
   const index = destinations.indexOf(destination);
   elements.photo.classList.add("is-changing");
