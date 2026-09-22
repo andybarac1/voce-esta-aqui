@@ -18,6 +18,26 @@ const destinations = [
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
 
+const destinationPhrases = {
+  "paris": "EM PARIS, ATÉ O CÉU PARECE POSAR.",
+  "china": "ALGUNS CAMINHOS ATRAVESSAM SÉCULOS.",
+  "coliseu": "ROMA TRANSFORMA PASSADO EM CENÁRIO.",
+  "dubai": "ONDE A CIDADE DECIDIU TOCAR O CÉU.",
+  "egito": "DIANTE DO TEMPO, TODO MUNDO FICA PEQUENO.",
+  "fuji": "UM SEGUNDO DE SILÊNCIO ANTES DO CLIQUE.",
+  "hollywood": "AQUI, TODO VISITANTE GANHA UM PAPEL.",
+  "italia": "NEM TUDO PRECISA ESTAR RETO PARA SER INESQUECÍVEL.",
+  "jerusalem": "CAMADAS DE HISTÓRIA EM CADA DIREÇÃO.",
+  "lisboa": "A LUZ CHEGA PRIMEIRO EM LISBOA.",
+  "machu-picchu": "UMA CIDADE ESCONDIDA ACIMA DAS NUVENS.",
+  "madrid": "A CIDADE É UMA PRAÇA CHEIA DE ENCONTROS.",
+  "masp-sp": "SÃO PAULO TAMBÉM PARA PARA VER ARTE.",
+  "moscou": "COR, GEOMETRIA E UM POUCO DE ESPANTO.",
+  "nova-yorke": "TODO MUNDO CHEGA COM UMA HISTÓRIA.",
+  "rio-de-janeiro": "A PAISAGEM FAZ QUESTÃO DE PARTICIPAR.",
+  "savana-africana": "NO HORIZONTE, NINGUÉM TEM PRESSA."
+};
+
 const $ = (selector, root = document) => root.querySelector(selector);
 const elements = {
   viewport: $("#mapViewport"), canvas: $("#mapCanvas"), pins: $("#pinsLayer"), quickList: $("#quickList"),
@@ -27,20 +47,37 @@ const elements = {
   closeBooth: $("#closeBoothButton"), cameraButton: $("#cameraButton"), video: $("#cameraVideo"), upload: $("#photoUpload"),
   uploadedPreview: $("#uploadedPreview"), placeholder: $("#cameraPlaceholder"), shutter: $("#shutterButton"), countdown: $("#countdown"),
   resultView: $("#resultView"), resultCanvas: $("#resultCanvas"), retake: $("#retakeButton"), download: $("#downloadButton"),
-  toast: $("#toast")
+  questionView: $("#questionView"), questionText: $("#questionText"), questionTimer: $("#questionTimer"),
+  inspirationView: $("#inspirationView"), inspirationPhrase: $("#inspirationPhrase"), inspirationTimer: $("#inspirationTimer"),
+  timerProgress: $("#timerProgress"), boothContent: $("#boothContent"), endView: $("#endView"),
+  idleTip: $("#idleTip"), tipText: $("#tipText"), toast: $("#toast")
 };
 
 let selected = null;
 let stream = null;
 let photoSource = null;
 let toastTimer = null;
+let questionInterval = null;
+let inspirationInterval = null;
+let idleTimer = null;
+let tipTimer = null;
+let tipIndex = 0;
 
 function formatCoordinate(value, positive, negative) {
   return `${Math.abs(value).toFixed(4)}° ${value >= 0 ? positive : negative}`;
 }
 
 function project(lat, lon) {
-  return { x: ((lon + 180) / 360) * 100, y: ((90 - lat) / 180) * 100 };
+  const xTable = [1, .9986, .9954, .99, .9822, .973, .96, .9427, .9216, .8962, .8679, .835, .7986, .7597, .7186, .6732, .6213, .5722, .5322];
+  const yTable = [0, .062, .124, .186, .248, .31, .372, .434, .4958, .5571, .6176, .6769, .7346, .7903, .8435, .8936, .9394, .9761, 1];
+  const position = Math.min(18, Math.abs(lat) / 5);
+  const index = Math.min(17, Math.floor(position));
+  const fraction = position - index;
+  const xFactor = xTable[index] + (xTable[index + 1] - xTable[index]) * fraction;
+  const yFactor = yTable[index] + (yTable[index + 1] - yTable[index]) * fraction;
+  const projectedX = lon * xFactor;
+  const projectedY = Math.sign(lat) * yFactor * 91.296;
+  return { x: ((projectedX + 180) / 360) * 100, y: ((91.296 - projectedY) / 182.592) * 100 };
 }
 
 function createDestinationControls() {
@@ -254,13 +291,92 @@ function showToast(message) {
   toastTimer = setTimeout(() => elements.toast.classList.remove("is-visible"), 2800);
 }
 
+const tips = [
+  "TOQUE EM UM PIN PARA DESCOBRIR O DESTINO.",
+  "USE DOIS DEDOS PARA APROXIMAR O MAPA.",
+  "ARRASTE O MAPA PARA EXPLORAR OUTROS LUGARES.",
+  "DEPOIS DE ESCOLHER, TOQUE EM ‘ENTRAR NESTE LUGAR’."
+];
+
+function scheduleIdleTip() {
+  clearTimeout(idleTimer);
+  clearTimeout(tipTimer);
+  elements.idleTip.classList.remove("is-visible");
+  if (elements.dialog.open) return;
+  idleTimer = setTimeout(() => {
+    if (elements.dialog.open) return;
+    elements.tipText.textContent = tips[tipIndex++ % tips.length];
+    elements.idleTip.classList.add("is-visible");
+    tipTimer = setTimeout(() => {
+      elements.idleTip.classList.remove("is-visible");
+      scheduleIdleTip();
+    }, 6000);
+  }, 10000);
+}
+
 function openBooth() {
+  clearTimeout(idleTimer);
+  clearTimeout(tipTimer);
+  elements.idleTip.classList.remove("is-visible");
   elements.boothBackground.src = selected.image;
   elements.boothTitle.textContent = selected.name.toUpperCase();
   elements.boothLocation.textContent = `${selected.name.toUpperCase()}, ${selected.country.toUpperCase()}`;
+  elements.questionText.textContent = `COMO VOCÊ POSARIA EM ${selected.name.toUpperCase()}?`;
+  elements.inspirationPhrase.textContent = destinationPhrases[selected.id];
   elements.resultView.hidden = true;
+  elements.endView.hidden = true;
+  elements.inspirationView.hidden = true;
+  elements.boothContent.hidden = true;
+  elements.questionView.hidden = false;
   if (typeof elements.dialog.showModal === "function") elements.dialog.showModal();
   else elements.dialog.setAttribute("open", "");
+  startQuestionTimer();
+}
+
+function clearExperienceTimers() {
+  clearInterval(questionInterval);
+  clearInterval(inspirationInterval);
+  questionInterval = null;
+  inspirationInterval = null;
+}
+
+function startQuestionTimer() {
+  clearExperienceTimers();
+  let remaining = 8;
+  elements.questionTimer.textContent = remaining;
+  questionInterval = setInterval(() => {
+    remaining -= 1;
+    elements.questionTimer.textContent = Math.max(0, remaining);
+    if (remaining <= 0) startInspiration();
+  }, 1000);
+}
+
+function startInspiration() {
+  clearExperienceTimers();
+  elements.questionView.hidden = true;
+  elements.boothContent.hidden = true;
+  elements.inspirationView.hidden = false;
+  let remaining = 10;
+  elements.inspirationTimer.textContent = remaining;
+  elements.timerProgress.style.transition = "none";
+  elements.timerProgress.style.transform = "scaleX(1)";
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    elements.timerProgress.style.transition = "transform 10s linear";
+    elements.timerProgress.style.transform = "scaleX(0)";
+  }));
+  inspirationInterval = setInterval(() => {
+    remaining -= 1;
+    elements.inspirationTimer.textContent = Math.max(0, remaining);
+    if (remaining <= 0) startCameraPhase();
+  }, 1000);
+}
+
+function startCameraPhase() {
+  clearExperienceTimers();
+  elements.inspirationView.hidden = true;
+  elements.boothContent.hidden = false;
+  showToast("VOCÊ TERÁ 3 SEGUNDOS DEPOIS DE TOCAR NO BOTÃO.");
+  startCamera();
 }
 
 function stopCamera() {
@@ -270,6 +386,7 @@ function stopCamera() {
 }
 
 function closeBooth() {
+  clearExperienceTimers();
   stopCamera();
   photoSource = null;
   elements.video.style.display = "none";
@@ -402,7 +519,27 @@ function downloadSouvenir() {
     link.click();
     setTimeout(() => URL.revokeObjectURL(link.href), 1000);
     showToast("LEMBRANÇA SALVA!");
+    setTimeout(() => {
+      elements.resultView.hidden = true;
+      elements.endView.hidden = false;
+    }, 900);
   }, "image/jpeg", .92);
+}
+
+function restartExperience() {
+  clearExperienceTimers();
+  stopCamera();
+  photoSource = null;
+  elements.endView.hidden = true;
+  elements.resultView.hidden = true;
+  elements.video.style.display = "none";
+  elements.uploadedPreview.style.display = "none";
+  elements.placeholder.style.display = "grid";
+  elements.shutter.disabled = true;
+  elements.cameraButton.textContent = "ATIVAR CÂMERA";
+  elements.dialog.close();
+  mapController.reset(true);
+  scheduleIdleTip();
 }
 
 createDestinationControls();
@@ -411,10 +548,13 @@ elements.enter.addEventListener("click", openBooth);
 elements.closeBooth.addEventListener("click", closeBooth);
 elements.dialog.addEventListener("cancel", event => { event.preventDefault(); closeBooth(); });
 elements.cameraButton.addEventListener("click", startCamera);
+$("#startInspirationButton").addEventListener("click", startInspiration);
 elements.upload.addEventListener("change", event => loadUpload(event.target.files[0]));
 elements.shutter.addEventListener("click", capture);
 elements.retake.addEventListener("click", () => { elements.resultView.hidden = true; });
 elements.download.addEventListener("click", downloadSouvenir);
+$("#restartButton").addEventListener("click", restartExperience);
+$("#closeTipButton").addEventListener("click", scheduleIdleTip);
 $("#fullscreenButton").addEventListener("click", async () => {
   try {
     if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
@@ -423,3 +563,7 @@ $("#fullscreenButton").addEventListener("click", async () => {
 });
 
 for (const destination of destinations) { const image = new Image(); image.src = destination.image; }
+for (const eventName of ["pointerdown", "wheel", "keydown"]) {
+  window.addEventListener(eventName, scheduleIdleTip, { passive: true });
+}
+scheduleIdleTip();

@@ -2,6 +2,8 @@
 
 Aplicação de tela grande inspirada na identidade visual da Magnum Photos e da Martin Parr Foundation. O visitante escolhe um destino em um mapa-múndi, entra na paisagem com a câmera ou uma foto enviada e baixa uma lembrança personalizada.
 
+O mapa-base usa uma projeção Robinson com fronteiras do Natural Earth, disponibilizada em domínio público/CC0 pelo Wikimedia Commons.
+
 ## Executar localmente
 
 A câmera exige uma origem segura. Em desenvolvimento, `localhost` é aceito:

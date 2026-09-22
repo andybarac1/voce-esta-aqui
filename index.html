@@ -43,27 +43,7 @@
         <div class="map-viewport" id="mapViewport" tabindex="0" aria-label="Mapa-múndi interativo. Arraste para mover e use pinça ou roda para ampliar.">
           <div class="map-grid" aria-hidden="true"></div>
           <div class="map-canvas" id="mapCanvas">
-            <svg class="world-map" viewBox="0 0 1000 500" role="img" aria-label="Mapa-múndi estilizado">
-              <defs>
-                <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
-                  <feTurbulence baseFrequency=".8" numOctaves="2" seed="7" result="noise"/>
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4"/>
-                </filter>
-              </defs>
-              <g class="continents" filter="url(#paper)">
-                <path d="M54 116l45-46 68-28 79 7 45 25 38 5 33 34-18 25-42 8-18 26-28 2-8 33-35 25-16 54-31 18-26-17-13-44-26-31-24-8-19-42 23-28-27-17z"/>
-                <path d="M249 292l39 11 39 35 11 44-19 41-9 46-32 27-18-42-2-42-28-35 3-48z"/>
-                <path d="M430 99l36-36 54 1 31 20 46-17 53 17 71-4 59 29 69 3 91 41-20 29-72 7-46 32-68-1-36 22-43-6-31 18-37-24-16-36-47-6-22-36-50-9z"/>
-                <path d="M479 223l55-12 42 21 42 29 7 59-31 79-52 35-33-39-10-57-38-51-5-43z"/>
-                <path d="M827 342l55-25 56 20 25 43-31 40-64 4-47-42z"/>
-                <path d="M902 445l22-8 18 12-25 13z"/>
-                <path d="M363 96l17-35 21 8-2 38z"/>
-              </g>
-              <g class="map-lines" aria-hidden="true">
-                <path d="M0 250h1000M500 0v500"/>
-                <ellipse cx="500" cy="250" rx="430" ry="180"/>
-              </g>
-            </svg>
+            <img class="world-map" src="assets/world-map.svg" alt="Mapa-múndi geográfico com fronteiras nacionais">
             <div class="pins-layer" id="pinsLayer"></div>
           </div>
 
@@ -112,7 +92,23 @@
         <button class="close-button" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
       </header>
 
-      <div class="booth-content">
+      <section class="question-view" id="questionView">
+        <p class="question-kicker">ANTES DA FOTO</p>
+        <h2 id="questionText">COMO VOCÊ POSARIA EM PARIS?</h2>
+        <p>OBSERVE A PAISAGEM. EM SEGUIDA, VOCÊ TERÁ ALGUNS SEGUNDOS PARA FAZER A SUA SELFIE.</p>
+        <button class="primary-button question-button" id="startInspirationButton" type="button">VER A PAISAGEM <span aria-hidden="true">→</span></button>
+        <small>COMEÇA AUTOMATICAMENTE EM <span id="questionTimer">8</span>S</small>
+      </section>
+
+      <section class="inspiration-view" id="inspirationView" hidden>
+        <div class="inspiration-copy">
+          <p id="inspirationPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
+          <span>OLHE COM CALMA. A SELFIE COMEÇA EM <strong id="inspirationTimer">10</strong>S.</span>
+        </div>
+        <div class="timer-track" aria-hidden="true"><span id="timerProgress"></span></div>
+      </section>
+
+      <div class="booth-content" id="boothContent" hidden>
         <div class="camera-ticket">
           <div class="camera-frame" id="cameraFrame">
             <video id="cameraVideo" playsinline muted autoplay></video>
@@ -131,7 +127,7 @@
         </div>
 
         <div class="booth-controls">
-          <p class="booth-instruction" id="boothInstruction">PREPARE SUA MELHOR POSE DE TURISTA.</p>
+          <p class="booth-instruction" id="boothInstruction">PREPARE SUA MELHOR POSE. DEPOIS DO TOQUE, A FOTO SAI EM 3 SEGUNDOS.</p>
           <button class="secondary-button" id="cameraButton" type="button">ATIVAR CÂMERA</button>
           <label class="secondary-button upload-button" for="photoUpload">ENVIAR FOTO</label>
           <input id="photoUpload" type="file" accept="image/*" hidden>
@@ -149,8 +145,21 @@
           <button class="primary-button" id="downloadButton" type="button">BAIXAR LEMBRANÇA ↓</button>
         </div>
       </div>
+
+      <section class="end-view" id="endView" hidden>
+        <p class="step">03 / FIM DA EXPERIÊNCIA</p>
+        <h2>VOCÊ<br>ESTEVE<br>AQUI.</h2>
+        <p>SUA LEMBRANÇA FOI CRIADA. OBRIGADO POR VIAJAR COM A GENTE.</p>
+        <button class="primary-button" id="restartButton" type="button">ESCOLHER OUTRO LUGAR <span aria-hidden="true">↺</span></button>
+      </section>
     </div>
   </dialog>
+
+  <aside class="idle-tip" id="idleTip" aria-live="polite">
+    <button id="closeTipButton" type="button" aria-label="Fechar dica">×</button>
+    <span>DICA</span>
+    <strong id="tipText">TOQUE EM UM PIN PARA DESCOBRIR O DESTINO.</strong>
+  </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>

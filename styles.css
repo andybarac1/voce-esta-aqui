@@ -82,19 +82,19 @@ button { color: inherit; }
 .map-viewport:active { cursor: grabbing; }
 .map-viewport:focus-visible { box-shadow: inset 0 0 0 5px var(--orange); }
 .map-grid {
-  position: absolute; inset: 0; opacity: .26; pointer-events: none;
+  position: absolute; inset: 0; opacity: .11; pointer-events: none;
   background-image: linear-gradient(to right, rgba(23,23,25,.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(23,23,25,.22) 1px, transparent 1px);
   background-size: 7.5% 15%;
 }
 
 .map-canvas {
   position: absolute;
-  left: 4%; top: 7%; width: 92%; aspect-ratio: 2 / 1;
+  left: 3%; top: 5%; width: 94%; aspect-ratio: 2048 / 1038.75;
   transform-origin: 0 0;
   will-change: transform;
 }
 .map-canvas.is-flying { transition: transform 650ms var(--ease-out); }
-.world-map { display: block; width: 100%; height: 100%; overflow: visible; }
+.world-map { display: block; width: 100%; height: 100%; object-fit: contain; overflow: visible; }
 .continents { fill: var(--paper); stroke: var(--ink); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
 .map-lines { fill: none; stroke: var(--ink); opacity: .14; stroke-width: 1.2; stroke-dasharray: 5 8; vector-effect: non-scaling-stroke; }
 .pins-layer { position: absolute; inset: 0; }
@@ -214,6 +214,39 @@ button { color: inherit; }
 .result-view canvas { display: block; max-width: 100%; max-height: 84vh; justify-self: center; box-shadow: 16px 18px 0 var(--pink); }
 .result-actions { display: grid; gap: 16px; }
 .result-actions .primary-button { margin: 0; }
+
+.question-view {
+  position: relative; z-index: 3; align-self: center; justify-self: center; width: min(900px, 84vw);
+  padding: clamp(32px, 4.5vw, 72px); background: var(--paper); color: var(--ink); border: 3px solid var(--ink);
+  box-shadow: 20px 22px 0 var(--pink); text-align: center;
+}
+.question-view::before, .question-view::after { content: ""; position: absolute; top: 50%; width: 48px; height: 48px; border: 3px solid var(--ink); border-radius: 50%; background: rgba(0,0,0,.72); transform: translateY(-50%); }
+.question-view::before { left: -26px; } .question-view::after { right: -26px; }
+.question-kicker { margin: 0 0 18px; font-weight: 700; letter-spacing: .12em; }
+.question-view h2 { margin: 0 auto 22px; max-width: 13ch; font-size: clamp(45px, 5.2vw, 96px); line-height: .9; letter-spacing: -.085em; }
+.question-view > p:not(.question-kicker) { max-width: 60ch; margin: 0 auto; font-size: clamp(13px, 1vw, 18px); line-height: 1.45; font-weight: 700; }
+.question-view small { display: block; margin-top: 20px; font-weight: 700; }
+.question-button { max-width: 540px; margin: 30px auto 0; }
+
+.inspiration-view { position: relative; z-index: 3; min-height: 0; align-self: stretch; display: grid; align-items: end; padding: clamp(35px, 6vw, 100px); }
+.inspiration-view[hidden] { display: none; }
+.inspiration-copy { max-width: 850px; padding: 28px 34px; background: var(--pink); color: var(--ink); border: 2px solid var(--ink); box-shadow: 12px 12px 0 var(--orange); }
+.inspiration-copy p { margin: 0 0 12px; font-size: clamp(32px, 4vw, 72px); line-height: .95; font-weight: 700; letter-spacing: -.07em; }
+.inspiration-copy span { font-size: clamp(12px, .9vw, 17px); font-weight: 700; }
+.timer-track { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: rgba(255,255,255,.35); }
+.timer-track span { display: block; width: 100%; height: 100%; background: var(--orange); transform-origin: left; }
+
+.end-view { position: absolute; z-index: 8; inset: 0; display: grid; place-content: center; justify-items: center; text-align: center; padding: 7vw; background: var(--pink); color: var(--ink); }
+.end-view[hidden] { display: none; }
+.end-view h2 { margin: 10px 0 25px; font-size: clamp(76px, 10vw, 180px); line-height: .72; letter-spacing: -.11em; }
+.end-view > p:not(.step) { max-width: 45ch; font-weight: 700; line-height: 1.45; }
+.end-view .primary-button { width: min(520px, 80vw); }
+
+.idle-tip { position: fixed; z-index: 50; left: 38px; bottom: 38px; width: min(430px, calc(100vw - 76px)); padding: 19px 46px 19px 22px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--orange); transform: translateY(140%); opacity: 0; transition: 420ms var(--ease-out); }
+.idle-tip.is-visible { transform: translateY(0); opacity: 1; }
+.idle-tip span { display: block; margin-bottom: 6px; color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+.idle-tip strong { font-size: 13px; line-height: 1.35; }
+.idle-tip button { position: absolute; top: 8px; right: 9px; width: 30px; height: 30px; border: 0; background: transparent; font-size: 25px; cursor: pointer; }
 
 .toast { position: fixed; z-index: 100; left: 50%; bottom: 28px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; padding: 13px 18px; background: var(--ink); color: var(--white); font-size: 12px; font-weight: 700; transition: 260ms ease; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
