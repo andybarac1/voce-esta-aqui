@@ -5,164 +5,91 @@
   <base href="../">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
-  <title>Você está aqui — Martin Parr</title>
-  <link rel="stylesheet" href="experiencia-2/styles.css?v=1">
+  <title>Você está aqui — Experiência 02</title>
+  <link rel="stylesheet" href="experiencia-2/styles.css?v=2">
 </head>
-<body>
-  <div class="app-shell">
-    <header class="topbar">
+<body class="tv-page">
+  <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência 2">
+    <div class="opening-brands" aria-hidden="true">
+      <img src="assets/magnum.png" alt="">
+      <span></span>
+      <img src="assets/mpf.png" alt="">
+    </div>
+    <div class="opening-title">
+      <p>EXPERIÊNCIA 02 / RETRATO DE VIAGEM</p>
+      <h1>VOCÊ ESTÁ<br>AQUI.</h1>
+      <small>TOQUE PARA COMEÇAR A VIAGEM.</small>
+    </div>
+  </button>
+
+  <div class="tv-shell">
+    <header class="tv-header">
       <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
-        <img class="brand brand--magnum" src="assets/magnum.png" alt="Magnum Photos">
-        <span class="brand-divider" aria-hidden="true"></span>
-        <img class="brand brand--mpf" src="assets/mpf.png" alt="Martin Parr Foundation">
+        <img src="assets/magnum.png" alt="Magnum Photos">
+        <span></span>
+        <img src="assets/mpf.png" alt="Martin Parr Foundation">
       </div>
-      <div class="headline">
-        <p class="eyebrow">EXPERIÊNCIA 01 / MAPA INTERATIVO</p>
+      <div class="tv-title">
+        <p>EXPERIÊNCIA 02 / GALERIA</p>
         <h1>VOCÊ ESTÁ AQUI.</h1>
       </div>
-      <div class="topbar-actions">
-        <button class="icon-button" id="fullscreenButton" type="button" aria-label="Ativar tela cheia" title="Tela cheia">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>
-        </button>
-        <button class="reset-button" id="resetMapButton" type="button">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.34-5.66L4 8.68M4 4v4.68h4.68"/></svg>
-          RECENTRALIZAR
-        </button>
-      </div>
+      <button class="outline-button fullscreen-button" id="fullscreenButton" type="button">⛶ &nbsp; TELA CHEIA</button>
     </header>
 
-    <main class="experience">
-      <section class="map-panel" aria-labelledby="mapTitle">
-        <div class="map-intro">
-          <div>
-            <p class="step">01 / ESCOLHA UM DESTINO</p>
-            <h2 id="mapTitle">PARA ONDE VOCÊ IRIA?</h2>
-          </div>
-          <p class="gesture-hint"><span class="gesture-icon" aria-hidden="true">↔</span> ARRASTE &nbsp; <span aria-hidden="true">＋</span> PINÇA PARA ZOOM</p>
+    <main class="gallery-screen" id="galleryScreen">
+      <section class="gallery-stage" aria-labelledby="galleryTitle">
+        <img class="gallery-image" id="galleryImage" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
+        <div class="gallery-wash" aria-hidden="true"></div>
+        <div class="gallery-copy">
+          <p>ESCOLHA A PAISAGEM DA SUA LEMBRANÇA</p>
+          <h2 id="galleryTitle">PARIS</h2>
+          <span id="galleryCountry">FRANÇA <img class="country-flag" src="assets/flags/fr.svg" alt="Bandeira da França"></span>
         </div>
-
-        <div class="map-viewport" id="mapViewport" tabindex="0" aria-label="Mapa-múndi interativo. Arraste para mover e use pinça ou roda para ampliar.">
-          <div class="map-grid" aria-hidden="true"></div>
-          <div class="map-canvas" id="mapCanvas">
-            <img class="world-map" src="assets/world-map.svg" alt="Mapa-múndi geográfico com fronteiras nacionais">
-            <div class="pins-layer" id="pinsLayer"></div>
-          </div>
-
-          <div class="zoom-controls" aria-label="Controles de zoom">
-            <button type="button" id="zoomInButton" aria-label="Aumentar zoom">＋</button>
-            <button type="button" id="zoomOutButton" aria-label="Diminuir zoom">−</button>
-          </div>
-          <div class="map-status" id="mapStatus" aria-live="polite">17 LUGARES PARA DESCOBRIR</div>
-        </div>
+        <div class="gallery-counter" id="galleryCounter">01 / 17</div>
+        <div class="thumbnail-rail" id="thumbnailRail" aria-label="Galeria de destinos"></div>
       </section>
 
-      <aside class="destination-panel" id="destinationPanel" aria-live="polite">
-        <div class="destination-photo-wrap">
-          <img class="destination-photo" id="destinationPhoto" src="assets/paris.jpg" alt="Torre Eiffel, Paris">
-          <div class="photo-flash" id="photoFlash" aria-hidden="true"></div>
-          <span class="photo-index" id="photoIndex">01 / 17</span>
+      <aside class="travel-ticket">
+        <div class="ticket-topline"><span>CARTÃO DE EMBARQUE</span><span id="ticketCode">PAR / <img class="country-flag" src="assets/flags/fr.svg" alt="Bandeira da França"></span></div>
+        <p class="ticket-kicker">SEU PRÓXIMO RETRATO</p>
+        <h3 id="ticketName">PARIS</h3>
+        <p class="ticket-fact" id="ticketFact">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
+        <div class="ticket-route" aria-hidden="true"><i></i><span>TV</span><b>·························</b><span>CELULAR</span><i></i></div>
+        <div class="ticket-instructions">
+          <strong>COMO FUNCIONA</strong>
+          <span><b>01</b> ESCOLHA UMA PAISAGEM</span>
+          <span><b>02</b> ESCANEIE O QR CODE</span>
+          <span><b>03</b> CRIE SUA FOTO NO CELULAR</span>
         </div>
-        <div class="ticket">
-          <div class="ticket-row ticket-row--top">
-            <span>DESTINO SELECIONADO</span>
-            <span id="destinationCode">PAR / FR</span>
-          </div>
-          <h3 id="destinationName">PARIS</h3>
-          <p id="destinationCountry">FRANÇA · 48.8566° N, 2.3522° E</p>
-          <div class="ticket-rule" aria-hidden="true"></div>
-          <p class="ticket-copy">ENTRE NA PAISAGEM E CRIE UMA LEMBRANÇA COM A SUA CARA.</p>
-          <button class="primary-button" id="enterButton" type="button">
-            <span>ENTRAR NESTE LUGAR</span>
-            <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-        <div class="quick-list" id="quickList" aria-label="Lista rápida de destinos"></div>
+        <button class="cta-button" id="chooseButton" type="button"><span>VIAJAR PARA ESTE LUGAR</span><b>→</b></button>
       </aside>
     </main>
+
+    <main class="qr-screen" id="qrScreen" hidden>
+      <section class="qr-scenery">
+        <img id="qrBackground" src="assets/paris.jpg" alt="">
+        <div class="qr-scenery-copy"><span>DESTINO ESCOLHIDO</span><h2 id="qrDestination">PARIS</h2></div>
+      </section>
+      <section class="qr-ticket">
+        <button class="qr-back" id="qrBackButton" type="button">← VOLTAR À GALERIA</button>
+        <p class="step-label">CONTINUE NO SEU CELULAR</p>
+        <h2>APONTE A CÂMERA<br>PARA O QR CODE.</h2>
+        <div class="qr-frame"><img id="qrImage" alt="QR code para continuar a experiência no celular"></div>
+        <p class="qr-status" id="qrStatus"><span></span> AGUARDANDO O EMBARQUE</p>
+        <small>NENHUMA FOTO É ENVIADA PARA A TV.</small>
+      </section>
+    </main>
+
+    <section class="tv-thanks" id="tvThanks" hidden>
+      <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
+      <p>EMBARQUE CONFIRMADO</p>
+      <h2>BOA VIAGEM!</h2>
+      <strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong>
+      <small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
+    </section>
   </div>
 
-  <dialog class="booth" id="boothDialog">
-    <div class="booth-scene" id="boothScene">
-      <img class="booth-background" id="boothBackground" src="assets/paris.jpg" alt="">
-      <div class="booth-tint" aria-hidden="true"></div>
-      <header class="booth-header">
-        <div>
-          <p class="step">02 / ENTRE NA PAISAGEM</p>
-          <h2 id="boothTitle">PARIS</h2>
-        </div>
-        <button class="close-button" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
-      </header>
-
-      <section class="question-view" id="questionView">
-        <p class="question-kicker">ANTES DA FOTO</p>
-        <h2 id="questionText">COMO VOCÊ POSARIA EM PARIS?</h2>
-        <p>OBSERVE A PAISAGEM. EM SEGUIDA, VOCÊ TERÁ ALGUNS SEGUNDOS PARA FAZER A SUA SELFIE.</p>
-        <button class="primary-button question-button" id="startInspirationButton" type="button">VER A PAISAGEM <span aria-hidden="true">→</span></button>
-        <small>COMEÇA AUTOMATICAMENTE EM <span id="questionTimer">8</span>S</small>
-      </section>
-
-      <section class="inspiration-view" id="inspirationView" hidden>
-        <div class="inspiration-copy">
-          <p id="inspirationPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
-          <span>OLHE COM CALMA. A SELFIE COMEÇA EM <strong id="inspirationTimer">10</strong>S.</span>
-        </div>
-        <div class="timer-track" aria-hidden="true"><span id="timerProgress"></span></div>
-      </section>
-
-      <div class="booth-content" id="boothContent" hidden>
-        <div class="camera-ticket">
-          <div class="camera-frame" id="cameraFrame">
-            <video id="cameraVideo" playsinline muted autoplay></video>
-            <img id="uploadedPreview" alt="Sua foto enviada">
-            <div class="camera-placeholder" id="cameraPlaceholder">
-              <span class="camera-dot" aria-hidden="true"></span>
-              <strong>POSICIONE-SE AQUI</strong>
-              <small>ATIVE A CÂMERA OU ENVIE UMA FOTO</small>
-            </div>
-            <div class="countdown" id="countdown" aria-live="assertive"></div>
-          </div>
-          <div class="camera-caption">
-            <span id="boothLocation">PARIS, FRANÇA</span>
-            <span>MPF — 2026</span>
-          </div>
-        </div>
-
-        <div class="booth-controls">
-          <p class="booth-instruction" id="boothInstruction">PREPARE SUA MELHOR POSE. DEPOIS DO TOQUE, A FOTO SAI EM 3 SEGUNDOS.</p>
-          <button class="secondary-button" id="cameraButton" type="button">ATIVAR CÂMERA</button>
-          <label class="secondary-button upload-button" for="photoUpload">ENVIAR FOTO</label>
-          <input id="photoUpload" type="file" accept="image/*" hidden>
-          <button class="shutter-button" id="shutterButton" type="button" disabled aria-label="Tirar foto">
-            <span></span>
-          </button>
-          <p class="privacy-note">A FOTO É PROCESSADA NESTA TELA E NÃO É ENVIADA PARA A INTERNET.</p>
-        </div>
-      </div>
-
-      <div class="result-view" id="resultView" hidden>
-        <canvas id="resultCanvas" width="1600" height="1200"></canvas>
-        <div class="result-actions">
-          <button class="secondary-button" id="retakeButton" type="button">REFAZER</button>
-          <button class="primary-button" id="downloadButton" type="button">BAIXAR LEMBRANÇA ↓</button>
-        </div>
-      </div>
-
-      <section class="end-view" id="endView" hidden>
-        <p class="step">03 / FIM DA EXPERIÊNCIA</p>
-        <h2>VOCÊ<br>ESTEVE<br>AQUI.</h2>
-        <p>SUA LEMBRANÇA FOI CRIADA. OBRIGADO POR VIAJAR COM A GENTE.</p>
-        <button class="primary-button" id="restartButton" type="button">ESCOLHER OUTRO LUGAR <span aria-hidden="true">↺</span></button>
-      </section>
-    </div>
-  </dialog>
-
-  <aside class="idle-tip" id="idleTip" aria-live="polite">
-    <button id="closeTipButton" type="button" aria-label="Fechar dica">×</button>
-    <span>DICA</span>
-    <strong id="tipText">TOQUE EM UM PIN PARA DESCOBRIR O DESTINO.</strong>
-  </aside>
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="experiencia-2/app.js?v=1"></script>
+  <script src="experiencia-2/app.js?v=2"></script>
 </body>
 </html>

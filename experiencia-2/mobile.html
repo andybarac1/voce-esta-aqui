@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f34fa2">
+  <title>Seu retrato de viagem — Você está aqui</title>
+  <link rel="stylesheet" href="experiencia-2/styles.css?v=2">
+</head>
+<body class="mobile-page">
+  <div class="mobile-shell">
+    <header class="mobile-header">
+      <div class="mobile-brand" aria-label="Magnum Photos e Martin Parr Foundation">
+        <img src="assets/magnum.png" alt="Magnum Photos">
+        <span></span>
+        <img src="assets/mpf.png" alt="Martin Parr Foundation">
+      </div>
+      <div><p>EXPERIÊNCIA 02</p><strong>VOCÊ ESTÁ AQUI.</strong></div>
+    </header>
+
+    <main class="mobile-main">
+      <section class="mobile-step loading-step" id="sessionLoading">
+        <div class="loading-aperture" aria-hidden="true"></div>
+        <h2>PREPARANDO SUA VIAGEM.</h2>
+      </section>
+
+      <section class="mobile-step mobile-step--card" id="reasonStep" hidden>
+        <div class="destination-preview">
+          <img id="mobileDestinationImage" src="assets/paris.jpg" alt="">
+          <div><span>SEU DESTINO</span><h1 id="mobileDestinationName">PARIS</h1></div>
+        </div>
+        <div class="mobile-card">
+          <p class="mobile-kicker">ANTES DO RETRATO</p>
+          <h2>POR QUE VOCÊ FARIA ESTA VIAGEM?</h2>
+          <p>Escreva uma legenda breve. Ela fará parte da sua Polaroid.</p>
+          <div class="reason-field">
+            <label for="travelReason">SUA LEGENDA</label>
+            <textarea id="travelReason" maxlength="90" placeholder="Eu iria porque…"></textarea>
+            <div class="reason-meta"><span>ATÉ 90 CARACTERES</span><span id="reasonCount">0 / 90</span></div>
+          </div>
+          <button class="mobile-button" id="reasonContinue" type="button" disabled><span>CONTINUAR A VIAGEM</span><b>→</b></button>
+        </div>
+      </section>
+
+      <section class="mobile-step mobile-step--card" id="cameraStep" hidden>
+        <div class="destination-preview">
+          <img id="cameraDestinationImage" src="assets/paris.jpg" alt="">
+          <div><span>PRÓXIMA PARADA</span><h1>SEU RETRATO</h1></div>
+        </div>
+        <div class="mobile-card">
+          <p class="mobile-kicker">HORA DA FOTO</p>
+          <h2>PROCURE UM FUNDO NEUTRO.</h2>
+          <p>Fique de frente para uma parede lisa, com boa luz e alguma distância do fundo.</p>
+          <div class="camera-guide" aria-label="Dicas para a foto">
+            <span><b>☀</b>BOA LUZ</span>
+            <span><b>↔</b>FUNDO LISO</span>
+            <span><b>●</b>CORPO VISÍVEL</span>
+          </div>
+          <input class="camera-input" id="cameraInput" type="file" accept="image/*" capture="user">
+          <label class="mobile-button camera-label" for="cameraInput"><span>ABRIR A CÂMERA</span><b>◎</b></label>
+          <input class="camera-input" id="galleryInput" type="file" accept="image/*">
+          <label class="mobile-button mobile-button--paper camera-label" for="galleryInput"><span>ESCOLHER FOTO EXISTENTE</span><b>＋</b></label>
+          <p class="privacy-copy">A FOTO SERÁ PROCESSADA SOMENTE NESTE CELULAR E NÃO SERÁ ENVIADA PARA A INTERNET.</p>
+        </div>
+      </section>
+
+      <section class="mobile-step loading-step" id="processingStep" hidden>
+        <div class="loading-aperture" aria-hidden="true"></div>
+        <h2>REVELANDO SUA POLAROID.</h2>
+      </section>
+
+      <section class="mobile-step editor-step" id="editorStep" hidden>
+        <div class="polaroid-stage"><canvas id="resultCanvas" width="1200" height="1500"></canvas></div>
+        <div class="editor-panel">
+          <h2>SUA LEMBRANÇA ESTÁ PRONTA.</h2>
+          <p>Se necessário, ajuste quanto do fundo neutro deve desaparecer.</p>
+          <label class="cutout-control" for="cutoutStrength"><span>AJUSTAR RECORTE</span><input id="cutoutStrength" type="range" min="20" max="105" value="54"></label>
+          <div class="share-grid">
+            <button class="share-button" type="button" data-share="instagram">INSTAGRAM</button>
+            <button class="share-button" type="button" data-share="facebook">FACEBOOK</button>
+            <button class="share-button" type="button" data-share="tiktok">TIKTOK</button>
+            <button class="share-button share-button--download" id="downloadButton" type="button">BAIXAR ↓</button>
+          </div>
+          <button class="mobile-button finish-button" id="finishButton" type="button"><span>CONCLUIR A VIAGEM</span><b>→</b></button>
+          <p class="privacy-copy">O compartilhamento usa as opções disponíveis no seu celular. Algumas redes exigem que você selecione a foto baixada dentro do próprio aplicativo.</p>
+        </div>
+      </section>
+
+      <section class="mobile-step mobile-end" id="endStep" hidden>
+        <p>FIM DA VIAGEM</p>
+        <h2>VOCÊ<br>ESTEVE<br>AQUI.</h2>
+        <strong>OBRIGADO POR VIAJAR COM A GENTE. SUA LEMBRANÇA FICA COM VOCÊ.</strong>
+        <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
+      </section>
+
+      <section class="mobile-step mobile-error" id="errorStep" hidden>
+        <h1>ESTA VIAGEM NÃO ESTÁ MAIS DISPONÍVEL.</h1>
+        <p>Volte à TV e escaneie um novo QR code.</p>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="mobileToast" role="status" aria-live="polite"></div>
+  <script src="experiencia-2/mobile.js?v=2"></script>
+</body>
+</html>

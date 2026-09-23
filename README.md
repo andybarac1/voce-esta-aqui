@@ -5,7 +5,7 @@ Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e d
 ## Experiências disponíveis
 
 - `/` — Experiência 1: a TV exibe o cenário em tela cheia e o visitante faz a selfie com o próprio celular.
-- `/experiencia-2/` — Experiência 2 preservada: câmera integrada, upload e geração de lembrança para download.
+- `/experiencia-2/` — Experiência 2: galeria na TV, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, download e compartilhamento.
 
 O mapa-base usa uma projeção Robinson com fronteiras do Natural Earth, disponibilizada em domínio público/CC0 pelo Wikimedia Commons.
 
@@ -44,4 +44,4 @@ A câmera e a composição da imagem são processadas apenas no navegador. A apl
 
 ## Publicação
 
-O projeto é estático e pode ser publicado diretamente no GitHub Pages, Netlify, Vercel ou em um servidor local da exposição.
+A Experiência 1 é estática. A Experiência 2 usa o servidor Node incluído em `experiencia-2/server.js` para sincronizar TV e celular e deve ser publicada em um serviço que execute Node (ou no servidor local da exposição), não somente no GitHub Pages.
