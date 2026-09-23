@@ -23,8 +23,8 @@ const steps = ["#sessionLoading", "#reasonStep", "#cameraStep", "#processingStep
 const elements = {
   reasonStep: $("#reasonStep"), reason: $("#travelReason"), reasonCount: $("#reasonCount"), reasonContinue: $("#reasonContinue"),
   destinationImage: $("#mobileDestinationImage"), destinationName: $("#mobileDestinationName"), cameraDestinationImage: $("#cameraDestinationImage"),
-  cameraInput: $("#cameraInput"), galleryInput: $("#galleryInput"), canvas: $("#resultCanvas"), contrast: $("#photoContrast"),
-  share: $("#shareButton"), download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
+  cameraInput: $("#cameraInput"), galleryInput: $("#galleryInput"), canvas: $("#resultCanvas"),
+  share: $("#shareButton"), resetPortrait: $("#resetPortrait"), download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
 };
 
 const transferParams = new URLSearchParams(location.search);
@@ -35,11 +35,15 @@ let objectUrl = null;
 let renderFrame = null;
 let renderedBlob = null;
 let personMaskCanvas = null;
+let cutoutCanvas = null;
 let modnetSession = null;
 let segmentationEngine = "none";
 let personSegmenter = null;
 let pendingSegmentation = null;
 const assetCache = new Map();
+const portraitTransform = { x: 0, y: 0, scale: 1, rotation: 0 };
+const activePointers = new Map();
+let gestureStart = null;
 
 function showStep(selector) {
   for (const step of steps) $(step).hidden = step !== selector;
@@ -92,6 +96,17 @@ function drawCover(context, image, x, y, width, height) {
   const drawWidth = image.width * scale;
   const drawHeight = image.height * scale;
   context.drawImage(image, x + (width - drawWidth) / 2, y + (height - drawHeight) / 2, drawWidth, drawHeight);
+}
+
+function drawPortrait(context, image, x, y, width, height) {
+  const baseScale = Math.max(width / image.width, height / image.height);
+  const scale = baseScale * portraitTransform.scale;
+  context.save();
+  context.translate(x + width / 2 + portraitTransform.x, y + height / 2 + portraitTransform.y);
+  context.rotate(portraitTransform.rotation);
+  context.scale(scale, scale);
+  context.drawImage(image, -image.width / 2, -image.height / 2);
+  context.restore();
 }
 
 async function initSegmentationEngine() {
@@ -280,14 +295,14 @@ function wrapText(context, text, x, y, maxWidth, lineHeight, maxLines = 3) {
   return Math.min(lines.length, maxLines);
 }
 
-async function composePolaroid() {
+async function composePolaroid(updateBlob = true) {
   if (!sourceCanvas || !destination) return;
-  renderedBlob = null;
+  if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
   const magnum = await loadImage("assets/magnum.png");
   const mpf = await loadImage("assets/mpf.png");
-  const cutout = createCutout(54);
+  const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
   context.fillStyle = "#f7f1e7";
@@ -302,9 +317,7 @@ async function composePolaroid() {
   shade.addColorStop(1, "rgba(23,23,25,.18)");
   context.fillStyle = shade;
   context.fillRect(70, 70, 1060, 1060);
-  context.filter = `contrast(${Number(elements.contrast.value)}%)`;
-  drawCover(context, cutout, 70, 70, 1060, 1060);
-  context.filter = "none";
+  drawPortrait(context, cutout, 70, 70, 1060, 1060);
   context.restore();
 
   context.fillStyle = "#171719";
@@ -317,7 +330,93 @@ async function composePolaroid() {
   context.drawImage(magnum, 84, 1405, 72, 72);
   const mpfRatio = mpf.width / mpf.height;
   context.drawImage(mpf, 1200 - 84 - 96, 1420, 96, 96 / mpfRatio);
-  elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
+  if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
+}
+
+function resetPortraitTransform(render = true) {
+  Object.assign(portraitTransform, { x: 0, y: 0, scale: 1, rotation: 0 });
+  if (render) composePolaroid(true);
+}
+
+function canvasPoint(event) {
+  const rect = elements.canvas.getBoundingClientRect();
+  return {
+    x: (event.clientX - rect.left) * elements.canvas.width / rect.width,
+    y: (event.clientY - rect.top) * elements.canvas.height / rect.height
+  };
+}
+
+function pointerPair() {
+  return Array.from(activePointers.values()).slice(0, 2);
+}
+
+function captureGestureStart() {
+  const points = pointerPair();
+  if (!points.length) {
+    gestureStart = null;
+    return;
+  }
+  if (points.length === 1) {
+    gestureStart = { mode: "move", point: { ...points[0] }, transform: { ...portraitTransform } };
+    return;
+  }
+  const [first, second] = points;
+  gestureStart = {
+    mode: "transform",
+    center: { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 },
+    distance: Math.max(1, Math.hypot(second.x - first.x, second.y - first.y)),
+    angle: Math.atan2(second.y - first.y, second.x - first.x),
+    transform: { ...portraitTransform }
+  };
+}
+
+function scheduleComposition() {
+  cancelAnimationFrame(renderFrame);
+  renderFrame = requestAnimationFrame(() => composePolaroid(false));
+}
+
+function handlePointerDown(event) {
+  const point = canvasPoint(event);
+  if (point.x < 70 || point.x > 1130 || point.y < 70 || point.y > 1130) return;
+  event.preventDefault();
+  activePointers.set(event.pointerId, point);
+  elements.canvas.setPointerCapture?.(event.pointerId);
+  elements.canvas.classList.add("is-dragging");
+  captureGestureStart();
+}
+
+function handlePointerMove(event) {
+  if (!activePointers.has(event.pointerId) || !gestureStart) return;
+  event.preventDefault();
+  activePointers.set(event.pointerId, canvasPoint(event));
+  const points = pointerPair();
+  if (gestureStart.mode === "move" && points.length === 1) {
+    portraitTransform.x = Math.max(-900, Math.min(900, gestureStart.transform.x + points[0].x - gestureStart.point.x));
+    portraitTransform.y = Math.max(-900, Math.min(900, gestureStart.transform.y + points[0].y - gestureStart.point.y));
+  } else if (gestureStart.mode === "transform" && points.length >= 2) {
+    const [first, second] = points;
+    const center = { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 };
+    const distance = Math.max(1, Math.hypot(second.x - first.x, second.y - first.y));
+    const angle = Math.atan2(second.y - first.y, second.x - first.x);
+    portraitTransform.x = Math.max(-900, Math.min(900, gestureStart.transform.x + center.x - gestureStart.center.x));
+    portraitTransform.y = Math.max(-900, Math.min(900, gestureStart.transform.y + center.y - gestureStart.center.y));
+    portraitTransform.scale = Math.max(.45, Math.min(2.8, gestureStart.transform.scale * distance / gestureStart.distance));
+    portraitTransform.rotation = gestureStart.transform.rotation + angle - gestureStart.angle;
+  }
+  scheduleComposition();
+}
+
+function handlePointerEnd(event) {
+  if (!activePointers.has(event.pointerId)) return;
+  event.preventDefault();
+  activePointers.delete(event.pointerId);
+  if (elements.canvas.hasPointerCapture?.(event.pointerId)) elements.canvas.releasePointerCapture(event.pointerId);
+  captureGestureStart();
+  if (!activePointers.size) {
+    elements.canvas.classList.remove("is-dragging");
+    cancelAnimationFrame(renderFrame);
+    composePolaroid(true);
+  }
 }
 
 async function handlePhoto(file) {
@@ -334,7 +433,10 @@ async function handlePhoto(file) {
     sourceCanvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
     sourceCanvas.getContext("2d").drawImage(image, 0, 0, sourceCanvas.width, sourceCanvas.height);
     personMaskCanvas = null;
+    cutoutCanvas = null;
     personMaskCanvas = await segmentPerson();
+    cutoutCanvas = createCutout(54);
+    resetPortraitTransform(false);
     await composePolaroid();
     showStep("#editorStep");
   } catch (error) {
@@ -410,12 +512,13 @@ elements.reason.addEventListener("input", () => {
 elements.reasonContinue.addEventListener("click", () => showStep("#cameraStep"));
 elements.cameraInput.addEventListener("change", event => handlePhoto(event.target.files[0]));
 elements.galleryInput.addEventListener("change", event => handlePhoto(event.target.files[0]));
-elements.contrast.addEventListener("input", () => {
-  cancelAnimationFrame(renderFrame);
-  renderFrame = requestAnimationFrame(composePolaroid);
-});
 elements.download.addEventListener("click", savePhoto);
 elements.share.addEventListener("click", sharePhoto);
+elements.resetPortrait.addEventListener("click", () => resetPortraitTransform(true));
+elements.canvas.addEventListener("pointerdown", handlePointerDown);
+elements.canvas.addEventListener("pointermove", handlePointerMove);
+elements.canvas.addEventListener("pointerup", handlePointerEnd);
+elements.canvas.addEventListener("pointercancel", handlePointerEnd);
 elements.finish.addEventListener("click", finishExperience);
 window.addEventListener("beforeunload", () => { if (objectUrl) URL.revokeObjectURL(objectUrl); });
 

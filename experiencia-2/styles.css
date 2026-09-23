@@ -159,22 +159,22 @@ button { -webkit-tap-highlight-color: transparent; }
 .loading-aperture { width: 92px; height: 92px; margin-bottom: 25px; border: 16px solid var(--pink); border-top-color: var(--ink); border-radius: 50%; animation: spin 900ms linear infinite; }
 .loading-step h2 { max-width: 10ch; margin: 0; font-size: 46px; line-height: .85; letter-spacing: -.08em; }
 .editor-step { display: flex; flex-direction: column; background: var(--ink); color: var(--white); }
-.polaroid-stage { min-height: 58dvh; display: grid; place-items: center; padding: 20px; background: var(--aqua); }
-.polaroid-stage canvas { display: block; width: min(100%, 420px); max-height: 58dvh; object-fit: contain; box-shadow: 10px 12px 0 rgba(23,23,25,.22); }
+.polaroid-stage { position: relative; min-height: 58dvh; display: grid; place-items: center; padding: 20px 20px 62px; background: var(--aqua); }
+.polaroid-stage canvas { display: block; width: min(100%, 420px); max-height: 58dvh; object-fit: contain; box-shadow: 10px 12px 0 rgba(23,23,25,.22); touch-action: none; cursor: grab; }
+.polaroid-stage canvas.is-dragging { cursor: grabbing; }
+.gesture-hint { position: absolute; left: 20px; right: 20px; bottom: 13px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+.gesture-hint button { min-height: 30px; padding: 0 10px; border: 1.5px solid var(--ink); background: var(--paper); font-size: 8px; font-weight: 700; cursor: pointer; }
 .editor-panel { flex: 1; padding: 18px 20px 30px; background: var(--ink); }
 .editor-panel h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -.06em; }
 .editor-panel > p { margin: 0 0 14px; font-size: 11px; line-height: 1.35; }
-.contrast-control { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; font-size: 9px; font-weight: 700; }
-.contrast-control input { width: 100%; accent-color: var(--orange); }
-.share-area { display: grid; grid-template-columns: auto 1fr; align-items: stretch; margin-top: 15px; border: 1.5px solid var(--white); }
-.share-area > strong { display: flex; align-items: center; padding: 0 13px; border-right: 1.5px solid var(--white); font-size: 9px; letter-spacing: .1em; }
-.social-share-button { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 13px; border: 0; background: transparent; color: var(--white); cursor: pointer; }
-.social-icons { display: flex; align-items: center; gap: 14px; }
-.social-icons svg { width: 24px; height: 24px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.output-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 15px; }
+.social-share-button { min-height: 62px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 7px 10px; border: 1.5px solid var(--white); background: transparent; color: var(--white); cursor: pointer; }
+.social-share-button strong { font-size: 9px; letter-spacing: .08em; }
+.social-icons { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.social-icons svg { width: 21px; height: 21px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .social-icons .icon-fill { fill: currentColor; stroke: none; }
-.social-share-button b { font-size: 18px; }
 .share-button { min-height: 48px; border: 1.5px solid var(--white); background: transparent; color: var(--white); font-size: 10px; font-weight: 700; cursor: pointer; }
-.share-button--download { width: 100%; margin-top: 9px; background: var(--orange); color: var(--ink); border-color: var(--ink); }
+.share-button--download { width: 100%; min-height: 62px; margin: 0; background: var(--orange); color: var(--ink); border-color: var(--ink); }
 .finish-button { margin-top: 12px; background: var(--pink); }
 .mobile-end { min-height: calc(100dvh - 74px); display: grid; place-content: center; justify-items: center; padding: 34px 24px; background: var(--orange); text-align: center; }
 .mobile-end p { margin: 0 0 12px; font-size: 10px; font-weight: 700; letter-spacing: .14em; }
