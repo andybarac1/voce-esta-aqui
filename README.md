@@ -44,4 +44,4 @@ A câmera e a composição da imagem são processadas apenas no navegador. A apl
 
 ## Publicação
 
-A Experiência 1 é estática. A Experiência 2 usa o servidor Node incluído em `experiencia-2/server.js` para sincronizar TV e celular e deve ser publicada em um serviço que execute Node (ou no servidor local da exposição), não somente no GitHub Pages.
+As duas experiências são estáticas e podem ser publicadas diretamente no GitHub Pages, Cloudflare Pages, Netlify ou serviço equivalente. Na Experiência 2, o destino é transferido ao celular pela própria URL do QR code; fotos e legendas permanecem no aparelho do visitante.

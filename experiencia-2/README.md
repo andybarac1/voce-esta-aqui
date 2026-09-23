@@ -1,62 +1,43 @@
-# Experiência 2 — retrato de viagem conectado
+# Experiência 2 — retrato de viagem sem servidor
 
-Experiência para uma TV de 43 polegadas conectada ao celular do visitante por uma sessão temporária e um QR code.
+Experiência estática para uma TV de 43 polegadas que transfere o destino escolhido ao celular por QR code, sem backend, banco de dados ou sincronização entre os aparelhos.
 
 ## Fluxo
 
 1. A TV aguarda um toque na abertura rosa.
 2. O visitante escolhe uma paisagem na galeria.
-3. A TV cria um QR code exclusivo.
-4. Ao abrir o QR code, a TV agradece e fica pronta para outra pessoa.
-5. No celular, o visitante escreve a legenda, tira uma foto diante de um fundo neutro e ajusta o recorte.
-6. A composição final recebe paisagem, moldura Polaroid, legenda e logos.
-7. A foto pode ser baixada ou compartilhada pelo menu nativo do celular.
+3. O navegador da TV gera um QR code exclusivo com o destino e um identificador aleatório na própria URL.
+4. O QR permanece na tela por 25 segundos.
+5. A TV agradece e reinicia para a próxima pessoa, independentemente do celular.
+6. No celular, o visitante escreve a legenda, tira a foto diante de um fundo neutro e ajusta o recorte.
+7. A Polaroid recebe paisagem, legenda e logos e pode ser baixada ou compartilhada.
 
-## Executar na rede da exposição
+## Executar localmente
 
-Instale as dependências uma vez:
-
-```powershell
-cd experiencia-2
-npm install
-```
-
-Inicie o servidor:
+Na raiz do projeto:
 
 ```powershell
-npm start
+python -m http.server 8080
 ```
 
-O terminal mostra endereços como:
+Abra `http://localhost:8080/experiencia-2/`.
 
-```text
-Experiência 2: http://localhost:8081/experiencia-2/
-TV e celular: http://192.168.x.x:8081/experiencia-2/
-```
+Para testar o QR em outro aparelho, sirva a pasta por HTTPS ou use um endereço acessível pelo celular. Em uma rede local, ambos precisam alcançar o mesmo endereço da TV.
 
-Abra na TV o endereço de rede `TV e celular`, e não o endereço `localhost`. TV e celular precisam estar na mesma rede Wi-Fi. O QR code usará esse mesmo endereço.
+## Publicação
 
-Se a aplicação estiver atrás de um domínio ou proxy, defina a URL pública:
+A aplicação é inteiramente estática e pode ser publicada gratuitamente em GitHub Pages, Cloudflare Pages, Netlify ou serviço equivalente. O QR preserva automaticamente o caminho da hospedagem, inclusive quando o site está dentro de um subdiretório.
 
-```powershell
-$env:PUBLIC_BASE_URL="https://experiencia.exemplo.com"
-npm start
-```
+## Privacidade
 
-## Privacidade e câmera
-
-- Texto e foto nunca são enviados ao servidor.
-- O recorte e a composição acontecem no navegador do celular.
-- O botão **Abrir a câmera** usa o capturador nativo do aparelho e funciona em rede local HTTP.
-- Para usar APIs de câmera ao vivo em evoluções futuras, publique sob HTTPS.
+- Não existe servidor de sessões.
+- O QR contém somente o identificador público do destino e um código aleatório sem dados pessoais.
+- Texto e foto permanecem no navegador do celular.
+- Recorte, montagem e download acontecem localmente.
+- Nenhuma imagem é enviada à TV ou à internet.
 
 ## Compartilhamento
 
-Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a imagem pronta. Instagram, Facebook e TikTok não permitem postagem automática de uma imagem por um site sem autenticação e permissões próprias; quando o compartilhamento de arquivos não está disponível, a aplicação baixa a Polaroid e abre a rede para que o visitante selecione o arquivo.
+Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a imagem pronta. Instagram, Facebook e TikTok não permitem postagem automática por um site sem autenticação e permissões próprias; quando o compartilhamento de arquivos não está disponível, a aplicação baixa a Polaroid e abre a rede para que o visitante selecione o arquivo.
 
-## Operação
-
-- Sessões expiram depois de 90 minutos.
-- A TV consulta o estado da sessão a cada 900 ms.
-- Depois que o celular entra, a TV exibe o agradecimento por 6,5 segundos e retorna à abertura.
-- O servidor mantém apenas identificador, destino e estado da sessão em memória.
+O gerador de QR code local usa `qrcode-generator`, de Kazuhiko Arase, sob licença MIT.

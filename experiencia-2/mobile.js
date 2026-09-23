@@ -27,8 +27,8 @@ const elements = {
   download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
 };
 
-const sessionId = new URLSearchParams(location.search).get("session");
-let session = null;
+const transferParams = new URLSearchParams(location.search);
+const destinationId = transferParams.get("destination");
 let destination = null;
 let sourceCanvas = null;
 let objectUrl = null;
@@ -47,23 +47,14 @@ function toast(message) {
   toast.timer = setTimeout(() => elements.toast.classList.remove("is-visible"), 3600);
 }
 
-async function request(url, options) {
-  const response = await fetch(url, options);
-  if (!response.ok) throw new Error((await response.json().catch(() => ({}))).error || "Falha na sessão");
-  return response.json();
-}
-
 async function begin() {
-  if (!sessionId) return showStep("#errorStep");
+  if (!destinationId) return showStep("#errorStep");
   try {
-    const data = await request(`/api/sessions/${sessionId}`, { cache: "no-store" });
-    session = data.session;
-    destination = destinations.find(item => item.id === session.destinationId);
+    destination = destinations.find(item => item.id === destinationId);
     if (!destination) throw new Error("Destino inválido");
     elements.destinationImage.src = destination.image;
     elements.cameraDestinationImage.src = destination.image;
     elements.destinationName.textContent = destination.name.toUpperCase();
-    await request(`/api/sessions/${sessionId}/entered`, { method: "POST" });
     await Promise.all([loadImage(destination.image), loadImage("assets/magnum.png"), loadImage("assets/mpf.png")]);
     showStep("#reasonStep");
   } catch (error) {
@@ -238,9 +229,7 @@ async function sharePhoto(platform) {
   toast("A FOTO FOI BAIXADA. SELECIONE-A NO APLICATIVO DA REDE SOCIAL.");
 }
 
-async function finishExperience() {
-  try { await request(`/api/sessions/${sessionId}/completed`, { method: "POST" }); }
-  catch (error) { console.warn(error); }
+function finishExperience() {
   showStep("#endStep");
 }
 

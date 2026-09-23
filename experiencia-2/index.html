@@ -75,14 +75,14 @@
         <p class="step-label">CONTINUE NO SEU CELULAR</p>
         <h2>APONTE A CÂMERA<br>PARA O QR CODE.</h2>
         <div class="qr-frame"><img id="qrImage" alt="QR code para continuar a experiência no celular"></div>
-        <p class="qr-status" id="qrStatus"><span></span> AGUARDANDO O EMBARQUE</p>
+        <p class="qr-status" id="qrStatus"><span></span> QR DISPONÍVEL POR 25S</p>
         <small>NENHUMA FOTO É ENVIADA PARA A TV.</small>
       </section>
     </main>
 
     <section class="tv-thanks" id="tvThanks" hidden>
       <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
-      <p>EMBARQUE CONFIRMADO</p>
+      <p>VIAGEM EM ANDAMENTO</p>
       <h2>BOA VIAGEM!</h2>
       <strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong>
       <small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
@@ -90,6 +90,7 @@
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="experiencia-2/app.js?v=2"></script>
+  <script src="experiencia-2/vendor/qrcode.js"></script>
+  <script src="experiencia-2/app.js?v=3"></script>
 </body>
 </html>

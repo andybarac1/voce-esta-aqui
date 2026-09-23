@@ -28,8 +28,9 @@ const elements = {
 };
 
 let selected = destinations[0];
-let activeSession = null;
-let pollTimer = null;
+let activeTransfer = null;
+let qrTimer = null;
+let thanksTimer = null;
 
 function showOpening() {
   elements.splash.hidden = false;
@@ -95,27 +96,34 @@ function showToast(message) {
   showToast.timer = setTimeout(() => elements.toast.classList.remove("is-visible"), 3500);
 }
 
-async function createSession() {
+function createTripId() {
+  if (window.crypto?.getRandomValues) {
+    const bytes = window.crypto.getRandomValues(new Uint8Array(6));
+    return [...bytes].map(value => value.toString(16).padStart(2, "0")).join("");
+  }
+  return `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
+}
+
+function createTransfer() {
   elements.choose.disabled = true;
   elements.choose.querySelector("span").textContent = "PREPARANDO O EMBARQUE…";
   try {
-    const response = await fetch("/api/sessions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ destinationId: selected.id })
-    });
-    if (!response.ok) throw new Error("Não foi possível criar a sessão.");
-    activeSession = await response.json();
+    const mobileUrl = new URL("experiencia-2/mobile.html", document.baseURI);
+    mobileUrl.searchParams.set("destination", selected.id);
+    mobileUrl.searchParams.set("trip", createTripId());
+    const code = qrcode(0, "M");
+    code.addData(mobileUrl.href);
+    code.make();
+    activeTransfer = { destinationId: selected.id, mobileUrl: mobileUrl.href };
     elements.qrBackground.src = selected.image;
     elements.qrDestination.textContent = selected.name.toUpperCase();
-    elements.qrImage.src = activeSession.qrCode;
-    elements.qrStatus.innerHTML = "<span></span> AGUARDANDO O EMBARQUE";
+    elements.qrImage.src = code.createDataURL(8, 4);
     elements.galleryScreen.hidden = true;
     elements.thanks.hidden = true;
     elements.qrScreen.hidden = false;
-    startPolling();
+    startQrCountdown();
   } catch (error) {
-    showToast("INICIE A EXPERIÊNCIA PELO SERVIDOR DA APLICAÇÃO 2.");
+    showToast("NÃO FOI POSSÍVEL GERAR O QR CODE. TENTE NOVAMENTE.");
     console.error(error);
   } finally {
     elements.choose.disabled = false;
@@ -123,33 +131,38 @@ async function createSession() {
   }
 }
 
-function startPolling() {
-  clearInterval(pollTimer);
-  pollTimer = setInterval(async () => {
-    if (!activeSession) return;
-    try {
-      const response = await fetch(`/api/sessions/${activeSession.session.id}`, { cache: "no-store" });
-      if (!response.ok) throw new Error("Sessão indisponível");
-      const data = await response.json();
-      if (data.session.status === "entered" || data.session.status === "completed") showTvThanks();
-    } catch (error) {
-      console.warn(error);
-    }
-  }, 900);
+function updateQrStatus(remaining) {
+  elements.qrStatus.replaceChildren();
+  const dot = document.createElement("span");
+  elements.qrStatus.append(dot, document.createTextNode(` QR DISPONÍVEL POR ${remaining}S`));
+}
+
+function startQrCountdown() {
+  clearInterval(qrTimer);
+  let remaining = 25;
+  updateQrStatus(remaining);
+  qrTimer = setInterval(() => {
+    remaining -= 1;
+    updateQrStatus(Math.max(0, remaining));
+    if (remaining <= 0) showTvThanks();
+  }, 1000);
 }
 
 function showTvThanks() {
-  clearInterval(pollTimer);
-  pollTimer = null;
+  clearInterval(qrTimer);
+  qrTimer = null;
   elements.qrScreen.hidden = true;
   elements.thanks.hidden = false;
-  setTimeout(resetTv, 6500);
+  clearTimeout(thanksTimer);
+  thanksTimer = setTimeout(resetTv, 6500);
 }
 
 function resetTv() {
-  clearInterval(pollTimer);
-  pollTimer = null;
-  activeSession = null;
+  clearInterval(qrTimer);
+  clearTimeout(thanksTimer);
+  qrTimer = null;
+  thanksTimer = null;
+  activeTransfer = null;
   elements.thanks.hidden = true;
   elements.qrScreen.hidden = true;
   elements.galleryScreen.hidden = false;
@@ -158,9 +171,9 @@ function resetTv() {
 }
 
 function backToGallery() {
-  clearInterval(pollTimer);
-  pollTimer = null;
-  activeSession = null;
+  clearInterval(qrTimer);
+  qrTimer = null;
+  activeTransfer = null;
   elements.qrScreen.hidden = true;
   elements.galleryScreen.hidden = false;
 }
@@ -169,7 +182,7 @@ createGallery();
 selectDestination(destinations[0]);
 showOpening();
 elements.splash.addEventListener("click", dismissOpening);
-elements.choose.addEventListener("click", createSession);
+elements.choose.addEventListener("click", createTransfer);
 elements.qrBack.addEventListener("click", backToGallery);
 $("#fullscreenButton").addEventListener("click", async () => {
   if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
