@@ -108,7 +108,8 @@ function createTransfer() {
   elements.choose.disabled = true;
   elements.choose.querySelector("span").textContent = "PREPARANDO O EMBARQUE…";
   try {
-    const mobileUrl = new URL("experiencia-2/mobile.html", document.baseURI);
+    const mobilePath = document.body.dataset.mobilePath || "experiencia-2/mobile.html";
+    const mobileUrl = new URL(mobilePath, document.baseURI);
     mobileUrl.searchParams.set("destination", selected.id);
     mobileUrl.searchParams.set("trip", createTripId());
     const code = qrcode(0, "M");

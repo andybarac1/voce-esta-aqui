@@ -1,0 +1,11 @@
+.selfie-gallery .map-support,
+.selfie-gallery .route-idle-tip { display: none !important; }
+.selfie-gallery .gallery-screen { grid-template-columns: minmax(0, 72%) minmax(360px, 28%); }
+.selfie-gallery .gallery-stage { min-width: 0; }
+.selfie-gallery .gallery-copy span { display: inline-flex; align-items: center; gap: 8px; }
+.selfie-gallery .selection-note { margin: 18px 0 0; padding: 12px; border: 2px solid var(--ink); background: var(--aqua); font-size: clamp(9px, .72vw, 13px); font-weight: 700; line-height: 1.35; }
+.selfie-gallery .travel-ticket { box-shadow: -9px 0 22px rgba(23,23,25,.16); }
+.selfie-gallery .travel-ticket::before { background: var(--aqua); }
+@media (max-width: 900px) {
+  .selfie-gallery .gallery-screen { grid-template-columns: minmax(0, 66%) minmax(330px, 34%); }
+}

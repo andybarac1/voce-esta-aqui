@@ -1,0 +1,19 @@
+.polaroid-map .opening-splash { background: var(--orange); }
+.polaroid-map .opening-title small { background: var(--pink); }
+.polaroid-map .experience { min-height: 0; }
+.polaroid-map .destination-panel { grid-template-rows: minmax(0, 46%) minmax(0, 54%); }
+.polaroid-map .ticket { overflow: auto; }
+.polaroid-map .polaroid-cta { min-height: 58px; margin-top: 14px; }
+.polaroid-map .country-flag { margin-left: 7px; }
+@media (max-height: 780px) and (min-width: 1000px) {
+  .polaroid-map .destination-panel { grid-template-rows: minmax(0, 40%) minmax(0, 60%); }
+  .polaroid-map .ticket { padding: 12px 22px 14px; }
+  .polaroid-map .ticket h3 { margin: 8px 0 2px; font-size: 35px; }
+  .polaroid-map .ticket-rule { margin: 9px 0 8px; }
+  .polaroid-map .ticket-phrase { font-size: 15px !important; }
+  .polaroid-map .ticket-tips { margin-top: 9px; }
+  .polaroid-map .ticket-tips-title { padding: 4px 8px; }
+  .polaroid-map .ticket-tips span { min-height: 26px; padding: 3px 7px; grid-template-columns: 26px 1fr; }
+  .polaroid-map .ticket-tips span b { width: 22px; height: 22px; font-size: 8px; }
+  .polaroid-map .polaroid-cta { min-height: 43px; margin-top: 8px; }
+}

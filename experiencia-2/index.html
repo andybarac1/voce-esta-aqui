@@ -3,94 +3,10 @@
 <head>
   <meta charset="utf-8">
   <base href="../">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-  <meta name="theme-color" content="#f34fa2">
-  <title>Você está aqui — Experiência 02</title>
-  <link rel="stylesheet" href="experiencia-2/styles.css?v=2">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=polaroid/">
+  <title>Você está aqui — Polaroid</title>
+  <script>location.replace(new URL("polaroid/", document.baseURI));</script>
 </head>
-<body class="tv-page">
-  <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência 2">
-    <div class="opening-brands" aria-hidden="true">
-      <img src="assets/magnum.png" alt="">
-      <span></span>
-      <img src="assets/mpf.png" alt="">
-    </div>
-    <div class="opening-title">
-      <p>EXPERIÊNCIA 02 / RETRATO DE VIAGEM</p>
-      <h1>VOCÊ ESTÁ<br>AQUI.</h1>
-      <small>TOQUE PARA COMEÇAR A VIAGEM.</small>
-    </div>
-  </button>
-
-  <div class="tv-shell">
-    <header class="tv-header">
-      <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
-        <img src="assets/magnum.png" alt="Magnum Photos">
-        <span></span>
-        <img src="assets/mpf.png" alt="Martin Parr Foundation">
-      </div>
-      <div class="tv-title">
-        <p>EXPERIÊNCIA 02 / GALERIA</p>
-        <h1>VOCÊ ESTÁ AQUI.</h1>
-      </div>
-      <button class="outline-button fullscreen-button" id="fullscreenButton" type="button">⛶ &nbsp; TELA CHEIA</button>
-    </header>
-
-    <main class="gallery-screen" id="galleryScreen">
-      <section class="gallery-stage" aria-labelledby="galleryTitle">
-        <img class="gallery-image" id="galleryImage" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
-        <div class="gallery-wash" aria-hidden="true"></div>
-        <div class="gallery-copy">
-          <p>ESCOLHA A PAISAGEM DA SUA LEMBRANÇA</p>
-          <h2 id="galleryTitle">PARIS</h2>
-          <span id="galleryCountry">FRANÇA <img class="country-flag" src="assets/flags/fr.svg" alt="Bandeira da França"></span>
-        </div>
-        <div class="gallery-counter" id="galleryCounter">01 / 17</div>
-        <div class="thumbnail-rail" id="thumbnailRail" aria-label="Galeria de destinos"></div>
-      </section>
-
-      <aside class="travel-ticket">
-        <div class="ticket-topline"><span>CARTÃO DE EMBARQUE</span><span id="ticketCode">PAR / <img class="country-flag" src="assets/flags/fr.svg" alt="Bandeira da França"></span></div>
-        <p class="ticket-kicker">SEU PRÓXIMO RETRATO</p>
-        <h3 id="ticketName">PARIS</h3>
-        <p class="ticket-fact" id="ticketFact">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
-        <div class="ticket-route" aria-hidden="true"><i></i><span>TV</span><b>·························</b><span>CELULAR</span><i></i></div>
-        <div class="ticket-instructions">
-          <strong>COMO FUNCIONA</strong>
-          <span><b>01</b> ESCOLHA UMA PAISAGEM</span>
-          <span><b>02</b> ESCANEIE O QR CODE</span>
-          <span><b>03</b> CRIE SUA FOTO NO CELULAR</span>
-        </div>
-        <button class="cta-button" id="chooseButton" type="button"><span>VIAJAR PARA ESTE LUGAR</span><b>→</b></button>
-      </aside>
-    </main>
-
-    <main class="qr-screen" id="qrScreen" hidden>
-      <section class="qr-scenery">
-        <img id="qrBackground" src="assets/paris.jpg" alt="">
-        <div class="qr-scenery-copy"><span>DESTINO ESCOLHIDO</span><h2 id="qrDestination">PARIS</h2></div>
-      </section>
-      <section class="qr-ticket">
-        <button class="qr-back" id="qrBackButton" type="button">← VOLTAR À GALERIA</button>
-        <p class="step-label">CONTINUE NO SEU CELULAR</p>
-        <h2>APONTE A CÂMERA<br>PARA O QR CODE.</h2>
-        <div class="qr-frame"><img id="qrImage" alt="QR code para continuar a experiência no celular"></div>
-        <p class="qr-status" id="qrStatus"><span></span> QR DISPONÍVEL POR 25S</p>
-        <small>NENHUMA FOTO É ENVIADA PARA A TV.</small>
-      </section>
-    </main>
-
-    <section class="tv-thanks" id="tvThanks" hidden>
-      <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
-      <p>VIAGEM EM ANDAMENTO</p>
-      <h2>BOA VIAGEM!</h2>
-      <strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong>
-      <small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
-    </section>
-  </div>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="experiencia-2/vendor/qrcode.js"></script>
-  <script src="experiencia-2/app.js?v=3"></script>
-</body>
+<body><p><a href="polaroid/">Abrir a experiência Polaroid</a></p></body>
 </html>

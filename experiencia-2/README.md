@@ -4,8 +4,8 @@ Experiência estática para uma TV de 43 polegadas que transfere o destino escol
 
 ## Fluxo
 
-1. A TV aguarda um toque na abertura rosa.
-2. O visitante escolhe uma paisagem na galeria.
+1. A TV aguarda um toque na abertura laranja.
+2. O visitante escolhe uma paisagem no mapa.
 3. O navegador da TV gera um QR code exclusivo com o destino e um identificador aleatório na própria URL.
 4. O QR permanece na tela por 25 segundos.
 5. A TV agradece e reinicia para a próxima pessoa, independentemente do celular.
@@ -20,7 +20,7 @@ Na raiz do projeto:
 python -m http.server 8080
 ```
 
-Abra `http://localhost:8080/experiencia-2/`.
+Abra `http://localhost:8080/polaroid/`.
 
 Para testar o QR em outro aparelho, sirva a pasta por HTTPS ou use um endereço acessível pelo celular. Em uma rede local, ambos precisam alcançar o mesmo endereço da TV.
 

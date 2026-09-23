@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#ff6a13">
+  <title>Você está aqui — Polaroid</title>
+  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="experiencia-2/styles.css?v=5">
+  <link rel="stylesheet" href="polaroid/styles.css?v=1">
+</head>
+<body class="tv-page polaroid-map" data-mobile-path="polaroid/mobile.html">
+  <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência Polaroid">
+    <div class="opening-brands" aria-hidden="true">
+      <img src="assets/magnum.png" alt=""><span></span><img src="assets/mpf.png" alt="">
+    </div>
+    <div class="opening-title">
+      <p>EXPERIÊNCIA 02 / POLAROID</p>
+      <h1>VOCÊ ESTÁ<br>AQUI.</h1>
+      <small>TOQUE PARA COMEÇAR A VIAGEM.</small>
+    </div>
+  </button>
+
+  <div class="tv-shell">
+    <header class="topbar">
+      <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
+        <img class="brand brand--magnum" src="assets/magnum.png" alt="Magnum Photos"><span class="brand-divider"></span><img class="brand brand--mpf" src="assets/mpf.png" alt="Martin Parr Foundation">
+      </div>
+      <div class="headline"><p class="eyebrow">EXPERIÊNCIA 02 / MAPA</p><h1>VOCÊ ESTÁ AQUI.</h1></div>
+      <div class="topbar-actions">
+        <button class="icon-button" id="fullscreenButton" type="button" aria-label="Ativar tela cheia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+        <button class="reset-button" id="resetMapButton" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.34-5.66L4 8.68M4 4v4.68h4.68"/></svg>RECENTRALIZAR</button>
+      </div>
+    </header>
+
+    <main class="experience" id="galleryScreen">
+      <section class="map-panel" aria-labelledby="mapTitle">
+        <div class="map-intro">
+          <div><p class="step">ESCOLHA UM DESTINO</p><h2 id="mapTitle">PARA ONDE VOCÊ IRIA?</h2></div>
+          <p class="gesture-hint"><span aria-hidden="true">↔</span> ARRASTE &nbsp; <span aria-hidden="true">＋</span> PINÇA PARA ZOOM</p>
+        </div>
+        <div class="map-viewport" id="mapViewport" tabindex="0" aria-label="Mapa-múndi interativo. Arraste para mover e use pinça ou roda para ampliar.">
+          <div class="map-grid" aria-hidden="true"></div>
+          <div class="map-canvas" id="mapCanvas"><img class="world-map" src="assets/world-map.svg" alt="Mapa-múndi geográfico com fronteiras nacionais"><div class="pins-layer" id="pinsLayer"></div></div>
+          <div class="zoom-controls"><button type="button" id="zoomInButton" aria-label="Aumentar zoom">＋</button><button type="button" id="zoomOutButton" aria-label="Diminuir zoom">−</button></div>
+          <div class="map-status" id="mapStatus">17 LUGARES PARA DESCOBRIR</div>
+        </div>
+      </section>
+
+      <aside class="destination-panel" aria-live="polite">
+        <div class="destination-photo-wrap">
+          <img class="destination-photo" id="galleryImage" src="assets/paris.jpg" alt="Torre Eiffel em Paris"><div class="photo-flash" id="mapPhotoFlash"></div><span class="photo-index" id="galleryCounter">01 / 17</span>
+        </div>
+        <div class="ticket">
+          <div class="ticket-row ticket-row--top"><span>DESTINO SELECIONADO</span><span id="ticketCode">PAR / 🇫🇷</span></div>
+          <h3 id="galleryTitle">PARIS</h3>
+          <p id="galleryCountry">FRANÇA</p>
+          <div class="ticket-rule"></div>
+          <p class="ticket-copy ticket-phrase" id="ticketFact">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
+          <div class="ticket-tips">
+            <strong class="ticket-tips-title">COMO FUNCIONA</strong>
+            <span><b>01</b> ESCOLHA UM DESTINO NO MAPA</span><span><b>02</b> ESCANEIE O QR CODE</span><span><b>03</b> CRIE SUA POLAROID NO CELULAR</span>
+          </div>
+          <button class="cta-button polaroid-cta" id="chooseButton" type="button"><span>CRIAR POLAROID NESTE LUGAR</span><b>→</b></button>
+        </div>
+      </aside>
+      <div id="thumbnailRail" hidden></div><span id="ticketName" hidden></span>
+    </main>
+
+    <main class="qr-screen" id="qrScreen" hidden>
+      <section class="qr-scenery"><img id="qrBackground" src="assets/paris.jpg" alt=""><div class="qr-scenery-copy"><span>DESTINO ESCOLHIDO</span><h2 id="qrDestination">PARIS</h2></div></section>
+      <section class="qr-ticket">
+        <button class="qr-back" id="qrBackButton" type="button">← VOLTAR AO MAPA</button>
+        <p class="step-label">CONTINUE NO SEU CELULAR</p><h2>APONTE A CÂMERA<br>PARA O QR CODE.</h2>
+        <div class="qr-frame"><img id="qrImage" alt="QR code para continuar a experiência no celular"></div>
+        <p class="qr-status" id="qrStatus"><span></span> QR DISPONÍVEL POR 25S</p><small>NENHUMA FOTO É ENVIADA PARA A TV.</small>
+      </section>
+    </main>
+
+    <section class="tv-thanks" id="tvThanks" hidden>
+      <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
+      <p>VIAGEM EM ANDAMENTO</p><h2>BOA VIAGEM!</h2><strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong><small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="experiencia-2/vendor/qrcode.js"></script>
+  <script src="experiencia-2/app.js?v=4"></script>
+  <script src="polaroid/map-adapter.js?v=1"></script>
+</body>
+</html>

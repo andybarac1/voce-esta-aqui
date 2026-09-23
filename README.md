@@ -1,11 +1,12 @@
 # Você está aqui — experiência interativa
 
-Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e da Martin Parr Foundation. O visitante escolhe um destino em um mapa-múndi e usa a paisagem como cenário de selfie.
+Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e da Martin Parr Foundation.
 
 ## Experiências disponíveis
 
-- `/` — Experiência 1: a TV exibe o cenário em tela cheia e o visitante faz a selfie com o próprio celular.
-- `/experiencia-2/` — Experiência 2: galeria na TV, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, download e compartilhamento.
+- `/selfie/` — Experiência 1: seleção por galeria; a TV exibe o cenário em tela cheia e o visitante faz a selfie com o próprio celular.
+- `/polaroid/` — Experiência 2: seleção pelo mapa, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, enquadramento, download e compartilhamento.
+- `/` e `/experiencia-2/` redirecionam para as novas rotas.
 
 O mapa-base usa uma projeção Robinson com fronteiras do Natural Earth, disponibilizada em domínio público/CC0 pelo Wikimedia Commons.
 
@@ -17,7 +18,7 @@ A câmera exige uma origem segura. Em desenvolvimento, `localhost` é aceito:
 python -m http.server 8080
 ```
 
-Abra `http://localhost:8080` no Chrome ou Edge.
+Abra `http://localhost:8080/selfie/` ou `http://localhost:8080/polaroid/` no Chrome ou Edge.
 
 ## Interação de mapa
 
@@ -40,7 +41,7 @@ chrome.exe --kiosk http://localhost:8080
 
 ## Privacidade
 
-A câmera e a composição da imagem são processadas apenas no navegador. A aplicação não possui servidor, analytics ou envio de fotos.
+A câmera e a composição da imagem são processadas apenas no navegador. A aplicação não possui servidor nem envio de fotos.
 
 ## Publicação
 
