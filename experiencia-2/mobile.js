@@ -33,6 +33,7 @@ let destination = null;
 let sourceCanvas = null;
 let objectUrl = null;
 let renderFrame = null;
+let renderedBlob = null;
 const assetCache = new Map();
 
 function showStep(selector) {
@@ -93,12 +94,23 @@ function averageCorner(data, width, height, startX, startY, size) {
   return [red / count, green / count, blue / count];
 }
 
+function colorDistance(data, index, sample) {
+  return Math.hypot(data[index] - sample[0], data[index + 1] - sample[1], data[index + 2] - sample[2]);
+}
+
 function createCutout(threshold) {
   const width = sourceCanvas.width;
   const height = sourceCanvas.height;
   const context = sourceCanvas.getContext("2d", { willReadFrequently: true });
   const source = context.getImageData(0, 0, width, height);
   const output = new ImageData(new Uint8ClampedArray(source.data), width, height);
+  if (threshold <= 1) {
+    const original = document.createElement("canvas");
+    original.width = width;
+    original.height = height;
+    original.getContext("2d").putImageData(output, 0, 0);
+    return original;
+  }
   const sampleSize = Math.max(8, Math.round(Math.min(width, height) * .055));
   const samples = [
     averageCorner(source.data, width, height, 0, 0, sampleSize),
@@ -106,17 +118,53 @@ function createCutout(threshold) {
     averageCorner(source.data, width, height, 0, height - sampleSize, sampleSize),
     averageCorner(source.data, width, height, width - sampleSize, height - sampleSize, sampleSize)
   ];
-  const feather = 58;
-  for (let index = 0; index < output.data.length; index += 4) {
-    const red = source.data[index], green = source.data[index + 1], blue = source.data[index + 2];
+  // Keep only the dominant family of corner colours. A corner occupied by
+  // the person must not become a background reference.
+  let reference = samples[0];
+  let lowestDistance = Infinity;
+  for (const candidate of samples) {
+    const total = samples.reduce((sum, sample) => sum + Math.hypot(
+      candidate[0] - sample[0], candidate[1] - sample[1], candidate[2] - sample[2]
+    ), 0);
+    if (total < lowestDistance) { lowestDistance = total; reference = candidate; }
+  }
+  const backgroundSamples = samples.filter(sample => Math.hypot(
+    reference[0] - sample[0], reference[1] - sample[1], reference[2] - sample[2]
+  ) < 92);
+  const feather = 48;
+  const limit = threshold + feather;
+  const pixelCount = width * height;
+  const visited = new Uint8Array(pixelCount);
+  const queue = new Int32Array(pixelCount);
+  let head = 0;
+  let tail = 0;
+  const distanceAt = pixel => {
+    const dataIndex = pixel * 4;
     let distance = Infinity;
-    for (const sample of samples) {
-      const current = Math.hypot(red - sample[0], green - sample[1], blue - sample[2]);
-      distance = Math.min(distance, current);
-    }
+    for (const sample of backgroundSamples) distance = Math.min(distance, colorDistance(source.data, dataIndex, sample));
+    return distance;
+  };
+  const enqueue = pixel => {
+    if (visited[pixel]) return;
+    if (distanceAt(pixel) > limit) { visited[pixel] = 2; return; }
+    visited[pixel] = 1;
+    queue[tail++] = pixel;
+  };
+
+  for (let x = 0; x < width; x++) { enqueue(x); enqueue((height - 1) * width + x); }
+  for (let y = 1; y < height - 1; y++) { enqueue(y * width); enqueue(y * width + width - 1); }
+  while (head < tail) {
+    const pixel = queue[head++];
+    const x = pixel % width;
+    const y = Math.floor(pixel / width);
+    const distance = distanceAt(pixel);
     const ratio = Math.max(0, Math.min(1, (distance - threshold) / feather));
     const smooth = ratio * ratio * (3 - 2 * ratio);
-    output.data[index + 3] = Math.round(source.data[index + 3] * smooth);
+    output.data[pixel * 4 + 3] = Math.round(source.data[pixel * 4 + 3] * smooth);
+    if (x > 0) enqueue(pixel - 1);
+    if (x + 1 < width) enqueue(pixel + 1);
+    if (y > 0) enqueue(pixel - width);
+    if (y + 1 < height) enqueue(pixel + width);
   }
   const cutout = document.createElement("canvas");
   cutout.width = width;
@@ -141,6 +189,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight, maxLines = 3) {
 
 async function composePolaroid() {
   if (!sourceCanvas || !destination) return;
+  renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
   const magnum = await loadImage("assets/magnum.png");
@@ -164,15 +213,16 @@ async function composePolaroid() {
   context.restore();
 
   context.fillStyle = "#171719";
-  context.font = "700 42px Courier New, monospace";
-  const lineCount = wrapText(context, elements.reason.value.trim(), 84, 1208, 820, 50, 3);
+  context.font = '600 50px "Snell Roundhand", "Segoe Script", "Brush Script MT", "Bradley Hand", cursive';
+  wrapText(context, elements.reason.value.trim(), 84, 1195, 850, 52, 3);
   context.font = "700 21px Courier New, monospace";
-  context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1225 + lineCount * 50);
+  context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1352);
   context.font = "700 17px Courier New, monospace";
-  context.fillText("VOCÊ ESTÁ AQUI · 2026", 84, 1260 + lineCount * 50);
-  context.drawImage(magnum, 84, 1370, 88, 88);
+  context.fillText("VOCÊ ESTÁ AQUI · 2026", 84, 1384);
+  context.drawImage(magnum, 84, 1405, 72, 72);
   const mpfRatio = mpf.width / mpf.height;
-  context.drawImage(mpf, 1200 - 84 - 115, 1386, 115, 115 / mpfRatio);
+  context.drawImage(mpf, 1200 - 84 - 96, 1420, 96, 96 / mpfRatio);
+  elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }
 
 async function handlePhoto(file) {
@@ -201,29 +251,53 @@ function canvasBlob() {
   return new Promise(resolve => elements.canvas.toBlob(resolve, "image/jpeg", .94));
 }
 
-async function downloadPhoto() {
-  const blob = await canvasBlob();
+async function photoFile() {
+  const blob = renderedBlob || await canvasBlob();
+  return new File([blob], `voce-esta-aqui-${destination.id}.jpg`, { type: "image/jpeg" });
+}
+
+function canShareFile(file) {
+  return Boolean(navigator.share && (!navigator.canShare || navigator.canShare({ files: [file] })));
+}
+
+async function savePhoto() {
+  const file = renderedBlob
+    ? new File([renderedBlob], `voce-esta-aqui-${destination.id}.jpg`, { type: "image/jpeg" })
+    : await photoFile();
+  const isiOS = /iP(ad|hone|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (isiOS && canShareFile(file)) {
+    try {
+      await navigator.share({ files: [file], title: "Salvar sua Polaroid" });
+      toast("PARA GUARDAR EM FOTOS, ESCOLHA SALVAR IMAGEM.");
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+  const blob = file;
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
   link.download = `voce-esta-aqui-${destination.id}.jpg`;
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1500);
-  toast("FOTO BAIXADA. ELA ESTÁ NA GALERIA DO SEU CELULAR.");
+  toast("FOTO SALVA. VERIFIQUE A GALERIA OU A PASTA DE DOWNLOADS.");
 }
 
 async function sharePhoto(platform) {
-  const blob = await canvasBlob();
-  const file = new File([blob], `voce-esta-aqui-${destination.id}.jpg`, { type: "image/jpeg" });
-  if (navigator.share && navigator.canShare?.({ files: [file] })) {
+  const file = renderedBlob
+    ? new File([renderedBlob], `voce-esta-aqui-${destination.id}.jpg`, { type: "image/jpeg" })
+    : await photoFile();
+  if (canShareFile(file)) {
     try {
       await navigator.share({ files: [file], title: "Você está aqui", text: `Minha viagem para ${destination.name}.` });
+      toast("POLAROID COMPARTILHADA.");
       return;
     } catch (error) {
       if (error.name === "AbortError") return;
     }
   }
-  await downloadPhoto();
+  await savePhoto();
   const urls = { instagram: "https://www.instagram.com/", facebook: "https://www.facebook.com/", tiktok: "https://www.tiktok.com/upload" };
   window.open(urls[platform], "_blank", "noopener");
   toast("A FOTO FOI BAIXADA. SELECIONE-A NO APLICATIVO DA REDE SOCIAL.");
@@ -245,7 +319,7 @@ elements.strength.addEventListener("input", () => {
   cancelAnimationFrame(renderFrame);
   renderFrame = requestAnimationFrame(composePolaroid);
 });
-elements.download.addEventListener("click", downloadPhoto);
+elements.download.addEventListener("click", savePhoto);
 document.querySelectorAll("[data-share]").forEach(button => button.addEventListener("click", () => sharePhoto(button.dataset.share)));
 elements.finish.addEventListener("click", finishExperience);
 window.addEventListener("beforeunload", () => { if (objectUrl) URL.revokeObjectURL(objectUrl); });
