@@ -33,7 +33,7 @@ A aplicação é inteiramente estática e pode ser publicada gratuitamente em Gi
 - Não existe servidor de sessões.
 - O QR contém somente o identificador público do destino e um código aleatório sem dados pessoais.
 - Texto e foto permanecem no navegador do celular.
-- Recorte, montagem e download acontecem localmente.
+- A segmentação da pessoa, o recorte, a montagem e o download acontecem localmente.
 - Nenhuma imagem é enviada à TV ou à internet.
 
 ## Compartilhamento
@@ -41,3 +41,5 @@ A aplicação é inteiramente estática e pode ser publicada gratuitamente em Gi
 Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a imagem pronta. Instagram, Facebook e TikTok não permitem postagem automática por um site sem autenticação e permissões próprias; quando o compartilhamento de arquivos não está disponível, a aplicação baixa a Polaroid e abre a rede para que o visitante selecione o arquivo.
 
 O gerador de QR code local usa `qrcode-generator`, de Kazuhiko Arase, sob licença MIT.
+
+O recorte de pessoas usa MediaPipe Selfie Segmentation, do Google, sob licença Apache 2.0. A fonte manuscrita Patrick Hand é distribuída sob a SIL Open Font License.

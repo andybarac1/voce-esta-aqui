@@ -34,6 +34,9 @@ let sourceCanvas = null;
 let objectUrl = null;
 let renderFrame = null;
 let renderedBlob = null;
+let personMaskCanvas = null;
+let personSegmenter = null;
+let pendingSegmentation = null;
 const assetCache = new Map();
 
 function showStep(selector) {
@@ -56,7 +59,14 @@ async function begin() {
     elements.destinationImage.src = destination.image;
     elements.cameraDestinationImage.src = destination.image;
     elements.destinationName.textContent = destination.name.toUpperCase();
-    await Promise.all([loadImage(destination.image), loadImage("assets/magnum.png"), loadImage("assets/mpf.png")]);
+    await Promise.all([
+      loadImage(destination.image),
+      loadImage("assets/magnum.png"),
+      loadImage("assets/mpf.png"),
+      document.fonts?.load('600 50px "Patrick Hand"') || Promise.resolve()
+    ]);
+    initPersonSegmenter();
+    await personSegmenter.initialize();
     showStep("#reasonStep");
   } catch (error) {
     console.error(error);
@@ -83,88 +93,77 @@ function drawCover(context, image, x, y, width, height) {
   context.drawImage(image, x + (width - drawWidth) / 2, y + (height - drawHeight) / 2, drawWidth, drawHeight);
 }
 
-function averageCorner(data, width, height, startX, startY, size) {
-  let red = 0, green = 0, blue = 0, count = 0;
-  for (let y = startY; y < Math.min(height, startY + size); y += 2) {
-    for (let x = startX; x < Math.min(width, startX + size); x += 2) {
-      const index = (y * width + x) * 4;
-      red += data[index]; green += data[index + 1]; blue += data[index + 2]; count++;
+function initPersonSegmenter() {
+  if (personSegmenter) return;
+  if (!window.SelfieSegmentation) throw new Error("Segmentador de pessoa indisponível");
+  const assetBase = new URL("experiencia-2/vendor/selfie-segmentation/", document.baseURI);
+  personSegmenter = new SelfieSegmentation({ locateFile: file => new URL(file, assetBase).href });
+  personSegmenter.setOptions({ modelSelection: 0, selfieMode: false });
+  personSegmenter.onResults(results => {
+    if (!pendingSegmentation) return;
+    try {
+      const mask = document.createElement("canvas");
+      mask.width = sourceCanvas.width;
+      mask.height = sourceCanvas.height;
+      mask.getContext("2d").drawImage(results.segmentationMask, 0, 0, mask.width, mask.height);
+      pendingSegmentation.resolve(mask);
+    } catch (error) {
+      pendingSegmentation.reject(error);
+    } finally {
+      pendingSegmentation = null;
     }
-  }
-  return [red / count, green / count, blue / count];
+  });
 }
 
-function colorDistance(data, index, sample) {
-  return Math.hypot(data[index] - sample[0], data[index + 1] - sample[1], data[index + 2] - sample[2]);
+function segmentPerson() {
+  initPersonSegmenter();
+  return new Promise((resolve, reject) => {
+    pendingSegmentation = { resolve, reject };
+    Promise.resolve(personSegmenter.send({ image: sourceCanvas })).catch(error => {
+      if (pendingSegmentation) {
+        pendingSegmentation = null;
+        reject(error);
+      }
+    });
+  });
 }
 
-function createCutout(threshold) {
+function createCutout(strength) {
   const width = sourceCanvas.width;
   const height = sourceCanvas.height;
   const context = sourceCanvas.getContext("2d", { willReadFrequently: true });
   const source = context.getImageData(0, 0, width, height);
   const output = new ImageData(new Uint8ClampedArray(source.data), width, height);
-  if (threshold <= 1) {
+  if (strength <= 1 || !personMaskCanvas) {
     const original = document.createElement("canvas");
     original.width = width;
     original.height = height;
     original.getContext("2d").putImageData(output, 0, 0);
     return original;
   }
-  const sampleSize = Math.max(8, Math.round(Math.min(width, height) * .055));
-  const samples = [
-    averageCorner(source.data, width, height, 0, 0, sampleSize),
-    averageCorner(source.data, width, height, width - sampleSize, 0, sampleSize),
-    averageCorner(source.data, width, height, 0, height - sampleSize, sampleSize),
-    averageCorner(source.data, width, height, width - sampleSize, height - sampleSize, sampleSize)
-  ];
-  // Keep only the dominant family of corner colours. A corner occupied by
-  // the person must not become a background reference.
-  let reference = samples[0];
-  let lowestDistance = Infinity;
-  for (const candidate of samples) {
-    const total = samples.reduce((sum, sample) => sum + Math.hypot(
-      candidate[0] - sample[0], candidate[1] - sample[1], candidate[2] - sample[2]
-    ), 0);
-    if (total < lowestDistance) { lowestDistance = total; reference = candidate; }
-  }
-  const backgroundSamples = samples.filter(sample => Math.hypot(
-    reference[0] - sample[0], reference[1] - sample[1], reference[2] - sample[2]
-  ) < 92);
-  const feather = 48;
-  const limit = threshold + feather;
-  const pixelCount = width * height;
-  const visited = new Uint8Array(pixelCount);
-  const queue = new Int32Array(pixelCount);
-  let head = 0;
-  let tail = 0;
-  const distanceAt = pixel => {
-    const dataIndex = pixel * 4;
-    let distance = Infinity;
-    for (const sample of backgroundSamples) distance = Math.min(distance, colorDistance(source.data, dataIndex, sample));
-    return distance;
-  };
-  const enqueue = pixel => {
-    if (visited[pixel]) return;
-    if (distanceAt(pixel) > limit) { visited[pixel] = 2; return; }
-    visited[pixel] = 1;
-    queue[tail++] = pixel;
-  };
 
-  for (let x = 0; x < width; x++) { enqueue(x); enqueue((height - 1) * width + x); }
-  for (let y = 1; y < height - 1; y++) { enqueue(y * width); enqueue(y * width + width - 1); }
-  while (head < tail) {
-    const pixel = queue[head++];
-    const x = pixel % width;
-    const y = Math.floor(pixel / width);
-    const distance = distanceAt(pixel);
-    const ratio = Math.max(0, Math.min(1, (distance - threshold) / feather));
+  const maskContext = personMaskCanvas.getContext("2d", { willReadFrequently: true });
+  const mask = maskContext.getImageData(0, 0, width, height).data;
+  let alphaMin = 255, alphaMax = 0, lightMin = 255, lightMax = 0;
+  for (let index = 0; index < mask.length; index += 64) {
+    const light = (mask[index] + mask[index + 1] + mask[index + 2]) / 3;
+    alphaMin = Math.min(alphaMin, mask[index + 3]);
+    alphaMax = Math.max(alphaMax, mask[index + 3]);
+    lightMin = Math.min(lightMin, light);
+    lightMax = Math.max(lightMax, light);
+  }
+  const useAlpha = alphaMax - alphaMin > lightMax - lightMin;
+  // MediaPipe recommends a foreground threshold near 0.1. Keep the range
+  // conservative so hair, dark clothes and fine edges remain in the portrait.
+  const cutoff = .02 + (strength / 105) * .16;
+  const feather = .06;
+  for (let index = 0; index < output.data.length; index += 4) {
+    const probability = useAlpha
+      ? mask[index + 3] / 255
+      : (mask[index] + mask[index + 1] + mask[index + 2]) / (3 * 255);
+    const ratio = Math.max(0, Math.min(1, (probability - cutoff + feather) / (feather * 2)));
     const smooth = ratio * ratio * (3 - 2 * ratio);
-    output.data[pixel * 4 + 3] = Math.round(source.data[pixel * 4 + 3] * smooth);
-    if (x > 0) enqueue(pixel - 1);
-    if (x + 1 < width) enqueue(pixel + 1);
-    if (y > 0) enqueue(pixel - width);
-    if (y + 1 < height) enqueue(pixel + width);
+    output.data[index + 3] = Math.round(source.data[index + 3] * smooth);
   }
   const cutout = document.createElement("canvas");
   cutout.width = width;
@@ -213,7 +212,7 @@ async function composePolaroid() {
   context.restore();
 
   context.fillStyle = "#171719";
-  context.font = '600 50px "Snell Roundhand", "Segoe Script", "Brush Script MT", "Bradley Hand", cursive';
+  context.font = '600 50px "Patrick Hand", "Segoe Print", sans-serif';
   wrapText(context, elements.reason.value.trim(), 84, 1195, 850, 52, 3);
   context.font = "700 21px Courier New, monospace";
   context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1352);
@@ -238,6 +237,7 @@ async function handlePhoto(file) {
     sourceCanvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
     sourceCanvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
     sourceCanvas.getContext("2d").drawImage(image, 0, 0, sourceCanvas.width, sourceCanvas.height);
+    personMaskCanvas = await segmentPerson();
     await composePolaroid();
     showStep("#editorStep");
   } catch (error) {

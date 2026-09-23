@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("../assets/fonts/PatrickHand-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --pink: #f34fa2;
   --orange: #ff6a13;
