@@ -68,9 +68,14 @@ let tipIndex = 0;
 
 function playOpening() {
   if (!elements.splash) return;
-  setTimeout(() => {
+  clearTimeout(playOpening.leaveTimer);
+  clearTimeout(playOpening.hideTimer);
+  elements.splash.hidden = false;
+  elements.splash.classList.remove("is-leaving");
+  void elements.splash.offsetWidth;
+  playOpening.leaveTimer = setTimeout(() => {
     elements.splash.classList.add("is-leaving");
-    setTimeout(() => elements.splash?.remove(), 950);
+    playOpening.hideTimer = setTimeout(() => { elements.splash.hidden = true; }, 950);
   }, 3000);
 }
 
@@ -136,7 +141,8 @@ function selectDestination(destination, fromUser = false) {
   elements.index.textContent = `${String(index + 1).padStart(2, "0")} / ${destinations.length}`;
   elements.name.textContent = destination.name.toUpperCase();
   elements.country.textContent = `${destination.country.toUpperCase()} · ${formatCoordinate(destination.lat, "N", "S")}, ${formatCoordinate(destination.lon, "L", "O")}`;
-  elements.code.textContent = destination.code;
+  elements.code.textContent = `${destination.code.split(" / ")[0]} / ${destination.flag}`;
+  elements.code.title = destination.country;
   elements.phrase.textContent = destinationPhrases[destination.id];
   elements.status.textContent = `${destination.name.toUpperCase()} · CENÁRIO SELECIONADO`;
   document.querySelectorAll(".map-pin").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
@@ -391,6 +397,7 @@ function restartExperience() {
   elements.restartPrompt.hidden = true;
   elements.dialogBackdrop.hidden = true;
   mapController.reset(true);
+  playOpening();
   scheduleIdleTip();
 }
 
@@ -419,6 +426,7 @@ createPins();
 selectDestination(destinations[0]);
 playOpening();
 $("#scenarioPromptButton").addEventListener("click", openExperience);
+elements.globalBackdrop.addEventListener("click", hideScenarioPrompt);
 $("#readyPromptButton").addEventListener("click", startPhoneScene);
 $("#closeBoothButton").addEventListener("click", closeExperience);
 $("#restartButton").addEventListener("click", restartExperience);
