@@ -68,15 +68,15 @@ let tipIndex = 0;
 
 function playOpening() {
   if (!elements.splash) return;
-  clearTimeout(playOpening.leaveTimer);
-  clearTimeout(playOpening.hideTimer);
   elements.splash.hidden = false;
   elements.splash.classList.remove("is-leaving");
   void elements.splash.offsetWidth;
-  playOpening.leaveTimer = setTimeout(() => {
-    elements.splash.classList.add("is-leaving");
-    playOpening.hideTimer = setTimeout(() => { elements.splash.hidden = true; }, 950);
-  }, 3000);
+}
+
+function dismissOpening() {
+  if (!elements.splash || elements.splash.hidden || elements.splash.classList.contains("is-leaving")) return;
+  elements.splash.classList.add("is-leaving");
+  setTimeout(() => { elements.splash.hidden = true; }, 950);
 }
 
 function formatCoordinate(value, positive, negative) {
@@ -425,6 +425,7 @@ function scheduleIdleTip() {
 createPins();
 selectDestination(destinations[0]);
 playOpening();
+elements.splash.addEventListener("click", dismissOpening);
 $("#scenarioPromptButton").addEventListener("click", openExperience);
 elements.globalBackdrop.addEventListener("click", hideScenarioPrompt);
 $("#readyPromptButton").addEventListener("click", startPhoneScene);
