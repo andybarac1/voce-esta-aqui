@@ -5,7 +5,14 @@
 .polaroid-map .ticket { overflow: auto; }
 .polaroid-map .polaroid-cta { min-height: 58px; margin-top: 14px; }
 .polaroid-map .country-flag { margin-left: 7px; }
-@media (max-height: 780px) and (min-width: 1000px) {
+.polaroid-map .qr-ticket {
+  margin-left: -18px;
+  padding-left: calc(4vw + 18px);
+  -webkit-mask-image: radial-gradient(circle at 0 50%, transparent 0 18px, #000 19px);
+  mask-image: radial-gradient(circle at 0 50%, transparent 0 18px, #000 19px);
+}
+.polaroid-map .qr-ticket::before { display: none; }
+@media (max-height: 1000px) and (min-width: 1000px) {
   .polaroid-map .destination-panel { grid-template-rows: minmax(0, 40%) minmax(0, 60%); }
   .polaroid-map .ticket { padding: 12px 22px 14px; }
   .polaroid-map .ticket h3 { margin: 8px 0 2px; font-size: 35px; }
