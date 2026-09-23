@@ -35,6 +35,8 @@ let objectUrl = null;
 let renderFrame = null;
 let renderedBlob = null;
 let personMaskCanvas = null;
+let modnetSession = null;
+let segmentationEngine = "none";
 let personSegmenter = null;
 let pendingSegmentation = null;
 const assetCache = new Map();
@@ -65,8 +67,7 @@ async function begin() {
       loadImage("assets/mpf.png"),
       document.fonts?.load('600 50px "Patrick Hand"') || Promise.resolve()
     ]);
-    initPersonSegmenter();
-    await personSegmenter.initialize();
+    await initSegmentationEngine();
     showStep("#reasonStep");
   } catch (error) {
     console.error(error);
@@ -93,6 +94,27 @@ function drawCover(context, image, x, y, width, height) {
   context.drawImage(image, x + (width - drawWidth) / 2, y + (height - drawHeight) / 2, drawWidth, drawHeight);
 }
 
+async function initSegmentationEngine() {
+  try {
+    if (!window.ort) throw new Error("ONNX Runtime indisponível");
+    const runtimeBase = new URL("experiencia-2/vendor/onnxruntime/", document.baseURI);
+    ort.env.wasm.numThreads = 1;
+    ort.env.wasm.proxy = false;
+    ort.env.wasm.wasmPaths = runtimeBase.href;
+    const modelUrl = new URL("experiencia-2/vendor/modnet/model_fp16.onnx", document.baseURI);
+    modnetSession = await ort.InferenceSession.create(modelUrl.href, {
+      executionProviders: ["wasm"],
+      graphOptimizationLevel: "all"
+    });
+    segmentationEngine = "modnet";
+  } catch (error) {
+    console.warn("MODNet indisponível; usando recorte de contingência.", error);
+    initPersonSegmenter();
+    await personSegmenter.initialize();
+    segmentationEngine = "mediapipe";
+  }
+}
+
 function initPersonSegmenter() {
   if (personSegmenter) return;
   if (!window.SelfieSegmentation) throw new Error("Segmentador de pessoa indisponível");
@@ -115,7 +137,7 @@ function initPersonSegmenter() {
   });
 }
 
-function segmentPerson() {
+function segmentPersonWithMediaPipe() {
   initPersonSegmenter();
   return new Promise((resolve, reject) => {
     pendingSegmentation = { resolve, reject };
@@ -126,6 +148,74 @@ function segmentPerson() {
       }
     });
   });
+}
+
+async function segmentPersonWithModnet() {
+  const sourceWidth = sourceCanvas.width;
+  const sourceHeight = sourceCanvas.height;
+  let scale = 512 / Math.min(sourceWidth, sourceHeight);
+  if (Math.max(sourceWidth, sourceHeight) * scale > 896) scale = 896 / Math.max(sourceWidth, sourceHeight);
+  const modelWidth = Math.max(32, Math.round(sourceWidth * scale / 32) * 32);
+  const modelHeight = Math.max(32, Math.round(sourceHeight * scale / 32) * 32);
+  const inputCanvas = document.createElement("canvas");
+  inputCanvas.width = modelWidth;
+  inputCanvas.height = modelHeight;
+  const inputContext = inputCanvas.getContext("2d", { willReadFrequently: true });
+  inputContext.imageSmoothingEnabled = true;
+  inputContext.imageSmoothingQuality = "high";
+  inputContext.drawImage(sourceCanvas, 0, 0, modelWidth, modelHeight);
+  const rgba = inputContext.getImageData(0, 0, modelWidth, modelHeight).data;
+  const planeSize = modelWidth * modelHeight;
+  const input = new Float32Array(planeSize * 3);
+  for (let pixel = 0; pixel < planeSize; pixel++) {
+    const rgbaIndex = pixel * 4;
+    input[pixel] = rgba[rgbaIndex] / 127.5 - 1;
+    input[planeSize + pixel] = rgba[rgbaIndex + 1] / 127.5 - 1;
+    input[planeSize * 2 + pixel] = rgba[rgbaIndex + 2] / 127.5 - 1;
+  }
+  const inputName = modnetSession.inputNames[0];
+  const result = await modnetSession.run({
+    [inputName]: new ort.Tensor("float32", input, [1, 3, modelHeight, modelWidth])
+  });
+  const matteTensor = result[modnetSession.outputNames[0]];
+  const matteHeight = matteTensor.dims[matteTensor.dims.length - 2];
+  const matteWidth = matteTensor.dims[matteTensor.dims.length - 1];
+  const matteCanvas = document.createElement("canvas");
+  matteCanvas.width = matteWidth;
+  matteCanvas.height = matteHeight;
+  const matteContext = matteCanvas.getContext("2d");
+  const matteImage = matteContext.createImageData(matteWidth, matteHeight);
+  for (let pixel = 0; pixel < matteWidth * matteHeight; pixel++) {
+    const value = Math.round(Math.max(0, Math.min(1, matteTensor.data[pixel])) * 255);
+    const index = pixel * 4;
+    matteImage.data[index] = value;
+    matteImage.data[index + 1] = value;
+    matteImage.data[index + 2] = value;
+    matteImage.data[index + 3] = 255;
+  }
+  matteContext.putImageData(matteImage, 0, 0);
+  const mask = document.createElement("canvas");
+  mask.width = sourceWidth;
+  mask.height = sourceHeight;
+  const maskContext = mask.getContext("2d");
+  maskContext.imageSmoothingEnabled = true;
+  maskContext.imageSmoothingQuality = "high";
+  maskContext.drawImage(matteCanvas, 0, 0, sourceWidth, sourceHeight);
+  return mask;
+}
+
+async function segmentPerson() {
+  if (segmentationEngine === "modnet" && modnetSession) {
+    try {
+      return await segmentPersonWithModnet();
+    } catch (error) {
+      console.warn("Falha no MODNet; ativando recorte de contingência.", error);
+      initPersonSegmenter();
+      await personSegmenter.initialize();
+      segmentationEngine = "mediapipe";
+    }
+  }
+  return segmentPersonWithMediaPipe();
 }
 
 function createCutout(strength) {
@@ -153,17 +243,21 @@ function createCutout(strength) {
     lightMax = Math.max(lightMax, light);
   }
   const useAlpha = alphaMax - alphaMin > lightMax - lightMin;
-  // MediaPipe recommends a foreground threshold near 0.1. Keep the range
-  // conservative so hair, dark clothes and fine edges remain in the portrait.
-  const cutoff = .02 + (strength / 105) * .16;
+  const cutoff = segmentationEngine === "modnet"
+    ? (strength / 105) * .08
+    : .02 + (strength / 105) * .16;
   const feather = .06;
   for (let index = 0; index < output.data.length; index += 4) {
     const probability = useAlpha
       ? mask[index + 3] / 255
       : (mask[index] + mask[index + 1] + mask[index + 2]) / (3 * 255);
-    const ratio = Math.max(0, Math.min(1, (probability - cutoff + feather) / (feather * 2)));
-    const smooth = ratio * ratio * (3 - 2 * ratio);
-    output.data[index + 3] = Math.round(source.data[index + 3] * smooth);
+    const matte = segmentationEngine === "modnet"
+      ? Math.pow(Math.max(0, Math.min(1, (probability - cutoff) / (1 - cutoff))), .9)
+      : (() => {
+          const ratio = Math.max(0, Math.min(1, (probability - cutoff + feather) / (feather * 2)));
+          return ratio * ratio * (3 - 2 * ratio);
+        })();
+    output.data[index + 3] = Math.round(source.data[index + 3] * matte);
   }
   const cutout = document.createElement("canvas");
   cutout.width = width;
@@ -237,6 +331,7 @@ async function handlePhoto(file) {
     sourceCanvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
     sourceCanvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
     sourceCanvas.getContext("2d").drawImage(image, 0, 0, sourceCanvas.width, sourceCanvas.height);
+    personMaskCanvas = null;
     personMaskCanvas = await segmentPerson();
     await composePolaroid();
     showStep("#editorStep");

@@ -33,7 +33,7 @@ A aplicação é inteiramente estática e pode ser publicada gratuitamente em Gi
 - Não existe servidor de sessões.
 - O QR contém somente o identificador público do destino e um código aleatório sem dados pessoais.
 - Texto e foto permanecem no navegador do celular.
-- A segmentação da pessoa, o recorte, a montagem e o download acontecem localmente.
+- A segmentação da pessoa, o recorte, a montagem e o download acontecem localmente. O MODNet produz a máscara principal; o MediaPipe permanece como contingência para aparelhos incompatíveis.
 - Nenhuma imagem é enviada à TV ou à internet.
 
 ## Compartilhamento
@@ -42,4 +42,4 @@ Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a image
 
 O gerador de QR code local usa `qrcode-generator`, de Kazuhiko Arase, sob licença MIT.
 
-O recorte de pessoas usa MediaPipe Selfie Segmentation, do Google, sob licença Apache 2.0. A fonte manuscrita Patrick Hand é distribuída sob a SIL Open Font License.
+O recorte de pessoas usa MODNet e ONNX Runtime Web, sob licença Apache 2.0, com MediaPipe Selfie Segmentation como contingência. A fonte manuscrita Patrick Hand é distribuída sob a SIL Open Font License.
