@@ -42,4 +42,4 @@ Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a image
 
 O gerador de QR code local usa `qrcode-generator`, de Kazuhiko Arase, sob licença MIT.
 
-O recorte de pessoas usa MODNet e ONNX Runtime Web, sob licença Apache 2.0, com MediaPipe Selfie Segmentation como contingência. A fonte manuscrita Patrick Hand é distribuída sob a SIL Open Font License.
+O recorte de pessoas usa MODNet e ONNX Runtime Web, sob licença Apache 2.0, com MediaPipe Selfie Segmentation como contingência. A fonte manuscrita Reenie Beanie é distribuída sob a SIL Open Font License.

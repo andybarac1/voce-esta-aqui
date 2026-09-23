@@ -23,8 +23,8 @@ const steps = ["#sessionLoading", "#reasonStep", "#cameraStep", "#processingStep
 const elements = {
   reasonStep: $("#reasonStep"), reason: $("#travelReason"), reasonCount: $("#reasonCount"), reasonContinue: $("#reasonContinue"),
   destinationImage: $("#mobileDestinationImage"), destinationName: $("#mobileDestinationName"), cameraDestinationImage: $("#cameraDestinationImage"),
-  cameraInput: $("#cameraInput"), galleryInput: $("#galleryInput"), canvas: $("#resultCanvas"), strength: $("#cutoutStrength"),
-  download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
+  cameraInput: $("#cameraInput"), galleryInput: $("#galleryInput"), canvas: $("#resultCanvas"), contrast: $("#photoContrast"),
+  share: $("#shareButton"), download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
 };
 
 const transferParams = new URLSearchParams(location.search);
@@ -65,7 +65,7 @@ async function begin() {
       loadImage(destination.image),
       loadImage("assets/magnum.png"),
       loadImage("assets/mpf.png"),
-      document.fonts?.load('600 50px "Patrick Hand"') || Promise.resolve()
+      document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
     showStep("#reasonStep");
@@ -287,7 +287,7 @@ async function composePolaroid() {
   const background = await loadImage(destination.image);
   const magnum = await loadImage("assets/magnum.png");
   const mpf = await loadImage("assets/mpf.png");
-  const cutout = createCutout(Number(elements.strength.value));
+  const cutout = createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
   context.fillStyle = "#f7f1e7";
@@ -302,12 +302,14 @@ async function composePolaroid() {
   shade.addColorStop(1, "rgba(23,23,25,.18)");
   context.fillStyle = shade;
   context.fillRect(70, 70, 1060, 1060);
+  context.filter = `contrast(${Number(elements.contrast.value)}%)`;
   drawCover(context, cutout, 70, 70, 1060, 1060);
+  context.filter = "none";
   context.restore();
 
   context.fillStyle = "#171719";
-  context.font = '600 50px "Patrick Hand", "Segoe Print", sans-serif';
-  wrapText(context, elements.reason.value.trim(), 84, 1195, 850, 52, 3);
+  context.font = '400 64px "Reenie Beanie", "Courier New", monospace';
+  wrapText(context, elements.reason.value.trim(), 84, 1195, 900, 58, 3);
   context.font = "700 21px Courier New, monospace";
   context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1352);
   context.font = "700 17px Courier New, monospace";
@@ -379,7 +381,7 @@ async function savePhoto() {
   toast("FOTO SALVA. VERIFIQUE A GALERIA OU A PASTA DE DOWNLOADS.");
 }
 
-async function sharePhoto(platform) {
+async function sharePhoto() {
   const file = renderedBlob
     ? new File([renderedBlob], `voce-esta-aqui-${destination.id}.jpg`, { type: "image/jpeg" })
     : await photoFile();
@@ -393,9 +395,7 @@ async function sharePhoto(platform) {
     }
   }
   await savePhoto();
-  const urls = { instagram: "https://www.instagram.com/", facebook: "https://www.facebook.com/", tiktok: "https://www.tiktok.com/upload" };
-  window.open(urls[platform], "_blank", "noopener");
-  toast("A FOTO FOI BAIXADA. SELECIONE-A NO APLICATIVO DA REDE SOCIAL.");
+  toast("A FOTO FOI SALVA. ABRA SUA REDE SOCIAL E SELECIONE-A.");
 }
 
 function finishExperience() {
@@ -410,12 +410,12 @@ elements.reason.addEventListener("input", () => {
 elements.reasonContinue.addEventListener("click", () => showStep("#cameraStep"));
 elements.cameraInput.addEventListener("change", event => handlePhoto(event.target.files[0]));
 elements.galleryInput.addEventListener("change", event => handlePhoto(event.target.files[0]));
-elements.strength.addEventListener("input", () => {
+elements.contrast.addEventListener("input", () => {
   cancelAnimationFrame(renderFrame);
   renderFrame = requestAnimationFrame(composePolaroid);
 });
 elements.download.addEventListener("click", savePhoto);
-document.querySelectorAll("[data-share]").forEach(button => button.addEventListener("click", () => sharePhoto(button.dataset.share)));
+elements.share.addEventListener("click", sharePhoto);
 elements.finish.addEventListener("click", finishExperience);
 window.addEventListener("beforeunload", () => { if (objectUrl) URL.revokeObjectURL(objectUrl); });
 
