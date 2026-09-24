@@ -1,4 +1,4 @@
-const destinations = [
+const legacyDestinations = [
   { id: "paris", name: "Paris", country: "França", flag: "🇫🇷", code: "PAR / FR", lat: 48.8584, lon: 2.2945, image: "assets/paris.jpg", alt: "Torre Eiffel em Paris" },
   { id: "china", name: "Muralha da China", short: "China", country: "China", flag: "🇨🇳", code: "PEK / CN", lat: 40.4319, lon: 116.5704, image: "assets/china.jpg", alt: "Grande Muralha da China" },
   { id: "coliseu", name: "Coliseu", short: "Roma", country: "Itália", flag: "🇮🇹", code: "ROM / IT", lat: 41.8902, lon: 12.4922, image: "assets/coliseu.jpg", alt: "Coliseu em Roma" },
@@ -17,6 +17,8 @@ const destinations = [
   { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", flag: "🇧🇷", code: "RIO / BR", lat: -22.9519, lon: -43.2105, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", flag: "🇰🇪", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
+
+const destinations = window.MPF_DESTINATIONS || legacyDestinations;
 
 const destinationPhrases = {
   "paris": "PARIS TEM MAIS DE 130 MUSEUS — E A TORRE EIFFEL AINDA ROUBA A CENA.",
@@ -39,6 +41,7 @@ const destinationPhrases = {
 };
 
 const $ = selector => document.querySelector(selector);
+const countryIso = destination => ({ Brasil: "br", Suíça: "ch", Grécia: "gr", Espanha: "es", Argentina: "ar", Egito: "eg", México: "mx", Portugal: "pt", "Reino Unido": "gb", Peru: "pe", Maldivas: "mv", "Estados Unidos": "us", França: "fr", China: "cn", Itália: "it", Japão: "jp" }[destination.country] || "");
 const elements = {
   splash: $("#openingSplash"),
   viewport: $("#mapViewport"), canvas: $("#mapCanvas"), pins: $("#pinsLayer"), photo: $("#destinationPhoto"),
@@ -143,7 +146,7 @@ function selectDestination(destination, fromUser = false) {
   elements.country.textContent = `${destination.country.toUpperCase()} · ${formatCoordinate(destination.lat, "N", "S")}, ${formatCoordinate(destination.lon, "L", "O")}`;
   elements.code.textContent = `${destination.code.split(" / ")[0]} / ${destination.flag}`;
   elements.code.title = destination.country;
-  elements.phrase.textContent = destinationPhrases[destination.id];
+  elements.phrase.textContent = destination.fact || destinationPhrases[destination.id] || "TODO LUGAR PODE SER O COMEÇO DE UMA NOVA HISTÓRIA.";
   elements.status.textContent = `${destination.name.toUpperCase()} · CENÁRIO SELECIONADO`;
   document.querySelectorAll(".map-pin").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
   if (fromUser) scheduleScenarioPrompt();
@@ -162,7 +165,8 @@ function scheduleScenarioPrompt() {
   selectionPromptTimeout = setTimeout(() => {
     let remaining = 10;
     elements.scenarioPromptName.textContent = selected.name.toUpperCase();
-    elements.scenarioPromptFlag.textContent = selected.flag;
+    const iso = countryIso(selected);
+    elements.scenarioPromptFlag.innerHTML = iso ? `<img src="assets/flags/${iso}.svg" alt="Bandeira de ${selected.country}">` : `<b aria-hidden="true">✦</b>`;
     elements.scenarioPromptTimer.textContent = remaining;
     elements.globalBackdrop.hidden = false;
     elements.scenarioPrompt.hidden = false;

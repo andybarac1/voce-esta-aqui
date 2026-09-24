@@ -13,7 +13,7 @@
 <body class="tv-page selfie-gallery">
   <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência de selfie">
     <div class="opening-brands" aria-hidden="true">
-      <img src="assets/magnum.png" alt=""><span></span><img src="assets/mpf.png" alt="">
+      <img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno">
     </div>
     <div class="opening-title">
       <p>EXPERIÊNCIA 01 / SELFIE</p>
@@ -24,40 +24,21 @@
 
   <div class="tv-shell">
     <header class="tv-header">
-      <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
-        <img src="assets/magnum.png" alt="Magnum Photos"><span></span><img src="assets/mpf.png" alt="Martin Parr Foundation">
+      <div class="brand-lockup" aria-label="Martin Parr — Mundo Pequeno">
+        <img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno">
       </div>
       <div class="tv-title"><p>EXPERIÊNCIA 01 / GALERIA</p><h1>VOCÊ ESTÁ AQUI.</h1></div>
       <button class="outline-button fullscreen-button" id="fullscreenButton" type="button">⛶ &nbsp; TELA CHEIA</button>
     </header>
 
-    <main class="gallery-screen" id="galleryScreen">
-      <section class="gallery-stage" aria-labelledby="destinationName">
-        <img class="gallery-image" id="destinationPhoto" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
-        <div class="photo-flash" id="photoFlash" aria-hidden="true"></div>
-        <div class="gallery-wash" aria-hidden="true"></div>
-        <div class="gallery-copy">
-          <p>ESCOLHA O CENÁRIO DA SUA SELFIE</p>
-          <h2 id="destinationName">PARIS</h2>
-          <span id="destinationCountry">FRANÇA</span>
-        </div>
-        <div class="gallery-counter" id="photoIndex">01 / 17</div>
-        <div class="thumbnail-rail" id="thumbnailRail" aria-label="Galeria de destinos"></div>
+    <main class="gallery-screen destination-grid-screen" id="galleryScreen">
+      <section class="all-destinations" aria-labelledby="gridTitle">
+        <div class="grid-heading"><div><p>ESCOLHA O CENÁRIO DA SUA SELFIE</p><h2 id="gridTitle">PARA ONDE VOCÊ IRIA?</h2></div><p>TOQUE EM UMA FOTO PARA EMBARCAR</p></div>
+        <div class="thumbnail-rail destination-grid" id="thumbnailRail" aria-label="Galeria com todos os destinos"></div>
       </section>
-
-      <aside class="travel-ticket">
-        <div class="ticket-topline"><span>PASSAGEM PARA SELFIE</span><span id="destinationCode">PAR / 🇫🇷</span></div>
-        <p class="ticket-kicker">SEU PRÓXIMO CENÁRIO</p>
-        <h3 id="selfieTicketName">PARIS</h3>
-        <p class="ticket-fact" id="ticketPhrase">EM PARIS, ATÉ O CÉU PARECE POSAR.</p>
-        <div class="ticket-instructions">
-          <strong>INSTRUÇÕES DE EMBARQUE</strong>
-          <span><b>01</b> ESCOLHA UMA PAISAGEM</span>
-          <span><b>02</b> PREPARE A CÂMERA DO CELULAR</span>
-          <span><b>03</b> AGUARDE O CONVITE PARA A FOTO</span>
-        </div>
-        <p class="selection-note">TOQUE EM UMA FOTO. EM 10 SEGUNDOS, O CONVITE PARA EMBARCAR APARECERÁ.</p>
-      </aside>
+      <div class="gallery-support" aria-hidden="true">
+        <img id="destinationPhoto" src="assets/paris.jpg" alt=""><div id="photoFlash"></div><span id="photoIndex"></span><span id="destinationName">PARIS</span><span id="destinationCountry">FRANÇA</span><span id="destinationCode">PAR</span><span id="selfieTicketName">PARIS</span><span id="ticketPhrase"></span>
+      </div>
     </main>
   </div>
 
@@ -83,8 +64,8 @@
           <li><strong>3</strong><span>QUANDO ESTIVER PRONTO, TOQUE ABAIXO.</span></li>
         </ol>
         <p class="wait-note">EM INSTANTES, UM CONVITE APARECERÁ PARA CONTINUAR.</p>
-        <div class="instruction-logos" aria-label="Magnum Photos e Martin Parr Foundation">
-          <img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation">
+        <div class="instruction-logos" aria-label="Martin Parr — Mundo Pequeno">
+          <img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno">
         </div>
       </section>
       <section class="phone-scene" id="phoneScene" hidden>
@@ -119,8 +100,9 @@
   </aside>
   <aside class="idle-tip route-idle-tip" id="idleTip"><button id="closeTipButton" type="button">×</button><span>DICA</span><strong id="tipText"></strong></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=15"></script>
-  <script src="selfie/gallery-adapter.js?v=1"></script>
+  <script src="destinations-data.js?v=1"></script>
+  <script src="app.js?v=16"></script>
+  <script src="selfie/gallery-adapter.js?v=2"></script>
   <script src="analytics.js?v=1"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const destinations = [
+const legacyDestinations = [
   { id: "paris", name: "Paris", country: "França", code: "PAR", image: "assets/paris.jpg" },
   { id: "china", name: "Muralha da China", country: "China", code: "PEK", image: "assets/china.jpg" },
   { id: "coliseu", name: "Coliseu", country: "Itália", code: "ROM", image: "assets/coliseu.jpg" },
@@ -17,6 +17,8 @@ const destinations = [
   { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", code: "RIO", image: "assets/rio-de-janeiro.jpg" },
   { id: "savana-africana", name: "Savana Africana", country: "Quênia", code: "NBO", image: "assets/savana-africana.jpg" }
 ];
+
+const destinations = window.MPF_DESTINATIONS || legacyDestinations;
 
 const $ = selector => document.querySelector(selector);
 const steps = ["#sessionLoading", "#reasonStep", "#cameraStep", "#processingStep", "#editorStep", "#endStep", "#errorStep"];
@@ -41,7 +43,8 @@ let segmentationEngine = "none";
 let personSegmenter = null;
 let pendingSegmentation = null;
 const assetCache = new Map();
-const portraitTransform = { x: 0, y: 0, scale: 1, rotation: 0 };
+const defaultPortraitTransform = { x: 255, y: 230, scale: 1, rotation: 0 };
+const portraitTransform = { ...defaultPortraitTransform };
 const activePointers = new Map();
 let gestureStart = null;
 
@@ -67,8 +70,7 @@ async function begin() {
     elements.destinationName.textContent = destination.name.toUpperCase();
     await Promise.all([
       loadImage(destination.image),
-      loadImage("assets/magnum.png"),
-      loadImage("assets/mpf.png"),
+      loadImage("assets/exhibition-logo.svg"),
       document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
@@ -99,7 +101,7 @@ function drawCover(context, image, x, y, width, height) {
 }
 
 function drawPortrait(context, image, x, y, width, height) {
-  const baseScale = Math.max(width / image.width, height / image.height);
+  const baseScale = Math.min((width * .46) / image.width, (height * .68) / image.height);
   const scale = baseScale * portraitTransform.scale;
   context.save();
   context.translate(x + width / 2 + portraitTransform.x, y + height / 2 + portraitTransform.y);
@@ -300,8 +302,7 @@ async function composePolaroid(updateBlob = true) {
   if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
-  const magnum = await loadImage("assets/magnum.png");
-  const mpf = await loadImage("assets/mpf.png");
+  const exhibitionLogo = await loadImage("assets/exhibition-logo.svg");
   const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
@@ -327,14 +328,12 @@ async function composePolaroid(updateBlob = true) {
   context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1352);
   context.font = "700 17px Courier New, monospace";
   context.fillText("VOCÊ ESTÁ AQUI · 2026", 84, 1384);
-  context.drawImage(magnum, 84, 1405, 72, 72);
-  const mpfRatio = mpf.width / mpf.height;
-  context.drawImage(mpf, 1200 - 84 - 96, 1420, 96, 96 / mpfRatio);
+  context.drawImage(exhibitionLogo, 1200 - 84 - 82, 1392, 82, 82);
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }
 
 function resetPortraitTransform(render = true) {
-  Object.assign(portraitTransform, { x: 0, y: 0, scale: 1, rotation: 0 });
+  Object.assign(portraitTransform, defaultPortraitTransform);
   if (render) composePolaroid(true);
 }
 

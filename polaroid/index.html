@@ -13,7 +13,7 @@
 <body class="tv-page polaroid-map" data-mobile-path="polaroid/mobile.html">
   <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência Polaroid">
     <div class="opening-brands" aria-hidden="true">
-      <img src="assets/magnum.png" alt=""><span></span><img src="assets/mpf.png" alt="">
+      <img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno">
     </div>
     <div class="opening-title">
       <p>EXPERIÊNCIA 02 / POLAROID</p>
@@ -24,8 +24,8 @@
 
   <div class="tv-shell">
     <header class="topbar">
-      <div class="brand-lockup" aria-label="Magnum Photos e Martin Parr Foundation">
-        <img class="brand brand--magnum" src="assets/magnum.png" alt="Magnum Photos"><span class="brand-divider"></span><img class="brand brand--mpf" src="assets/mpf.png" alt="Martin Parr Foundation">
+      <div class="brand-lockup" aria-label="Martin Parr — Mundo Pequeno">
+        <img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno">
       </div>
       <div class="headline"><p class="eyebrow">EXPERIÊNCIA 02 / MAPA</p><h1>VOCÊ ESTÁ AQUI.</h1></div>
       <div class="topbar-actions">
@@ -44,7 +44,7 @@
           <div class="map-grid" aria-hidden="true"></div>
           <div class="map-canvas" id="mapCanvas"><img class="world-map" src="assets/world-map.svg" alt="Mapa-múndi geográfico com fronteiras nacionais"><div class="pins-layer" id="pinsLayer"></div></div>
           <div class="zoom-controls"><button type="button" id="zoomInButton" aria-label="Aumentar zoom">＋</button><button type="button" id="zoomOutButton" aria-label="Diminuir zoom">−</button></div>
-          <div class="map-status" id="mapStatus">17 LUGARES PARA DESCOBRIR</div>
+          <div class="map-status" id="mapStatus">31 LUGARES PARA DESCOBRIR</div>
         </div>
       </section>
 
@@ -74,19 +74,22 @@
         <button class="qr-back" id="qrBackButton" type="button">← VOLTAR AO MAPA</button>
         <p class="step-label">CONTINUE NO SEU CELULAR</p><h2>APONTE A CÂMERA<br>PARA O QR CODE.</h2>
         <div class="qr-frame"><img id="qrImage" alt="QR code para continuar a experiência no celular"></div>
-        <p class="qr-status" id="qrStatus"><span></span> QR DISPONÍVEL POR 25S</p><small>NENHUMA FOTO É ENVIADA PARA A TV.</small>
+        <p class="qr-status" id="qrStatus"><span></span> QR DISPONÍVEL POR 25S</p>
+        <p class="wifi-note"><strong>SEM INTERNET MÓVEL?</strong> USE O WI‑FI DO CCF — CENTRO CULTURAL FIESP.</p>
+        <small>SUAS ANOTAÇÕES E SUA FOTO NÃO SÃO ARMAZENADAS NO APLICATIVO. SEGUIMOS A LGPD.</small>
       </section>
     </main>
 
     <section class="tv-thanks" id="tvThanks" hidden>
-      <div class="thanks-brands"><img src="assets/magnum.png" alt="Magnum Photos"><img src="assets/mpf.png" alt="Martin Parr Foundation"></div>
+      <div class="thanks-brands"><img class="exhibition-logo" src="assets/exhibition-logo.svg" alt="Identidade da exposição Martin Parr — Mundo Pequeno"></div>
       <p>VIAGEM EM ANDAMENTO</p><h2>BOA VIAGEM!</h2><strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong><small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
     </section>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="experiencia-2/vendor/qrcode.js"></script>
-  <script src="experiencia-2/app.js?v=4"></script>
-  <script src="polaroid/map-adapter.js?v=1"></script>
+  <script src="destinations-data.js?v=1"></script>
+  <script src="experiencia-2/app.js?v=5"></script>
+  <script src="polaroid/map-adapter.js?v=2"></script>
   <script src="analytics.js?v=1"></script>
 </body>
 </html>

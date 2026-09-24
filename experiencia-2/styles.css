@@ -28,6 +28,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .opening-brands img:first-child { width: clamp(86px, 8vw, 148px); }
 .opening-brands img:last-child { width: clamp(100px, 9vw, 168px); mix-blend-mode: multiply; }
 .opening-brands span { width: 1px; height: 70px; background: var(--ink); opacity: .48; }
+.opening-brands .exhibition-logo { width: clamp(105px,10vw,180px) !important; color: var(--ink); mix-blend-mode: normal !important; }
 .opening-title { text-align: center; animation: opening-in 700ms var(--ease) both; }
 .opening-title p { margin: 0 0 17px; font-size: clamp(12px, 1vw, 18px); font-weight: 700; letter-spacing: .18em; }
 .opening-title h1 { margin: 0; font-size: clamp(82px, 11vw, 210px); line-height: .82; letter-spacing: -.1em; }
@@ -42,6 +43,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .brand-lockup img:first-child { width: clamp(56px, 4.4vw, 82px); }
 .brand-lockup img:last-child { width: clamp(66px, 5.5vw, 102px); }
 .brand-lockup span { width: 1px; height: 48px; background: var(--ink); opacity: .45; }
+.brand-lockup .exhibition-logo { width: clamp(58px,4.8vw,90px) !important; }
 .tv-title { text-align: center; }
 .tv-title p { margin: 0 0 4px; font-size: clamp(9px, .66vw, 13px); font-weight: 700; letter-spacing: .14em; }
 .tv-title h1 { margin: 0; font-size: clamp(29px, 2.7vw, 52px); line-height: .9; letter-spacing: -.075em; }
@@ -58,6 +60,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .gallery-copy h2 { margin: 0 0 9px; font-size: clamp(58px, 6.4vw, 124px); line-height: .78; letter-spacing: -.09em; overflow-wrap: anywhere; }
 .gallery-copy span { display: inline-block; padding: 7px 10px; background: var(--pink); color: var(--ink); font-size: 13px; font-weight: 700; text-shadow: none; }
 .country-flag { width: 24px; height: 18px; display: inline-block; vertical-align: middle; object-fit: cover; border: 1px solid rgba(23,23,25,.25); }
+.country-flag--emoji { width: auto; height: auto; border: 0; font-size: 20px; line-height: 1; }
 .gallery-counter { position: absolute; z-index: 2; right: 25px; top: 22px; padding: 6px 9px; border: 1.5px solid var(--ink); background: var(--pink); font-size: 11px; font-weight: 700; }
 .thumbnail-rail { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; display: flex; gap: 10px; overflow-x: auto; padding: 15px 22px 18px; background: rgba(247,241,231,.92); border-top: 2px solid var(--ink); scrollbar-width: thin; scroll-snap-type: x proximity; }
 .gallery-thumb { position: relative; flex: 0 0 clamp(112px, 8.2vw, 158px); height: clamp(74px, 7.5vh, 100px); padding: 0; overflow: hidden; border: 2px solid var(--ink); background: var(--paper); cursor: pointer; scroll-snap-align: center; transition: transform 180ms ease, box-shadow 180ms ease; }
@@ -101,11 +104,13 @@ button { -webkit-tap-highlight-color: transparent; }
 .qr-status { display: flex; align-items: center; gap: 9px; margin: 25px 0 9px; padding: 9px 12px; border: 2px solid var(--ink); background: var(--pink); font-size: 11px; font-weight: 700; }
 .qr-status span { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); animation: pulse 1s ease-in-out infinite alternate; }
 .qr-ticket small { font-size: 9px; font-weight: 700; }
+.wifi-note { max-width: 36ch; margin: 12px 0; padding: 9px 12px; border: 2px solid var(--ink); background: var(--aqua); font-size: clamp(9px,.7vw,12px); font-weight: 700; line-height: 1.35; }
 
 .tv-thanks { position: absolute; z-index: 30; inset: clamp(90px, 10vh, 118px) 0 0; display: grid; place-content: center; justify-items: center; padding: 7vw; background: var(--orange); text-align: center; animation: fade-in 450ms ease both; }
 .thanks-brands { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
 .thanks-brands img:first-child { width: 74px; }
 .thanks-brands img:last-child { width: 90px; }
+.thanks-brands .exhibition-logo { width: clamp(88px,7vw,132px) !important; }
 .tv-thanks > p { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
 .tv-thanks h2 { margin: 14px 0 24px; font-size: clamp(100px, 13vw, 240px); line-height: .72; letter-spacing: -.1em; }
 .tv-thanks strong { font-size: clamp(15px, 1.25vw, 23px); line-height: 1.35; }
@@ -125,6 +130,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .mobile-brand img:first-child { width: 46px; }
 .mobile-brand img:last-child { width: 54px; }
 .mobile-brand span { width: 1px; height: 34px; background: var(--ink); opacity: .45; }
+.mobile-brand .exhibition-logo { width: 54px !important; }
 .mobile-header div:last-child { min-width: 0; text-align: right; }
 .mobile-header p { margin: 0 0 3px; font-size: 8px; font-weight: 700; letter-spacing: .12em; }
 .mobile-header strong { display: block; white-space: nowrap; font-size: 14px; letter-spacing: -.06em; }

@@ -1,4 +1,4 @@
-const destinations = [
+const legacyDestinations = [
   { id: "paris", name: "Paris", country: "França", flag: "fr", code: "PAR", image: "assets/paris.jpg", alt: "Torre Eiffel em Paris", fact: "EM PARIS, ATÉ O CÉU PARECE POSAR." },
   { id: "china", name: "Muralha da China", country: "China", flag: "cn", code: "PEK", image: "assets/china.jpg", alt: "Grande Muralha da China", fact: "UMA PAISAGEM QUE ATRAVESSA SÉCULOS E HORIZONTES." },
   { id: "coliseu", name: "Coliseu", country: "Itália", flag: "it", code: "ROM", image: "assets/coliseu.jpg", alt: "Coliseu em Roma", fact: "EM ROMA, CADA PEDRA GUARDA UMA HISTÓRIA." },
@@ -17,6 +17,8 @@ const destinations = [
   { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", flag: "br", code: "RIO", image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor", fact: "NO RIO, A PAISAGEM FAZ QUESTÃO DE PARTICIPAR." },
   { id: "savana-africana", name: "Savana Africana", country: "Quênia", flag: "ke", code: "NBO", image: "assets/savana-africana.jpg", alt: "Savana africana", fact: "O HORIZONTE É TÃO LIVRE QUANTO A VIDA SELVAGEM." }
 ];
+
+const destinations = window.MPF_DESTINATIONS || legacyDestinations;
 
 const $ = selector => document.querySelector(selector);
 const elements = {
@@ -60,9 +62,11 @@ function createGallery() {
 }
 
 function flagImage(destination) {
+  const iso = ({ Brasil: "br", Suíça: "ch", Grécia: "gr", Espanha: "es", Argentina: "ar", Egito: "eg", México: "mx", Portugal: "pt", "Reino Unido": "gb", Peru: "pe", Maldivas: "mv", "Estados Unidos": "us", França: "fr", China: "cn", Itália: "it", Japão: "jp" })[destination.country];
+  if (!iso) { const symbol = document.createElement("span"); symbol.className = "country-flag country-flag--emoji"; symbol.textContent = "✦"; return symbol; }
   const image = document.createElement("img");
   image.className = "country-flag";
-  image.src = `assets/flags/${destination.flag}.svg`;
+  image.src = `assets/flags/${iso}.svg`;
   image.alt = `Bandeira de ${destination.country}`;
   return image;
 }

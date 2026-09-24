@@ -1,17 +1,29 @@
 .selfie-gallery .map-support,
-.selfie-gallery .route-idle-tip { display: none !important; }
-.selfie-gallery .gallery-screen { grid-template-columns: minmax(0, 72%) minmax(360px, 28%); }
-.selfie-gallery .gallery-stage { min-width: 0; }
-.selfie-gallery .gallery-copy span { display: inline-flex; align-items: center; gap: 8px; }
-.selfie-gallery .selection-note { margin: 18px 0 0; padding: 12px; border: 2px solid var(--ink); background: var(--aqua); font-size: clamp(9px, .72vw, 13px); font-weight: 700; line-height: 1.35; }
-.selfie-gallery .travel-ticket {
-  margin-left: -16px;
-  padding-left: calc(clamp(23px, 2.2vw, 42px) + 16px);
-  box-shadow: -9px 0 22px rgba(23,23,25,.16);
-  -webkit-mask-image: radial-gradient(circle at 0 52%, transparent 0 16px, #000 17px);
-  mask-image: radial-gradient(circle at 0 52%, transparent 0 16px, #000 17px);
-}
-.selfie-gallery .travel-ticket::before { display: none; }
-@media (max-width: 900px) {
-  .selfie-gallery .gallery-screen { grid-template-columns: minmax(0, 66%) minmax(330px, 34%); }
+.selfie-gallery .route-idle-tip,
+.selfie-gallery .gallery-support { display: none !important; }
+.selfie-gallery .tv-shell { min-height: 100dvh; }
+.selfie-gallery .gallery-screen.destination-grid-screen { display: block; min-height: 0; overflow: hidden; background: var(--aqua); }
+.selfie-gallery .all-destinations { height: 100%; display: grid; grid-template-rows: auto minmax(0,1fr); padding: clamp(14px,1.5vw,28px); }
+.selfie-gallery .grid-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 0 2px clamp(11px,1.2vh,18px); }
+.selfie-gallery .grid-heading p { margin: 0 0 5px; font-size: clamp(8px,.62vw,12px); font-weight: 700; letter-spacing: .14em; }
+.selfie-gallery .grid-heading > p { margin: 0; padding: 8px 11px; border: 2px solid var(--ink); background: var(--orange); }
+.selfie-gallery .grid-heading h2 { margin: 0; font-size: clamp(27px,2.55vw,48px); line-height: .88; letter-spacing: -.065em; }
+.selfie-gallery .thumbnail-rail.destination-grid { position: static; display: grid; grid-template-columns: repeat(8,minmax(0,1fr)); grid-template-rows: repeat(4,minmax(0,1fr)); gap: clamp(7px,.7vw,13px); min-height: 0; padding: 0; overflow: hidden; border: 0; background: transparent; }
+.selfie-gallery .gallery-thumb { position: relative; min-width: 0; width: auto; height: auto; overflow: hidden; border: 2px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 rgba(23,23,25,.18); cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease; }
+.selfie-gallery .gallery-thumb img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.78) contrast(.96); transition: 240ms ease; }
+.selfie-gallery .gallery-thumb-copy { position: absolute; inset: auto 0 0; display: grid; gap: 1px; padding: 6px 7px; background: linear-gradient(transparent,rgba(23,23,25,.9) 27%); color: white; text-align: left; }
+.selfie-gallery .gallery-thumb-copy strong { padding-top: 10px; overflow: hidden; font-size: clamp(9px,.72vw,14px); line-height: 1; text-overflow: ellipsis; white-space: nowrap; }
+.selfie-gallery .gallery-thumb-copy small { display: flex; align-items: center; gap: 5px; overflow: hidden; font: 700 clamp(7px,.52vw,10px)/1.15 "Courier New",monospace; letter-spacing: .04em; opacity: .92; text-overflow: ellipsis; white-space: nowrap; }
+.selfie-gallery .gallery-thumb-copy small .country-flag { width: 16px; height: 11px; margin-left: auto; flex: 0 0 auto; }
+.selfie-gallery .gallery-thumb:is(:hover,:focus-visible) { z-index: 2; transform: translateY(-3px) scale(1.025); box-shadow: 7px 7px 0 var(--orange); }
+.selfie-gallery .gallery-thumb:is(:hover,:focus-visible) img { filter: none; transform: scale(1.035); }
+.selfie-gallery .gallery-thumb.is-active { transform: none; box-shadow: 4px 4px 0 rgba(23,23,25,.18); }
+.selfie-gallery .country-flag--emoji { width: auto; height: auto; border: 0; font-size: 18px; }
+.selfie-gallery .instruction-logos { justify-content: flex-end; }
+.selfie-gallery .instruction-logos .exhibition-logo { width: clamp(72px,6vw,116px); max-height: none; }
+@media (max-height: 800px) and (min-width: 1000px) {
+  .selfie-gallery .all-destinations { padding: 10px 16px 14px; }
+  .selfie-gallery .grid-heading { padding-bottom: 9px; }
+  .selfie-gallery .grid-heading h2 { font-size: 30px; }
+  .selfie-gallery .thumbnail-rail.destination-grid { gap: 7px; }
 }

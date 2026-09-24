@@ -1,8 +1,11 @@
 const coordinates = {
-  paris: [48.8584, 2.2945], china: [40.4319, 116.5704], coliseu: [41.8902, 12.4922], dubai: [25.2048, 55.2708],
-  egito: [29.9792, 31.1342], fuji: [35.3606, 138.7274], hollywood: [34.1341, -118.3215], italia: [43.7229, 10.3966],
-  jerusalem: [31.7683, 35.2137], lisboa: [38.7223, -9.1393], "machu-picchu": [-13.1631, -72.545], madrid: [40.4168, -3.7038],
-  "masp-sp": [-23.5614, -46.6559], moscou: [55.7558, 37.6173], "nova-yorke": [40.6892, -74.0445], "rio-de-janeiro": [-22.9519, -43.2105], "savana-africana": [-1.2921, 36.8219]
+  amazonia: [-3.1, -60], bonito: [-21.13, -56.48], "chapada-diamantina": [-12.5, -41.4], "fernando-de-noronha": [-3.85, -32.42],
+  "foz-do-iguacu": [-25.69, -54.44], jericoacoara: [-2.79, -40.51], "lencois-maranhenses": [-2.55, -43.12], maragogi: [-9.01, -35.22],
+  pantanal: [-17.68, -57], "porto-de-galinhas": [-8.5, -35], "rio-de-janeiro": [-22.95, -43.21], salvador: [-12.97, -38.5],
+  "alpes-suicos": [46.56, 8.56], atenas: [37.98, 23.73], barcelona: [41.39, 2.17], "buenos-aires": [-34.6, -58.38],
+  cairo: [30.04, 31.24], cancun: [21.16, -86.85], lisboa: [38.72, -9.14], londres: [51.51, -.13],
+  "machu-picchu": [-13.16, -72.55], maldivas: [3.2, 73.22], "nova-yorke": [40.69, -74.04], "orlando-miami": [25.76, -80.19],
+  paris: [48.86, 2.29], pequim: [39.9, 116.4], roma: [41.9, 12.5], santorini: [36.39, 25.46], toquio: [35.68, 139.69], veneza: [45.44, 12.33]
 };
 const mapElements = {
   viewport: document.querySelector("#mapViewport"), canvas: document.querySelector("#mapCanvas"), pins: document.querySelector("#pinsLayer"),
@@ -26,10 +29,20 @@ function chooseMapDestination(destination) {
   void mapElements.flash.offsetWidth;
   mapElements.flash.classList.add("flash");
   mapElements.status.textContent = `${destination.name.toUpperCase()} · DESTINO SELECIONADO`;
-  document.querySelectorAll(".map-pin").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
+  document.querySelectorAll(".map-pin, .other-destination-button").forEach(pin => pin.classList.toggle("is-active", pin.dataset.id === destination.id));
 }
 
 for (const destination of destinations) {
+  if (destination.id === "outro-lugar") {
+    const otherButton = document.createElement("button");
+    otherButton.type = "button";
+    otherButton.className = "other-destination-button";
+    otherButton.dataset.id = destination.id;
+    otherButton.innerHTML = `<span>✦</span> OUTRO LUGAR`;
+    otherButton.addEventListener("click", event => { event.stopPropagation(); chooseMapDestination(destination); });
+    mapElements.viewport.append(otherButton);
+    continue;
+  }
   const [lat, lon] = coordinates[destination.id];
   const point = projectPoint(lat, lon);
   const pin = document.createElement("button");

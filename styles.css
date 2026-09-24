@@ -29,6 +29,7 @@ body {
 .opening-brands img:first-child { width: clamp(88px, 8vw, 150px); }
 .opening-brands img:last-child { width: clamp(104px, 9vw, 170px); mix-blend-mode: multiply; }
 .opening-brands span { width: 1px; height: 72px; background: var(--ink); opacity: .5; }
+.opening-brands .exhibition-logo { width: clamp(105px,10vw,180px) !important; mix-blend-mode: normal !important; }
 .opening-title { text-align: center; animation: opening-title-in 800ms var(--ease-out) both; }
 .opening-title p { margin: 0 0 18px; font-size: clamp(12px, 1vw, 18px); font-weight: 700; letter-spacing: .18em; }
 .opening-title h1 { margin: 0; font-size: clamp(82px, 11vw, 210px); line-height: .82; letter-spacing: -.1em; }
@@ -59,6 +60,7 @@ button { color: inherit; }
 .brand--magnum { width: clamp(55px, 4.2vw, 78px); height: clamp(55px, 4.2vw, 78px); }
 .brand--mpf { width: clamp(62px, 5.4vw, 98px); height: auto; mix-blend-mode: multiply; }
 .brand-divider { width: 1px; height: 52%; background: var(--ink); opacity: .45; }
+.brand-lockup .exhibition-logo { width: clamp(58px,4.8vw,90px); }
 
 .headline { text-align: center; line-height: 1; }
 .eyebrow, .step { margin: 0 0 7px; font-size: clamp(10px, .72vw, 14px); font-weight: 700; letter-spacing: .13em; }
@@ -310,6 +312,8 @@ button { color: inherit; }
 .scenario-prompt-timer { position: absolute; left: 10px; top: 8px; padding: 3px 5px; background: var(--ink); color: var(--white); font-size: 9px; letter-spacing: .08em; }
 .scenario-destination { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 8px 0 10px; }
 .scenario-destination span { font-size: 38px; line-height: 1; }
+.scenario-destination span { display: inline-grid; place-items: center; }
+.scenario-destination img { width: clamp(34px, 2.7vw, 50px); height: auto; border: 1px solid rgba(23,23,25,.25); }
 .scenario-destination strong { font-size: clamp(20px, 1.8vw, 30px); letter-spacing: -.04em; text-align: center; }
 .scenario-prompt > p { margin: 0 0 13px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .07em; }
 .scenario-prompt button { width: 100%; min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border: 2px solid var(--ink); background: var(--orange); box-shadow: 6px 6px 0 var(--ink); font-weight: 700; cursor: pointer; }

@@ -5,6 +5,9 @@
 .polaroid-map .ticket { overflow: auto; }
 .polaroid-map .polaroid-cta { min-height: 58px; margin-top: 14px; }
 .polaroid-map .country-flag { margin-left: 7px; }
+.polaroid-map .other-destination-button { position: absolute; z-index: 8; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 8px; padding: 10px 13px; border: 2px solid var(--ink); background: var(--orange); box-shadow: 4px 4px 0 var(--ink); font: 700 clamp(9px,.68vw,12px)/1 "Courier New",monospace; cursor: pointer; }
+.polaroid-map .other-destination-button span { font-size: 18px; }
+.polaroid-map .other-destination-button.is-active { background: var(--pink); }
 .polaroid-map .qr-ticket {
   margin-left: -18px;
   padding-left: calc(4vw + 18px);
