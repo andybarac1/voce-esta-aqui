@@ -51,7 +51,7 @@ const elements = {
   sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), prepTimer: $("#prepTimer"),
   end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), readyPrompt: $("#readyPrompt"), readyTimer: $("#readyTimer"),
   restartPrompt: $("#restartPrompt"), restartTimer: $("#restartTimer"), scenarioPrompt: $("#scenarioPrompt"),
-  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), scenarioPromptFact: $("#scenarioPromptFact"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
@@ -162,20 +162,19 @@ function hideScenarioPrompt() {
 
 function scheduleScenarioPrompt() {
   hideScenarioPrompt();
-  selectionPromptTimeout = setTimeout(() => {
-    let remaining = 10;
-    elements.scenarioPromptName.textContent = selected.name.toUpperCase();
-    const iso = countryIso(selected);
-    elements.scenarioPromptFlag.innerHTML = iso ? `<img src="assets/flags/${iso}.svg" alt="Bandeira de ${selected.country}">` : `<b aria-hidden="true">✦</b>`;
-    elements.scenarioPromptTimer.textContent = remaining;
-    elements.globalBackdrop.hidden = false;
-    elements.scenarioPrompt.hidden = false;
-    selectionPromptCountdownInterval = setInterval(() => {
-      remaining -= 1;
-      elements.scenarioPromptTimer.textContent = Math.max(0, remaining);
-    }, 1000);
-    selectionPromptHideTimeout = setTimeout(hideScenarioPrompt, 10000);
-  }, 10000);
+  let remaining = 10;
+  elements.scenarioPromptName.textContent = selected.name.toUpperCase();
+  elements.scenarioPromptFact.textContent = selected.fact || destinationPhrases[selected.id] || "TODO LUGAR PODE SER O COMEÇO DE UMA NOVA HISTÓRIA.";
+  const iso = countryIso(selected);
+  elements.scenarioPromptFlag.innerHTML = iso ? `<img src="assets/flags/${iso}.svg" alt="Bandeira de ${selected.country}">` : `<b aria-hidden="true">✦</b>`;
+  elements.scenarioPromptTimer.textContent = remaining;
+  elements.globalBackdrop.hidden = false;
+  elements.scenarioPrompt.hidden = false;
+  selectionPromptCountdownInterval = setInterval(() => {
+    remaining -= 1;
+    elements.scenarioPromptTimer.textContent = Math.max(0, remaining);
+  }, 1000);
+  selectionPromptHideTimeout = setTimeout(hideScenarioPrompt, 10000);
 }
 
 const mapController = (() => {
