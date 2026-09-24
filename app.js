@@ -51,7 +51,7 @@ const elements = {
   sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), prepTimer: $("#prepTimer"),
   end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), readyPrompt: $("#readyPrompt"), readyTimer: $("#readyTimer"),
   restartPrompt: $("#restartPrompt"), restartTimer: $("#restartTimer"), scenarioPrompt: $("#scenarioPrompt"),
-  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), scenarioPromptFact: $("#scenarioPromptFact"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), scenarioPromptFact: $("#scenarioPromptFact"), scenarioPromptPhoto: $("#scenarioPromptPhoto"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
@@ -165,6 +165,8 @@ function scheduleScenarioPrompt() {
   let remaining = 10;
   elements.scenarioPromptName.textContent = selected.name.toUpperCase();
   elements.scenarioPromptFact.textContent = selected.fact || destinationPhrases[selected.id] || "TODO LUGAR PODE SER O COMEÇO DE UMA NOVA HISTÓRIA.";
+  elements.scenarioPromptPhoto.src = selected.image;
+  elements.scenarioPromptPhoto.alt = selected.alt;
   const iso = countryIso(selected);
   elements.scenarioPromptFlag.innerHTML = iso ? `<img src="assets/flags/${iso}.svg" alt="Bandeira de ${selected.country}">` : `<b aria-hidden="true">✦</b>`;
   elements.scenarioPromptTimer.textContent = remaining;

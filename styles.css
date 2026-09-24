@@ -307,9 +307,11 @@ button { color: inherit; }
 .countdown-popup small { padding: 9px 13px; background: var(--ink); color: var(--white); font-size: clamp(11px, .8vw, 15px); font-weight: 700; }
 .countdown-popup > b { position: absolute; top: 24px; right: 28px; min-width: 44px; padding: 6px 9px; background: rgba(23,23,25,.75); color: var(--white); font-size: 24px; }
 
-.scenario-prompt { position: fixed; z-index: 60; left: 50%; top: 50%; width: min(540px, calc(100vw - 48px)); padding: 20px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 12px 12px 0 var(--orange); transform: translate(-50%, -50%); animation: popup-center-in 520ms var(--ease-out); }
+.scenario-prompt { position: fixed; z-index: 60; left: 50%; top: 50%; width: min(640px, calc(100vw - 48px)); max-height: calc(100dvh - 38px); overflow: auto; padding: 20px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 12px 12px 0 var(--orange); transform: translate(-50%, -50%); animation: popup-center-in 520ms var(--ease-out); }
 .scenario-prompt[hidden] { display: none; }
 .scenario-prompt-timer { position: absolute; left: 10px; top: 8px; padding: 3px 5px; background: var(--ink); color: var(--white); font-size: 9px; letter-spacing: .08em; }
+.scenario-photo { height: clamp(118px, 18vh, 190px); margin: -20px -20px 14px; overflow: hidden; border-bottom: 2px solid var(--ink); background: var(--aqua); }
+.scenario-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .scenario-destination { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 8px 0 10px; }
 .scenario-destination span { font-size: 38px; line-height: 1; }
 .scenario-destination span { display: inline-grid; place-items: center; }
