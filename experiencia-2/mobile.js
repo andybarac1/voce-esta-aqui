@@ -70,7 +70,7 @@ async function begin() {
     elements.destinationName.textContent = destination.name.toUpperCase();
     await Promise.all([
       loadImage(destination.image),
-      loadImage("assets/exhibition-logo.svg"),
+      loadImage("assets/exhibition-logo.svg?v=2"),
       document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
@@ -302,7 +302,7 @@ async function composePolaroid(updateBlob = true) {
   if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
-  const exhibitionLogo = await loadImage("assets/exhibition-logo.svg");
+  const exhibitionLogo = await loadImage("assets/exhibition-logo.svg?v=2");
   const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);

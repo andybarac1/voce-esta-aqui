@@ -30,6 +30,8 @@ body {
 .opening-brands img:last-child { width: clamp(104px, 9vw, 170px); mix-blend-mode: multiply; }
 .opening-brands span { width: 1px; height: 72px; background: var(--ink); opacity: .5; }
 .opening-brands .exhibition-logo { width: clamp(105px,10vw,180px) !important; mix-blend-mode: normal !important; }
+.exhibition-logo { display: block; aspect-ratio: 1; object-fit: contain; }
+.instruction-logos .exhibition-logo { padding: 5px; border-radius: 50%; background: rgba(247,242,231,.9); box-shadow: 0 0 0 1px rgba(23,23,25,.14), 0 3px 12px rgba(23,23,25,.2); }
 .opening-title { text-align: center; animation: opening-title-in 800ms var(--ease-out) both; }
 .opening-title p { margin: 0 0 18px; font-size: clamp(12px, 1vw, 18px); font-weight: 700; letter-spacing: .18em; }
 .opening-title h1 { margin: 0; font-size: clamp(82px, 11vw, 210px); line-height: .82; letter-spacing: -.1em; }

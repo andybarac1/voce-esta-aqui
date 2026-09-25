@@ -29,6 +29,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .opening-brands img:last-child { width: clamp(100px, 9vw, 168px); mix-blend-mode: multiply; }
 .opening-brands span { width: 1px; height: 70px; background: var(--ink); opacity: .48; }
 .opening-brands .exhibition-logo { width: clamp(105px,10vw,180px) !important; color: var(--ink); mix-blend-mode: normal !important; }
+.exhibition-logo { display: block; aspect-ratio: 1; object-fit: contain; }
 .opening-title { text-align: center; animation: opening-in 700ms var(--ease) both; }
 .opening-title p { margin: 0 0 17px; font-size: clamp(12px, 1vw, 18px); font-weight: 700; letter-spacing: .18em; }
 .opening-title h1 { margin: 0; font-size: clamp(82px, 11vw, 210px); line-height: .82; letter-spacing: -.1em; }

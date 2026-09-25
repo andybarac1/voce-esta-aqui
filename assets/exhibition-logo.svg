@@ -1,10 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
   <title id="title">Martin Parr — Mundo Pequeno</title>
-  <desc id="desc">Identidade circular da exposição</desc>
-  <defs><path id="ring" d="M130,130 m-93,0 a93,93 0 1,1 186,0 a93,93 0 1,1 -186,0"/></defs>
-  <circle cx="130" cy="130" r="108" fill="none" stroke="currentColor" stroke-width="4"/>
-  <text fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="3.2"><textPath href="#ring" startOffset="1%">MARTIN PARR • MUNDO PEQUENO •</textPath></text>
-  <text x="130" y="121" text-anchor="middle" fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" letter-spacing="2">VOCÊ ESTÁ</text>
-  <text x="130" y="154" text-anchor="middle" fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="800" letter-spacing="3">AQUI</text>
-  <circle cx="130" cy="181" r="5" fill="currentColor"/>
+  <desc id="desc">Logo circular da exposição</desc>
+  <defs>
+    <path id="top" d="M 31 156 A 122 122 0 0 1 269 156"/>
+    <path id="bottom" d="M 269 160 A 122 122 0 0 1 31 160"/>
+  </defs>
+  <g fill="#171719" font-family="Arial, Helvetica, sans-serif" font-weight="500">
+    <text font-size="42" letter-spacing="3.4" textLength="246" lengthAdjust="spacingAndGlyphs">
+      <textPath href="#top" startOffset="50%" text-anchor="middle">MARTIN PARR</textPath>
+    </text>
+    <text font-size="29" letter-spacing="2.2" textLength="230" lengthAdjust="spacingAndGlyphs">
+      <textPath href="#bottom" startOffset="50%" text-anchor="middle">MUNDO PEQUENO</textPath>
+    </text>
+  </g>
 </svg>
