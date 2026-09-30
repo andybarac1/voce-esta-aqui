@@ -333,6 +333,12 @@ async function composePolaroid(updateBlob = true) {
   context.font = "700 21px Courier New, monospace";
   context.fillText("CENTRO CULTURAL FIESP", 84, 1450);
   context.fillText("GALERIA DE FOTOS", 84, 1476);
+  context.save();
+  context.fillStyle = "#171719";
+  context.beginPath();
+  context.arc(1063, 1405, 72, 0, Math.PI * 2);
+  context.fill();
+  context.restore();
   context.drawImage(exhibitionLogo, 1000, 1342, 126, 126);
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }

@@ -55,8 +55,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .gallery-stage { position: relative; min-width: 0; overflow: hidden; background: var(--ink); }
 .gallery-image { width: 100%; height: 100%; display: block; object-fit: cover; transform: scale(1.01); transition: opacity 240ms ease, transform 900ms var(--ease); }
 .gallery-image.is-changing { opacity: .18; transform: scale(1.08); }
-.gallery-wash { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,23,25,.42), transparent 55%), linear-gradient(0deg, rgba(23,23,25,.68), transparent 37%); pointer-events: none; }
-.gallery-copy { position: absolute; z-index: 2; left: clamp(28px, 3vw, 60px); top: clamp(30px, 4vh, 68px); max-width: 70%; color: var(--white); text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+.gallery-wash { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,23,25,.68), transparent 62%), linear-gradient(0deg, rgba(23,23,25,.84), transparent 46%); pointer-events: none; }
+.gallery-copy { position: absolute; z-index: 2; left: clamp(28px, 3vw, 60px); top: clamp(30px, 4vh, 68px); max-width: 70%; color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.7); }
 .gallery-copy p { margin: 0 0 11px; font-size: clamp(10px, .75vw, 14px); font-weight: 700; letter-spacing: .12em; }
 .gallery-copy h2 { margin: 0 0 9px; font-size: clamp(58px, 6.4vw, 124px); line-height: .78; letter-spacing: -.09em; overflow-wrap: anywhere; }
 .gallery-copy span { display: inline-block; padding: 7px 10px; background: var(--pink); color: var(--ink); font-size: 13px; font-weight: 700; text-shadow: none; }
@@ -91,8 +91,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .qr-screen { min-height: 0; display: grid; grid-template-columns: minmax(0, 58%) minmax(500px, 42%); background: var(--aqua); }
 .qr-scenery { position: relative; overflow: hidden; }
 .qr-scenery img { width: 100%; height: 100%; display: block; object-fit: cover; animation: scenic-in 800ms var(--ease) both; }
-.qr-scenery::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,23,25,.56), transparent 55%); }
-.qr-scenery-copy { position: absolute; z-index: 2; left: 5vw; bottom: 7vh; color: var(--white); }
+.qr-scenery::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,23,25,.88), rgba(23,23,25,.2) 62%, transparent 78%); }
+.qr-scenery-copy { position: absolute; z-index: 2; left: 5vw; bottom: 7vh; color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.7); }
 .qr-scenery-copy span { font-size: 11px; font-weight: 700; letter-spacing: .14em; }
 .qr-scenery-copy h2 { max-width: 9ch; margin: 8px 0 0; font-size: clamp(66px, 7vw, 134px); line-height: .75; letter-spacing: -.09em; }
 .qr-ticket { position: relative; display: grid; align-content: center; justify-items: center; padding: 5vh 4vw; background: var(--paper); text-align: center; box-shadow: -10px 0 25px rgba(23,23,25,.18); }
@@ -140,8 +140,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .mobile-step--card { display: grid; align-content: center; gap: 18px; padding: 28px 20px 38px; }
 .destination-preview { position: relative; min-height: 29vh; overflow: hidden; border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--orange); }
 .destination-preview img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
-.destination-preview::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,23,25,.66), transparent 65%); }
-.destination-preview div { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; color: var(--white); }
+.destination-preview::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,23,25,.9), rgba(23,23,25,.3) 54%, transparent 76%); }
+.destination-preview div { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,.95), 0 0 14px rgba(0,0,0,.7); }
 .destination-preview span { font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 .destination-preview h1 { margin: 5px 0 0; font-size: clamp(38px, 12vw, 60px); line-height: .8; letter-spacing: -.08em; }
 .mobile-card { min-width: 0; padding: 22px 19px 20px; border: 2px solid var(--ink); background: var(--paper); }
