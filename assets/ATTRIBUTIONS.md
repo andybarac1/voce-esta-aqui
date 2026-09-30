@@ -27,5 +27,6 @@ As novas imagens desta atualização foram obtidas no Wikimedia Commons e mantê
 - Santorini — [Panoramic view of Oia](https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Oia,_Santorini_island_(Thira),_Greece.jpg)
 - Tóquio — [Skyscrapers of Shinjuku](https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg)
 - Veneza — [Venezia aerial view](https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg)
+- Toscana — [Tuscany landscape west of Siena](https://commons.wikimedia.org/wiki/File:Tuscany_landscape_west_of_Siena.jpg), fotografia de Norbert Nagel, CC BY-SA 3.0.
 
 Os fundos já existentes no projeto (Paris, Lisboa, Nova York, Rio de Janeiro e Roma) foram preservados.

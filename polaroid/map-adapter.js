@@ -5,7 +5,8 @@ const coordinates = {
   "alpes-suicos": [46.56, 8.56], atenas: [37.98, 23.73], barcelona: [41.39, 2.17], "buenos-aires": [-34.6, -58.38],
   cairo: [30.04, 31.24], cancun: [21.16, -86.85], lisboa: [38.72, -9.14], londres: [51.51, -.13],
   "machu-picchu": [-13.16, -72.55], maldivas: [3.2, 73.22], "nova-yorke": [40.69, -74.04], "orlando-miami": [25.76, -80.19],
-  paris: [48.86, 2.29], pequim: [39.9, 116.4], roma: [41.9, 12.5], santorini: [36.39, 25.46], toquio: [35.68, 139.69], veneza: [45.44, 12.33]
+  paris: [48.86, 2.29], pequim: [39.9, 116.4], roma: [41.9, 12.5], santorini: [36.39, 25.46], toquio: [35.68, 139.69], veneza: [45.44, 12.33],
+  toscana: [43.32, 11.33]
 };
 const mapElements = {
   viewport: document.querySelector("#mapViewport"), canvas: document.querySelector("#mapCanvas"), pins: document.querySelector("#pinsLayer"),
@@ -38,7 +39,7 @@ for (const destination of destinations) {
     otherButton.type = "button";
     otherButton.className = "other-destination-button";
     otherButton.dataset.id = destination.id;
-    otherButton.innerHTML = `<span>✦</span> OUTRO LUGAR`;
+    otherButton.innerHTML = `<span>✦</span> NÃO ENCONTROU O SEU LUGAR?`;
     otherButton.addEventListener("click", event => { event.stopPropagation(); chooseMapDestination(destination); });
     mapElements.viewport.append(otherButton);
     continue;

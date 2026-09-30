@@ -70,7 +70,7 @@ async function begin() {
     elements.destinationName.textContent = destination.name.toUpperCase();
     await Promise.all([
       loadImage(destination.image),
-      loadImage("assets/exhibition-logo.svg?v=3"),
+      loadImage("assets/exhibition-logo-pink.svg?v=1"),
       document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
@@ -302,7 +302,7 @@ async function composePolaroid(updateBlob = true) {
   if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
-  const exhibitionLogo = await loadImage("assets/exhibition-logo.svg?v=3");
+  const exhibitionLogo = await loadImage("assets/exhibition-logo-pink.svg?v=1");
   const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
@@ -325,10 +325,15 @@ async function composePolaroid(updateBlob = true) {
   context.font = '400 64px "Reenie Beanie", "Courier New", monospace';
   wrapText(context, elements.reason.value.trim(), 84, 1195, 900, 58, 3);
   context.font = "700 21px Courier New, monospace";
-  context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1352);
-  context.font = "700 17px Courier New, monospace";
-  context.fillText("VOCÊ ESTÁ AQUI · 2026", 84, 1384);
-  context.drawImage(exhibitionLogo, 1200 - 84 - 82, 1392, 82, 82);
+  context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1322);
+  context.font = "700 20px Courier New, monospace";
+  context.fillText("Curadoria João Kulcsár", 84, 1358);
+  context.fillText("Visitação, terça a domingo, 10h às 20h", 84, 1386);
+  context.fillText("Até 4 de abril de 2027", 84, 1412);
+  context.font = "700 21px Courier New, monospace";
+  context.fillText("CENTRO CULTURAL FIESP", 84, 1450);
+  context.fillText("GALERIA DE FOTOS", 84, 1476);
+  context.drawImage(exhibitionLogo, 1000, 1342, 126, 126);
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }
 
