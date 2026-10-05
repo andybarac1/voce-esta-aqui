@@ -14,7 +14,7 @@
   document.head.append(tag);
 
   const path = location.pathname;
-  const experience = path.includes("/polaroid") || path.includes("/experiencia-2") ? "polaroid" : "selfie";
+  const experience = path.includes("/polaroid") || path.includes("/experiencia-2") ? "polaroid" : "autorretrato";
   const surface = document.body.classList.contains("mobile-page") ? "mobile" : "tv";
   const sent = new Set();
 
@@ -32,8 +32,8 @@
   }
 
   onClick("#openingSplash", "experience_start");
-  onClick("#scenarioPromptButton", "selfie_scene_confirm");
-  onClick("#readyPromptButton", "selfie_countdown_start");
+  onClick("#scenarioPromptButton", "autorretrato_scene_confirm");
+  onClick("#readyPromptButton", "autorretrato_countdown_start");
   onClick("#restartButton", "experience_restart");
   onClick("#chooseButton", "qr_display", () => ({ destination_id: window.selected?.id || document.querySelector(".map-pin.is-active")?.dataset.id || "unknown" }));
   onClick("#reasonContinue", "caption_complete");
@@ -58,10 +58,10 @@
     }).observe(editor, { attributes: true, attributeFilter: ["hidden"] });
   }
 
-  const selfieEnd = document.querySelector("#phoneEnd");
-  if (selfieEnd) {
+  const portraitEnd = document.querySelector("#phoneEnd");
+  if (portraitEnd) {
     new MutationObserver(() => {
-      if (!selfieEnd.hidden) track("selfie_complete", {}, "selfie_complete");
-    }).observe(selfieEnd, { attributes: true, attributeFilter: ["hidden"] });
+      if (!portraitEnd.hidden) track("autorretrato_complete", {}, "autorretrato_complete");
+    }).observe(portraitEnd, { attributes: true, attributeFilter: ["hidden"] });
   }
 })();

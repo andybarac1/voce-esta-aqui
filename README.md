@@ -4,11 +4,9 @@ Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e d
 
 ## Experiências disponíveis
 
-- `/selfie/` — Experiência 1: seleção por galeria; a TV exibe o cenário em tela cheia e o visitante faz a selfie com o próprio celular.
-- `/polaroid/` — Experiência 2: seleção pelo mapa, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, enquadramento, download e compartilhamento.
+- `/selfie/` — Experiência 1 — Autorretrato: seleção por galeria; a TV exibe o cenário em tela cheia e o visitante faz o autorretrato com o próprio celular.
+- `/polaroid/` — Experiência 2: seleção por galeria, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, enquadramento, download e compartilhamento.
 - `/` e `/experiencia-2/` redirecionam para as novas rotas.
-
-O mapa-base usa uma projeção Robinson com fronteiras do Natural Earth, disponibilizada em domínio público/CC0 pelo Wikimedia Commons.
 
 ## Executar localmente
 
@@ -20,18 +18,15 @@ python -m http.server 8080
 
 Abra `http://localhost:8080/selfie/` ou `http://localhost:8080/polaroid/` no Chrome ou Edge.
 
-## Interação de mapa
+## Interação da galeria
 
-- Um dedo ou mouse: arrastar o mapa.
-- Dois dedos: pinça para ampliar ou reduzir.
-- Roda do mouse: zoom centrado no cursor.
-- Duplo toque/clique: aproximação rápida.
-- Teclado: setas movem, `+`/`-` alteram o zoom e `0` recentraliza.
-- Pins: 17 destinos posicionados por latitude e longitude.
+- Um toque ou clique seleciona um destino.
+- Na experiência Autorretrato, a seleção abre a confirmação do cenário.
+- Na experiência Polaroid, a seleção atualiza a passagem à direita antes de gerar o QR Code.
 
 ## Moldura infravermelha
 
-O mapa usa Pointer Events e aceita multitoque quando a moldura se apresenta ao sistema como dispositivo HID. Dois pontos simultâneos são suficientes para arrasto e pinça; uma moldura de 10 pontos é recomendada para instalações públicas. No Windows/Chrome, desative gestos do sistema que disputem as bordas da tela e execute o navegador em modo kiosk.
+As galerias aceitam toque quando a moldura se apresenta ao sistema como dispositivo HID. Uma moldura de 10 pontos continua recomendada para instalações públicas, embora a navegação atual exija apenas um toque. No Windows/Chrome, desative gestos do sistema que disputem as bordas da tela e execute o navegador em modo kiosk.
 
 Exemplo:
 

@@ -1,33 +1,96 @@
-.polaroid-map .opening-splash { background: var(--orange); }
-.polaroid-map .opening-title small { background: var(--pink); }
-.polaroid-map .experience { min-height: 0; }
-.polaroid-map .destination-panel { grid-template-rows: minmax(0, 46%) minmax(0, 54%); }
-.polaroid-map .ticket { overflow: auto; }
-.polaroid-map .polaroid-cta { min-height: 58px; margin-top: 14px; }
-.polaroid-map .country-flag { margin-left: 7px; }
-.polaroid-map .brand-lockup--map-spacer { min-width: clamp(70px,5.7vw,106px); }
-.polaroid-map .map-exhibition-logo { position: absolute; z-index: 7; left: 24px; bottom: 72px; width: clamp(100px,8vw,150px); aspect-ratio: 1; display: grid; place-items: center; padding: 7px; border-radius: 50%; background: rgba(23,23,25,.94); box-shadow: 0 0 0 2px rgba(247,242,231,.78), 5px 5px 0 rgba(23,23,25,.2); pointer-events: none; }
-.polaroid-map .map-exhibition-logo img { width: 100%; height: 100%; display: block; object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0,0,0,.35)); }
-.polaroid-map .other-destination-button { position: absolute; z-index: 8; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1.5px solid var(--ink); background: rgba(247,242,231,.86); box-shadow: 3px 3px 0 rgba(23,23,25,.72); font: 700 clamp(8px,.6vw,10px)/1 "Courier New",monospace; cursor: pointer; opacity: .82; }
-.polaroid-map .other-destination-button span { font-size: 18px; }
-.polaroid-map .other-destination-button.is-active { background: var(--pink); opacity: 1; }
-.polaroid-map .qr-ticket {
+.polaroid-gallery .opening-splash { background: var(--orange); }
+.polaroid-gallery .opening-title small { background: var(--pink); }
+.polaroid-gallery .experience { min-height: 0; }
+.polaroid-gallery .destination-panel { grid-template-rows: minmax(0,46%) minmax(0,54%); }
+.polaroid-gallery .ticket { overflow: auto; }
+.polaroid-gallery .polaroid-cta { min-height: 58px; margin-top: 14px; }
+.polaroid-gallery .country-flag { margin-left: 7px; }
+
+.polaroid-gallery-panel {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0,1fr);
+  padding: clamp(13px,1.4vw,26px);
+  overflow: hidden;
+  background: var(--aqua);
+}
+.polaroid-gallery-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 2px clamp(10px,1.1vh,16px);
+}
+.polaroid-gallery-heading h2 { margin: 0; font-size: clamp(25px,2.3vw,46px); line-height: .9; letter-spacing: -.07em; }
+.polaroid-gallery-heading > p { margin: 0; padding: 7px 10px; border: 2px solid var(--ink); background: var(--pink); font-size: clamp(8px,.57vw,11px); font-weight: 700; letter-spacing: .1em; }
+.polaroid-gallery .thumbnail-rail.polaroid-destination-grid {
+  position: static;
+  z-index: auto;
+  display: grid;
+  grid-template-columns: repeat(6,minmax(0,1fr));
+  grid-template-rows: repeat(6,minmax(0,1fr));
+  gap: clamp(6px,.55vw,10px);
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  scroll-snap-type: none;
+}
+.polaroid-gallery .gallery-thumb {
+  position: relative;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 3px 3px 0 rgba(23,23,25,.17);
+  cursor: pointer;
+  transition: transform 170ms ease, box-shadow 170ms ease;
+}
+.polaroid-gallery .gallery-thumb img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.72) contrast(.95); transition: filter 220ms ease, transform 220ms ease; }
+.polaroid-gallery .gallery-thumb .gallery-thumb-copy {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 1px;
+  padding: 15px 6px 5px;
+  background: linear-gradient(transparent,rgba(23,23,25,.94) 42%);
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0,0,0,.95);
+}
+.polaroid-gallery .gallery-thumb-copy strong { overflow: hidden; font-size: clamp(8px,.65vw,12px); line-height: 1; text-overflow: ellipsis; white-space: nowrap; }
+.polaroid-gallery .gallery-thumb-copy small { overflow: hidden; font: 700 clamp(6px,.46vw,9px)/1.1 "Courier New",monospace; text-overflow: ellipsis; white-space: nowrap; }
+.polaroid-gallery .gallery-thumb:is(:hover,:focus-visible) { z-index: 2; transform: translateY(-2px) scale(1.02); box-shadow: 5px 5px 0 var(--orange); outline: none; }
+.polaroid-gallery .gallery-thumb:is(:hover,:focus-visible) img { filter: none; transform: scale(1.035); }
+.polaroid-gallery .gallery-thumb.is-active { z-index: 1; transform: none; border-color: var(--ink); box-shadow: 0 0 0 3px var(--pink), 5px 5px 0 var(--ink); }
+.polaroid-gallery .gallery-thumb.is-active img { filter: none; }
+
+.polaroid-gallery .qr-ticket {
   margin-left: -18px;
   padding-left: calc(4vw + 18px);
-  -webkit-mask-image: radial-gradient(circle at 0 50%, transparent 0 18px, #000 19px);
-  mask-image: radial-gradient(circle at 0 50%, transparent 0 18px, #000 19px);
+  -webkit-mask-image: radial-gradient(circle at 0 50%,transparent 0 18px,#000 19px);
+  mask-image: radial-gradient(circle at 0 50%,transparent 0 18px,#000 19px);
 }
-.polaroid-map .qr-ticket::before { display: none; }
+.polaroid-gallery .qr-ticket::before { display: none; }
+
 @media (max-height: 1000px) and (min-width: 1000px) {
-  .polaroid-map .map-exhibition-logo { bottom: 66px; width: clamp(86px,7vw,122px); }
-  .polaroid-map .destination-panel { grid-template-rows: minmax(0, 40%) minmax(0, 60%); }
-  .polaroid-map .ticket { padding: 12px 22px 14px; }
-  .polaroid-map .ticket h3 { margin: 8px 0 2px; font-size: 35px; }
-  .polaroid-map .ticket-rule { margin: 9px 0 8px; }
-  .polaroid-map .ticket-phrase { font-size: 15px !important; }
-  .polaroid-map .ticket-tips { margin-top: 9px; }
-  .polaroid-map .ticket-tips-title { padding: 4px 8px; }
-  .polaroid-map .ticket-tips span { min-height: 26px; padding: 3px 7px; grid-template-columns: 26px 1fr; }
-  .polaroid-map .ticket-tips span b { width: 22px; height: 22px; font-size: 8px; }
-  .polaroid-map .polaroid-cta { min-height: 43px; margin-top: 8px; }
+  .polaroid-gallery-panel { padding: 10px 14px 13px; }
+  .polaroid-gallery-heading { padding-bottom: 8px; }
+  .polaroid-gallery-heading h2 { font-size: 29px; }
+  .polaroid-gallery .thumbnail-rail.polaroid-destination-grid { gap: 6px; }
+  .polaroid-gallery .destination-panel { grid-template-rows: minmax(0,40%) minmax(0,60%); }
+  .polaroid-gallery .ticket { padding: 12px 22px 14px; }
+  .polaroid-gallery .ticket h3 { margin: 8px 0 2px; font-size: 35px; }
+  .polaroid-gallery .ticket-rule { margin: 9px 0 8px; }
+  .polaroid-gallery .ticket-phrase { font-size: 15px !important; }
+  .polaroid-gallery .ticket-tips { margin-top: 9px; }
+  .polaroid-gallery .ticket-tips-title { padding: 4px 8px; }
+  .polaroid-gallery .ticket-tips span { min-height: 26px; padding: 3px 7px; grid-template-columns: 26px 1fr; }
+  .polaroid-gallery .ticket-tips span b { width: 22px; height: 22px; font-size: 8px; }
+  .polaroid-gallery .polaroid-cta { min-height: 43px; margin-top: 8px; }
 }

@@ -54,7 +54,7 @@ function createGallery() {
     button.type = "button";
     button.dataset.id = destination.id;
     button.setAttribute("aria-label", `${destination.name}, ${destination.country}`);
-    button.innerHTML = `<img src="${destination.image}" alt=""><span>${String(index + 1).padStart(2, "0")}</span>`;
+    button.innerHTML = `<img src="${destination.image}" alt=""><span class="gallery-thumb-copy"><strong>${destination.name}</strong><small>${destination.country} ${destination.flag || ""}</small></span>`;
     button.addEventListener("click", () => selectDestination(destination));
     fragment.append(button);
   });

@@ -1,5 +1,5 @@
 const galleryRail = document.querySelector("#thumbnailRail");
-const selfieTicketName = document.querySelector("#selfieTicketName");
+const portraitTicketName = document.querySelector("#portraitTicketName");
 
 function countryFlag(destination) {
   const iso = ({ Brasil: "br", Suíça: "ch", Grécia: "gr", Espanha: "es", Argentina: "ar", Egito: "eg", México: "mx", Portugal: "pt", "Reino Unido": "gb", Peru: "pe", Maldivas: "mv", "Estados Unidos": "us", França: "fr", China: "cn", Itália: "it", Japão: "jp" })[destination.country];
@@ -13,7 +13,7 @@ function countryFlag(destination) {
 
 function syncGallery(destination, fromUser = false) {
   selectDestination(destination, fromUser);
-  selfieTicketName.textContent = destination.name.toUpperCase();
+  portraitTicketName.textContent = destination.name.toUpperCase();
   elements.country.replaceChildren(document.createTextNode(`${destination.country.toUpperCase()} `), countryFlag(destination));
   document.querySelectorAll(".gallery-thumb").forEach(button => button.classList.toggle("is-active", button.dataset.id === destination.id));
 }

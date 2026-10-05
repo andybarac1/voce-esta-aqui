@@ -282,7 +282,7 @@ const mapController = (() => {
 function openExperience() {
   clearExperienceTimers();
   hideScenarioPrompt();
-  elements.phoneTitle.textContent = `SELFIE EM ${selected.name.toUpperCase()}`;
+  elements.phoneTitle.textContent = `AUTORRETRATO EM ${selected.name.toUpperCase()}`;
   elements.background.src = selected.image;
   elements.background.alt = selected.alt;
   elements.instructionBackground.src = selected.image;
@@ -413,7 +413,7 @@ function closeExperience() {
   scheduleIdleTip();
 }
 
-const tips = ["TOQUE EM UM PIN PARA ESCOLHER O CENÁRIO.", "A SELFIE É FEITA COM O SEU PRÓPRIO CELULAR.", "USE DOIS DEDOS PARA APROXIMAR O MAPA."];
+  const tips = ["TOQUE EM UMA FOTO PARA ESCOLHER O CENÁRIO.", "O AUTORRETRATO É FEITO COM O SEU PRÓPRIO CELULAR.", "ESCOLHA A PAISAGEM QUE MAIS COMBINA COM VOCÊ."];
 function scheduleIdleTip() {
   clearTimeout(idleTimeout);
   clearTimeout(tipTimeout);

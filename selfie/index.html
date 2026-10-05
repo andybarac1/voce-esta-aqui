@@ -5,18 +5,18 @@
   <base href="../">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#f34fa2">
-  <title>Você está aqui — Selfie</title>
+  <title>Você está aqui — Autorretrato</title>
   <link rel="stylesheet" href="styles.css?v=17">
   <link rel="stylesheet" href="experiencia-2/styles.css?v=8">
-  <link rel="stylesheet" href="selfie/styles.css?v=3">
+  <link rel="stylesheet" href="selfie/styles.css?v=4">
 </head>
-<body class="tv-page selfie-gallery">
-  <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência de selfie">
+<body class="tv-page autorretrato-gallery">
+  <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência de autorretrato">
     <div class="opening-brands" aria-hidden="true">
       <img class="exhibition-logo" src="assets/exhibition-logo.svg?v=4" alt="Logo circular da exposição Martin Parr — Mundo Pequeno">
     </div>
     <div class="opening-title">
-      <p>EXPERIÊNCIA 01 / SELFIE</p>
+      <p>EXPERIÊNCIA 01 / AUTORRETRATO</p>
       <h1>VOCÊ ESTÁ<br>AQUI.</h1>
       <small>TOQUE PARA COMEÇAR A VIAGEM.</small>
     </div>
@@ -33,11 +33,11 @@
 
     <main class="gallery-screen destination-grid-screen" id="galleryScreen">
       <section class="all-destinations" aria-labelledby="gridTitle">
-        <div class="grid-heading"><div><p>ESCOLHA O CENÁRIO DA SUA SELFIE</p><h2 id="gridTitle">PARA ONDE VOCÊ IRIA?</h2></div><p>TOQUE EM UMA FOTO PARA EMBARCAR</p></div>
+        <div class="grid-heading"><div><p>ESCOLHA O CENÁRIO DO SEU AUTORRETRATO</p><h2 id="gridTitle">PARA ONDE VOCÊ IRIA?</h2></div><p>TOQUE EM UMA FOTO PARA EMBARCAR</p></div>
         <div class="thumbnail-rail destination-grid" id="thumbnailRail" aria-label="Galeria com todos os destinos"></div>
       </section>
       <div class="gallery-support" aria-hidden="true">
-        <img id="destinationPhoto" src="assets/paris.jpg" alt=""><div id="photoFlash"></div><span id="photoIndex"></span><span id="destinationName">PARIS</span><span id="destinationCountry">FRANÇA</span><span id="destinationCode">PAR</span><span id="selfieTicketName">PARIS</span><span id="ticketPhrase"></span>
+        <img id="destinationPhoto" src="assets/paris.jpg" alt=""><div id="photoFlash"></div><span id="photoIndex"></span><span id="destinationName">PARIS</span><span id="destinationCountry">FRANÇA</span><span id="destinationCode">PAR</span><span id="portraitTicketName">PARIS</span><span id="ticketPhrase"></span>
       </div>
     </main>
   </div>
@@ -56,7 +56,7 @@
       <button class="close-button phone-close" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
       <section class="phone-instructions" id="phoneInstructions">
         <p class="step">PREPARE O SEU CELULAR</p>
-        <h2 id="phoneTitle">SELFIE EM PARIS</h2>
+        <h2 id="phoneTitle">AUTORRETRATO EM PARIS</h2>
         <p class="phone-lead">A TV SERÁ O SEU CENÁRIO. A FOTO É FEITA COM A CÂMERA DO SEU PRÓPRIO CELULAR.</p>
         <ol>
           <li><strong>1</strong><span>ABRA A CÂMERA DO SEU CELULAR.</span></li>
@@ -74,7 +74,7 @@
         <div class="scene-progress"><span id="sceneProgress"></span></div>
       </section>
       <section class="countdown-popup" id="countdownPopup" hidden>
-        <span>PREPARE A CÂMERA</span><strong>VOCÊ TERÁ 15 SEGUNDOS PARA FAZER A SELFIE.</strong>
+        <span>PREPARE A CÂMERA</span><strong>VOCÊ TERÁ 15 SEGUNDOS PARA FAZER O AUTORRETRATO.</strong>
         <small>A PAISAGEM VAI OCUPAR TODA A TELA.</small><b id="prepTimer">7</b>
       </section>
       <section class="phone-end" id="phoneEnd" hidden>
@@ -108,8 +108,8 @@
   <aside class="idle-tip route-idle-tip" id="idleTip"><button id="closeTipButton" type="button">×</button><span>DICA</span><strong id="tipText"></strong></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="destinations-data.js?v=2"></script>
-  <script src="app.js?v=18"></script>
-  <script src="selfie/gallery-adapter.js?v=3"></script>
-  <script src="analytics.js?v=1"></script>
+  <script src="app.js?v=19"></script>
+  <script src="selfie/gallery-adapter.js?v=4"></script>
+  <script src="analytics.js?v=2"></script>
 </body>
 </html>
