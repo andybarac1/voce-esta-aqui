@@ -17,7 +17,7 @@ As novas imagens desta atualização foram obtidas no Wikimedia Commons e mantê
 - Atenas — [Athens Acropolis at Daybreak](https://commons.wikimedia.org/wiki/File:Athens_Acropolis_at_Daybreak.jpg)
 - Barcelona — [Evening light over Barcelona](https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg)
 - Buenos Aires — [La City vista desde Puerto Madero](https://commons.wikimedia.org/wiki/File:La_City_vista_desde_Puerto_Madero.jpg)
-- Cairo — [Cairo skyline, Panoramic view, Egypt](https://commons.wikimedia.org/wiki/File:Cairo_skyline,_Panoramic_view,_Egypt.jpg)
+- Pirâmides de Gizé — [Giza Pyramids Panorama](https://commons.wikimedia.org/wiki/File:Giza_Pyramids_Panorama.jpg), fotografia de Benjamin Inbar, CC BY-SA 4.0
 - Cancún — [Cancun Strand Luftbild](https://commons.wikimedia.org/wiki/File:Cancun_Strand_Luftbild_(22143397586).jpg)
 - Londres — [London Skyline](https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg)
 - Machu Picchu — [Machu Picchu, Peru (2018)](https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru_(2018).jpg)

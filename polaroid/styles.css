@@ -13,7 +13,7 @@
   grid-template-rows: auto minmax(0,1fr);
   padding: clamp(13px,1.4vw,26px);
   overflow: hidden;
-  background: var(--aqua);
+  background: #ffd8bf;
 }
 .polaroid-gallery-heading {
   display: flex;

@@ -1,11 +1,11 @@
 # Você está aqui — experiência interativa
 
-Aplicações de tela grande inspiradas na identidade visual da Magnum Photos e da Martin Parr Foundation.
+Aplicações de tela grande da exposição Martin Parr — Mundo Pequeno. A assinatura visual usa exclusivamente o selo circular oficial fornecido pelo cliente.
 
 ## Experiências disponíveis
 
 - `/selfie/` — Experiência 1 — Autorretrato: seleção por galeria; a TV exibe o cenário em tela cheia e o visitante faz o autorretrato com o próprio celular.
-- `/polaroid/` — Experiência 2: seleção por galeria, continuação por QR code no celular e criação de uma Polaroid com recorte de fundo, legenda, enquadramento, download e compartilhamento.
+- `/polaroid/` — Experiência 2 — Meu próximo destino: seleção por galeria, continuação por QR code no celular e criação de uma lembrança com recorte de fundo, legenda, enquadramento, download e compartilhamento.
 - `/` e `/experiencia-2/` redirecionam para as novas rotas.
 
 ## Executar localmente
@@ -22,7 +22,7 @@ Abra `http://localhost:8080/selfie/` ou `http://localhost:8080/polaroid/` no Chr
 
 - Um toque ou clique seleciona um destino.
 - Na experiência Autorretrato, a seleção abre a confirmação do cenário.
-- Na experiência Polaroid, a seleção atualiza a passagem à direita antes de gerar o QR Code.
+- Na experiência Meu próximo destino, a seleção atualiza a passagem à direita antes de gerar o QR Code.
 
 ## Moldura infravermelha
 

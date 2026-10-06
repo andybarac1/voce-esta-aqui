@@ -10,7 +10,7 @@ Experiência estática para uma TV de 43 polegadas que transfere o destino escol
 4. O QR permanece na tela por 25 segundos.
 5. A TV agradece e reinicia para a próxima pessoa, independentemente do celular.
 6. No celular, o visitante escreve a legenda, tira a foto diante de um fundo neutro e ajusta o recorte.
-7. A Polaroid recebe paisagem, legenda e logos e pode ser baixada ou compartilhada.
+7. A lembrança recebe paisagem, legenda e o selo circular oficial da exposição e pode ser baixada ou compartilhada.
 
 ## Executar localmente
 
@@ -38,7 +38,7 @@ A aplicação é inteiramente estática e pode ser publicada gratuitamente em Gi
 
 ## Compartilhamento
 
-Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a imagem pronta. Instagram, Facebook e TikTok não permitem postagem automática por um site sem autenticação e permissões próprias; quando o compartilhamento de arquivos não está disponível, a aplicação baixa a Polaroid e abre a rede para que o visitante selecione o arquivo.
+Em aparelhos compatíveis, os botões usam o compartilhamento nativo com a imagem pronta. Instagram, Facebook e TikTok não permitem postagem automática por um site sem autenticação e permissões próprias; quando o compartilhamento de arquivos não está disponível, a aplicação baixa a lembrança e abre a rede para que o visitante selecione o arquivo.
 
 O gerador de QR code local usa `qrcode-generator`, de Kazuhiko Arase, sob licença MIT.
 

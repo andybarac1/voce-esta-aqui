@@ -59,9 +59,6 @@ button { color: inherit; }
 
 .brand-lockup { display: flex; align-items: center; gap: 18px; height: 100%; }
 .brand { display: block; object-fit: contain; }
-.brand--magnum { width: clamp(55px, 4.2vw, 78px); height: clamp(55px, 4.2vw, 78px); }
-.brand--mpf { width: clamp(62px, 5.4vw, 98px); height: auto; mix-blend-mode: multiply; }
-.brand-divider { width: 1px; height: 52%; background: var(--ink); opacity: .45; }
 .brand-lockup .exhibition-logo { width: clamp(70px,5.7vw,106px); }
 
 .headline { text-align: center; line-height: 1; }
@@ -375,9 +372,7 @@ button { color: inherit; }
   .headline { text-align: right; }
   .headline .eyebrow { display: none; }
   .headline h1 { font-size: 25px; }
-  .brand-divider, .topbar-actions { display: none; }
-  .brand--magnum { width: 52px; height: 52px; }
-  .brand--mpf { width: 64px; }
+  .topbar-actions { display: none; }
   .experience { display: block; }
   .map-panel { height: 70dvh; border-right: 0; border-bottom: 2px solid var(--ink); }
   .map-intro { padding: 19px 18px 12px; }

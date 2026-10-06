@@ -3,7 +3,7 @@ const coordinates = {
   "foz-do-iguacu": [-25.69, -54.44], jericoacoara: [-2.79, -40.51], "lencois-maranhenses": [-2.55, -43.12], maragogi: [-9.01, -35.22],
   pantanal: [-17.68, -57], "porto-de-galinhas": [-8.5, -35], "rio-de-janeiro": [-22.95, -43.21], salvador: [-12.97, -38.5],
   "alpes-suicos": [46.56, 8.56], atenas: [37.98, 23.73], barcelona: [41.39, 2.17], "buenos-aires": [-34.6, -58.38],
-  cairo: [30.04, 31.24], cancun: [21.16, -86.85], lisboa: [38.72, -9.14], londres: [51.51, -.13],
+  cairo: [29.9792, 31.1342], cancun: [21.16, -86.85], lisboa: [38.72, -9.14], londres: [51.51, -.13],
   "machu-picchu": [-13.16, -72.55], maldivas: [3.2, 73.22], "nova-yorke": [40.69, -74.04], "orlando-miami": [25.76, -80.19],
   paris: [48.86, 2.29], pequim: [39.9, 116.4], roma: [41.9, 12.5], santorini: [36.39, 25.46], toquio: [35.68, 139.69], veneza: [45.44, 12.33],
   toscana: [43.32, 11.33]

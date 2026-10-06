@@ -70,7 +70,7 @@ async function begin() {
     elements.destinationName.textContent = destination.name.toUpperCase();
     await Promise.all([
       loadImage(destination.image),
-      loadImage("assets/exhibition-logo-pink.svg?v=1"),
+      loadImage("assets/exhibition-logo-pink.svg?v=3"),
       document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
@@ -302,7 +302,7 @@ async function composePolaroid(updateBlob = true) {
   if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
-  const exhibitionLogo = await loadImage("assets/exhibition-logo-pink.svg?v=1");
+  const exhibitionLogo = await loadImage("assets/exhibition-logo-pink.svg?v=3");
   const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
@@ -476,7 +476,7 @@ async function savePhoto() {
   const isiOS = /iP(ad|hone|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   if (isiOS && canShareFile(file)) {
     try {
-      await navigator.share({ files: [file], title: "Salvar sua Polaroid" });
+      await navigator.share({ files: [file], title: "Salvar minha lembrança" });
       toast("PARA GUARDAR EM FOTOS, ESCOLHA SALVAR IMAGEM.");
       return;
     } catch (error) {
@@ -500,7 +500,7 @@ async function sharePhoto() {
   if (canShareFile(file)) {
     try {
       await navigator.share({ files: [file], title: "Você está aqui", text: `Minha viagem para ${destination.name}.` });
-      toast("POLAROID COMPARTILHADA.");
+      toast("LEMBRANÇA COMPARTILHADA.");
       return;
     } catch (error) {
       if (error.name === "AbortError") return;
