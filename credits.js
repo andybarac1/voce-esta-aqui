@@ -1,5 +1,25 @@
 (function () {
   const credits = window.WIKIMEDIA_CREDITS || [];
+  const creditsByDestination = new Map(credits.map(credit => [credit.destination_id, credit]));
+
+  function compactLabel(destinationId) {
+    const credit = creditsByDestination.get(destinationId);
+    if (!credit) return "";
+    const prefix = credit.asset_type === "map" ? "MAPA" : "FOTO";
+    return `${prefix}: ${credit.author} · ${credit.license}`;
+  }
+
+  function applyImageCredit(element, destinationId) {
+    if (!element) return;
+    const credit = creditsByDestination.get(destinationId);
+    element.replaceChildren();
+    element.hidden = !credit;
+    if (!credit) return;
+    element.textContent = compactLabel(destinationId);
+    element.setAttribute("aria-label", `Crédito da imagem: ${credit.author}, ${credit.license}. Link de origem disponível em Créditos das imagens.`);
+  }
+
+  window.MPFImageCredits = { find: destinationId => creditsByDestination.get(destinationId), compactLabel, apply: applyImageCredit };
 
   function createLink(label, href) {
     const link = document.createElement("a");

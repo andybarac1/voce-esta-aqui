@@ -1,5 +1,7 @@
 window.WIKIMEDIA_CREDITS = [
   {
+    "destination_id": "amazonia",
+    "asset_type": "photo",
     "destination": "Amazônia",
     "work": "Amazon CIAT (5).jpg",
     "author": "Neil Palmer/CIAT",
@@ -11,6 +13,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "bonito",
+    "asset_type": "photo",
     "destination": "Bonito",
     "work": "Abismo Anhumas, Bonito, MS.JPG",
     "author": "Caio Vilela",
@@ -22,6 +26,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "chapada-diamantina",
+    "asset_type": "photo",
     "destination": "Chapada Diamantina",
     "work": "Parque Nacional Chapada Diamantina Rafael Cristo Watanabe 04.jpg",
     "author": "Rafael Cristo Watanabe",
@@ -33,6 +39,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "fernando-de-noronha",
+    "asset_type": "photo",
     "destination": "Fernando de Noronha",
     "work": "Panorama de Noronha-Praia do Sancho.jpg",
     "author": "Hansfotos",
@@ -44,6 +52,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "foz-do-iguacu",
+    "asset_type": "photo",
     "destination": "Foz do Iguaçu",
     "work": "IG - Panoramic view near the start of the Brazilian trail at Iguazu Falls, 2023.jpg",
     "author": "Josep M. Gracia",
@@ -55,6 +65,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "jericoacoara",
+    "asset_type": "photo",
     "destination": "Jericoacoara",
     "work": "Dunas Jericoacoara.jpg",
     "author": "Cibarnabé",
@@ -66,6 +78,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "lencois-maranhenses",
+    "asset_type": "photo",
     "destination": "Lençóis Maranhenses",
     "work": "Lençóis Maranhenses 2018.jpg",
     "author": "Julius Dadalti",
@@ -77,6 +91,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "maragogi",
+    "asset_type": "photo",
     "destination": "Maragogi",
     "work": "Maragogi Alagoas Brasil.jpg",
     "author": "Tiago Leite",
@@ -88,6 +104,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "pantanal",
+    "asset_type": "photo",
     "destination": "Pantanal",
     "work": "As montanhas da planície.jpg",
     "author": "Ale Bertassoni",
@@ -99,6 +117,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "porto-de-galinhas",
+    "asset_type": "photo",
     "destination": "Porto de Galinhas",
     "work": "Porto de Galinhas-003.jpg",
     "author": "Cleferson Comarela",
@@ -110,6 +130,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "salvador",
+    "asset_type": "photo",
     "destination": "Salvador",
     "work": "Salvador BA (cropped) 2.jpg",
     "author": "Fotos Gov/Ba",
@@ -121,6 +143,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "alpes-suicos",
+    "asset_type": "photo",
     "destination": "Alpes Suíços",
     "work": "Swiss Alps.jpg",
     "author": "Devil Dancer",
@@ -132,6 +156,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "atenas",
+    "asset_type": "photo",
     "destination": "Atenas",
     "work": "Athens Acropolis at Daybreak.jpg",
     "author": "Andrew Parlette",
@@ -143,6 +169,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "barcelona",
+    "asset_type": "photo",
     "destination": "Barcelona",
     "work": "Evening light over Barcelona.jpg",
     "author": "M McBey",
@@ -154,6 +182,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "buenos-aires",
+    "asset_type": "photo",
     "destination": "Buenos Aires",
     "work": "La City vista desde Puerto Madero.jpg",
     "author": "Jimmy Baikovicius",
@@ -165,6 +195,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "cairo",
+    "asset_type": "photo",
     "destination": "Pirâmides de Gizé",
     "work": "Giza Pyramids Panorama.jpg",
     "author": "Benjamin Inbar",
@@ -176,6 +208,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "cancun",
+    "asset_type": "photo",
     "destination": "Cancún",
     "work": "Cancun Strand Luftbild (22143397586).jpg",
     "author": "dronepicr",
@@ -187,6 +221,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": false
   },
   {
+    "destination_id": "londres",
+    "asset_type": "photo",
     "destination": "Londres",
     "work": "London Skyline (125508655).jpeg",
     "author": "Ilya Grigorik",
@@ -198,6 +234,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "machu-picchu",
+    "asset_type": "photo",
     "destination": "Machu Picchu",
     "work": "Machu Picchu, Peru (2018).jpg",
     "author": "Zielonamapa.pl",
@@ -209,6 +247,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "maldivas",
+    "asset_type": "photo",
     "destination": "Maldivas",
     "work": "Aerial shot of a small island on a coral reef in the Maldives.jpg",
     "author": "Dr. Ondřej Havelka (cestovatel)",
@@ -220,6 +260,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "orlando-miami",
+    "asset_type": "photo",
     "destination": "Orlando e Miami",
     "work": "Miami Skyline 2020.jpg",
     "author": "Chris6d",
@@ -231,6 +273,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "pequim",
+    "asset_type": "photo",
     "destination": "Pequim",
     "work": "Skyline of Beijing CBD from the southeast (20210907094201).jpg",
     "author": "N509FZ",
@@ -242,6 +286,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "santorini",
+    "asset_type": "photo",
     "destination": "Santorini",
     "work": "Panoramic view of Oia, Santorini island (Thira), Greece.jpg",
     "author": "Mstyslav Chernov",
@@ -253,6 +299,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "toquio",
+    "asset_type": "photo",
     "destination": "Tóquio",
     "work": "Skyscrapers of Shinjuku 2009 January.jpg",
     "author": "Morio",
@@ -264,6 +312,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "veneza",
+    "asset_type": "photo",
     "destination": "Veneza",
     "work": "Venezia aerial view.jpg",
     "author": "kallerna",
@@ -275,6 +325,8 @@ window.WIKIMEDIA_CREDITS = [
     "share_alike": true
   },
   {
+    "destination_id": "toscana",
+    "asset_type": "photo",
     "destination": "Toscana",
     "work": "Tuscany landscape west of Siena.jpg",
     "author": "Norbert Nagel, Mörfelden-Walldorf, Germany",
@@ -284,5 +336,83 @@ window.WIKIMEDIA_CREDITS = [
     "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Tuscany_landscape_west_of_Siena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
     "attribution_required": true,
     "share_alike": true
+  },
+  {
+    "destination_id": "paris",
+    "asset_type": "photo",
+    "destination": "Paris",
+    "work": "Panoramic view on the illuminated 7th arrondissement of Paris at sunset in France.jpg",
+    "author": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Panoramic_view_on_the_illuminated_7th_arrondissement_of_Paris_at_sunset_in_France.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Panoramic_view_on_the_illuminated_7th_arrondissement_of_Paris_at_sunset_in_France.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": true,
+    "share_alike": true
+  },
+  {
+    "destination_id": "lisboa",
+    "asset_type": "photo",
+    "destination": "Lisboa",
+    "work": "Lisbon OldCity Panorama.jpg",
+    "author": "Mайкл Гиммельфарб",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lisbon_OldCity_Panorama.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Lisbon_OldCity_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": true,
+    "share_alike": true
+  },
+  {
+    "destination_id": "nova-yorke",
+    "asset_type": "photo",
+    "destination": "Nova York",
+    "work": "Brooklyn Bridge and the Lower Manhattan skyline from Pebble Beach, New York.jpg",
+    "author": "Christian David",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach,_New_York.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": true,
+    "share_alike": true
+  },
+  {
+    "destination_id": "rio-de-janeiro",
+    "asset_type": "photo",
+    "destination": "Rio de Janeiro",
+    "work": "Redentor Over Clouds 1.jpg",
+    "author": "Donatas Dabravolskas",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Redentor_Over_Clouds_1.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Redentor_Over_Clouds_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": true,
+    "share_alike": true
+  },
+  {
+    "destination_id": "roma",
+    "asset_type": "photo",
+    "destination": "Roma",
+    "work": "Rome Colosseum exterior panorama.jpg",
+    "author": "Nicholas Hartmann",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rome_Colosseum_exterior_panorama.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Rome_Colosseum_exterior_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": true,
+    "share_alike": true
+  },
+  {
+    "destination_id": "outro-lugar",
+    "asset_type": "map",
+    "destination": "Outro lugar",
+    "work": "BlankMap-World.svg",
+    "author": "Canuckguy e colaboradores",
+    "license": "Domínio público",
+    "license_url": "",
+    "source_url": "https://commons.wikimedia.org/wiki/File:BlankMap-World.svg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/BlankMap-World.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "attribution_required": false,
+    "share_alike": false
   }
 ];

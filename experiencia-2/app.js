@@ -1,20 +1,20 @@
 const legacyDestinations = [
-  { id: "paris", name: "Paris", country: "França", flag: "fr", code: "PAR", image: "assets/paris.jpg", alt: "Torre Eiffel em Paris", fact: "EM PARIS, ATÉ O CÉU PARECE POSAR." },
+  { id: "paris", name: "Paris", country: "França", flag: "fr", code: "PAR", image: "assets/destinations/paris.jpg", alt: "Torre Eiffel em Paris", fact: "EM PARIS, ATÉ O CÉU PARECE POSAR." },
   { id: "china", name: "Muralha da China", country: "China", flag: "cn", code: "PEK", image: "assets/china.jpg", alt: "Grande Muralha da China", fact: "UMA PAISAGEM QUE ATRAVESSA SÉCULOS E HORIZONTES." },
-  { id: "coliseu", name: "Coliseu", country: "Itália", flag: "it", code: "ROM", image: "assets/coliseu.jpg", alt: "Coliseu em Roma", fact: "EM ROMA, CADA PEDRA GUARDA UMA HISTÓRIA." },
+  { id: "roma", name: "Roma", country: "Itália", flag: "it", code: "ROM", image: "assets/destinations/roma.jpg", alt: "Coliseu em Roma", fact: "EM ROMA, CADA PEDRA GUARDA UMA HISTÓRIA." },
   { id: "dubai", name: "Dubai", country: "Emirados Árabes", flag: "ae", code: "DXB", image: "assets/dubai.jpg", alt: "Skyline de Dubai", fact: "O FUTURO GANHA FORMA NO MEIO DO DESERTO." },
   { id: "egito", name: "Pirâmides de Gizé", country: "Egito", flag: "eg", code: "CAI", image: "assets/egito.jpg", alt: "Pirâmides de Gizé", fact: "UMA VIAGEM DE VOLTA A QUATRO MIL ANOS DE HISTÓRIA." },
   { id: "fuji", name: "Monte Fuji", country: "Japão", flag: "jp", code: "FJI", image: "assets/fuji.jpg", alt: "Monte Fuji", fact: "O FUJI TRANSFORMA SILÊNCIO EM PAISAGEM." },
   { id: "hollywood", name: "Hollywood", country: "Estados Unidos", flag: "us", code: "LAX", image: "assets/hollywood.jpg", alt: "Letreiro de Hollywood", fact: "AQUI, TODO VIAJANTE PODE SER PROTAGONISTA." },
   { id: "italia", name: "Torre de Pisa", country: "Itália", flag: "it", code: "PSA", image: "assets/italia.jpg", alt: "Torre de Pisa", fact: "UMA PERSPECTIVA INCLINADA SOBRE A ITÁLIA." },
   { id: "jerusalem", name: "Jerusalém", country: "Israel", flag: "il", code: "JRS", image: "assets/jerusalem.jpg", alt: "Jerusalém", fact: "CAMINHOS ANTIGOS SE ENCONTRAM EM CADA ESQUINA." },
-  { id: "lisboa", name: "Lisboa", country: "Portugal", flag: "pt", code: "LIS", image: "assets/lisboa.jpg", alt: "Lisboa", fact: "LUZ, AZULEJOS E SETE COLINAS À SUA ESPERA." },
+  { id: "lisboa", name: "Lisboa", country: "Portugal", flag: "pt", code: "LIS", image: "assets/destinations/lisboa.jpg", alt: "Lisboa", fact: "LUZ, AZULEJOS E SETE COLINAS À SUA ESPERA." },
   { id: "machu-picchu", name: "Machu Picchu", country: "Peru", flag: "pe", code: "CUZ", image: "assets/machu-picchu.jpg", alt: "Machu Picchu", fact: "UMA CIDADE NAS NUVENS, A 2.430 METROS DE ALTITUDE." },
   { id: "madrid", name: "Madri", country: "Espanha", flag: "es", code: "MAD", image: "assets/madrid.jpg", alt: "Madri", fact: "ARTE E VIDA OCUPAM AS RUAS DE MADRI." },
   { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", flag: "br", code: "SAO", image: "assets/masp-sp.jpg", alt: "MASP em São Paulo", fact: "UM VÃO LIVRE PARA TODAS AS HISTÓRIAS." },
   { id: "moscou", name: "Moscou", country: "Rússia", flag: "ru", code: "MOW", image: "assets/moscou.jpg", alt: "Moscou", fact: "CORES E CÚPULAS MARCAM O CORAÇÃO DE MOSCOU." },
-  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", flag: "us", code: "NYC", image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade", fact: "UMA CIDADE FEITA DE CHEGADAS E RECOMEÇOS." },
-  { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", flag: "br", code: "RIO", image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor", fact: "NO RIO, A PAISAGEM FAZ QUESTÃO DE PARTICIPAR." },
+  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", flag: "us", code: "NYC", image: "assets/destinations/nova-yorke.jpg", alt: "Ponte do Brooklyn e Manhattan", fact: "UMA CIDADE FEITA DE CHEGADAS E RECOMEÇOS." },
+  { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", flag: "br", code: "RIO", image: "assets/destinations/rio-de-janeiro.jpg", alt: "Cristo Redentor", fact: "NO RIO, A PAISAGEM FAZ QUESTÃO DE PARTICIPAR." },
   { id: "savana-africana", name: "Savana Africana", country: "Quênia", flag: "ke", code: "NBO", image: "assets/savana-africana.jpg", alt: "Savana africana", fact: "O HORIZONTE É TÃO LIVRE QUANTO A VIDA SELVAGEM." }
 ];
 
@@ -25,7 +25,7 @@ const elements = {
   splash: $("#openingSplash"), galleryScreen: $("#galleryScreen"), image: $("#galleryImage"), title: $("#galleryTitle"),
   country: $("#galleryCountry"), counter: $("#galleryCounter"), rail: $("#thumbnailRail"), ticketCode: $("#ticketCode"),
   ticketName: $("#ticketName"), ticketFact: $("#ticketFact"), choose: $("#chooseButton"), qrScreen: $("#qrScreen"),
-  qrBackground: $("#qrBackground"), qrDestination: $("#qrDestination"), qrImage: $("#qrImage"), qrStatus: $("#qrStatus"),
+  imageCredit: $("#galleryImageCredit"), qrBackground: $("#qrBackground"), qrImageCredit: $("#qrImageCredit"), qrDestination: $("#qrDestination"), qrImage: $("#qrImage"), qrStatus: $("#qrStatus"),
   qrBack: $("#qrBackButton"), thanks: $("#tvThanks"), toast: $("#toast")
 };
 
@@ -55,6 +55,11 @@ function createGallery() {
     button.dataset.id = destination.id;
     button.setAttribute("aria-label", `${destination.name}, ${destination.country}`);
     button.innerHTML = `<img src="${destination.image}" alt=""><span class="gallery-thumb-copy"><strong>${destination.name}</strong><small>${destination.country} ${destination.flag || ""}</small></span>`;
+    const imageCredit = document.createElement("span");
+    imageCredit.className = "gallery-image-credit";
+    imageCredit.textContent = window.MPFImageCredits?.compactLabel(destination.id) || "";
+    imageCredit.hidden = !imageCredit.textContent;
+    button.append(imageCredit);
     button.addEventListener("click", () => selectDestination(destination));
     fragment.append(button);
   });
@@ -88,6 +93,7 @@ function selectDestination(destination) {
   elements.ticketCode.replaceChildren(document.createTextNode(`${destination.code} / `), flagImage(destination));
   elements.ticketName.textContent = destination.name.toUpperCase();
   elements.ticketFact.textContent = destination.fact;
+  window.MPFImageCredits?.apply(elements.imageCredit, destination.id);
   document.querySelectorAll(".gallery-thumb").forEach(button => button.classList.toggle("is-active", button.dataset.id === destination.id));
   const active = $(`.gallery-thumb[data-id="${destination.id}"]`);
   active?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
@@ -121,6 +127,7 @@ function createTransfer() {
     code.make();
     activeTransfer = { destinationId: selected.id, mobileUrl: mobileUrl.href };
     elements.qrBackground.src = selected.image;
+    window.MPFImageCredits?.apply(elements.qrImageCredit, selected.id);
     elements.qrDestination.textContent = selected.name.toUpperCase();
     elements.qrImage.src = code.createDataURL(8, 4);
     elements.galleryScreen.hidden = true;

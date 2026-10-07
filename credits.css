@@ -43,6 +43,20 @@
 
 .mobile-credits-link { display: inline-block; margin-top: 5px; color: inherit; font-size: 7px; font-weight: 700; letter-spacing: .08em; text-decoration: underline; text-underline-offset: 2px; }
 
+.image-credit { position: absolute; z-index: 6; right: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 5px 7px; overflow: hidden; border: 1px solid rgba(255,255,255,.55); background: rgba(23,23,25,.76); color: #fff; font: 700 clamp(7px,.55vw,10px)/1.2 "Courier New",monospace; letter-spacing: .02em; text-align: right; text-overflow: ellipsis; text-shadow: 0 1px 2px #000; white-space: nowrap; backdrop-filter: blur(3px); }
+.image-credit[hidden] { display: none; }
+.scenario-photo, .phone-scene, .destination-photo-wrap, .qr-scenery, .destination-preview { position: relative; }
+.scenario-photo .image-credit { right: 6px; bottom: 6px; }
+.phone-scene .image-credit, .qr-scenery .image-credit { right: 16px; bottom: 16px; }
+.qr-scenery .image-credit { z-index: 3; }
+.destination-preview .image-credit { z-index: 4; right: 8px; top: 8px; bottom: auto; max-width: calc(100% - 16px); }
+.destination-preview .image-credit { padding: 4px 6px; font-size: 7px; }
+.gallery-thumb .gallery-image-credit { position: absolute; z-index: 5; inset: 5px 5px auto auto; max-width: calc(100% - 10px); padding: 3px 4px; overflow: hidden; background: rgba(23,23,25,.78); color: #fff; font: 700 clamp(5px,.38vw,7px)/1.1 "Courier New",monospace; text-align: right; text-overflow: ellipsis; text-shadow: 0 1px 2px #000; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .image-credit { font-size: 7px; }
+}
+
 @media (max-width: 760px) {
   .credits-dialog { width: 94vw; height: 90vh; }
   .credits-header { padding: 16px; }

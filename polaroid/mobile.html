@@ -20,7 +20,7 @@
     <main class="mobile-main">
       <section class="mobile-step loading-step" id="sessionLoading"><div class="loading-aperture" aria-hidden="true"></div><h2>PREPARANDO SUA VIAGEM.</h2></section>
       <section class="mobile-step mobile-step--card" id="reasonStep" hidden>
-        <div class="destination-preview"><img id="mobileDestinationImage" src="assets/paris.jpg" alt=""><div><span>SEU DESTINO</span><h1 id="mobileDestinationName">PARIS</h1></div></div>
+        <div class="destination-preview"><img id="mobileDestinationImage" src="assets/destinations/paris.jpg" alt=""><span class="image-credit" id="mobileDestinationCredit"></span><div><span>SEU DESTINO</span><h1 id="mobileDestinationName">PARIS</h1></div></div>
         <div class="mobile-card">
           <p class="mobile-kicker">ANTES DO RETRATO</p><h2>POR QUE VOCÊ FARIA ESTA VIAGEM?</h2><p>Escreva uma legenda breve. Ela fará parte da sua lembrança.</p>
           <div class="reason-field"><label for="travelReason">SUA LEGENDA</label><textarea id="travelReason" maxlength="90" placeholder="Eu iria porque…"></textarea><div class="reason-meta"><span>ATÉ 90 CARACTERES</span><span id="reasonCount">0 / 90</span></div></div>
@@ -28,7 +28,7 @@
         </div>
       </section>
       <section class="mobile-step mobile-step--card" id="cameraStep" hidden>
-        <div class="destination-preview"><img id="cameraDestinationImage" src="assets/paris.jpg" alt=""><div><span>PRÓXIMA PARADA</span><h1>SEU RETRATO</h1></div></div>
+        <div class="destination-preview"><img id="cameraDestinationImage" src="assets/destinations/paris.jpg" alt=""><span class="image-credit" id="cameraDestinationCredit"></span><div><span>PRÓXIMA PARADA</span><h1>SEU RETRATO</h1></div></div>
         <div class="mobile-card">
           <p class="mobile-kicker">HORA DA FOTO</p><h2>PROCURE UM FUNDO NEUTRO.</h2><p>Fique de frente para uma parede lisa, com boa luz e alguma distância do fundo.</p>
           <div class="camera-guide"><span><b>☀</b>BOA LUZ</span><span><b>↔</b>FUNDO LISO</span><span><b>●</b>CORPO VISÍVEL</span></div>
@@ -59,10 +59,12 @@
     </main>
   </div>
   <div class="toast" id="mobileToast" role="status" aria-live="polite"></div>
-  <script src="destinations-data.js?v=2"></script>
+  <script src="assets/licensing/wikimedia-credits.js?v=20261007-2"></script>
+  <script src="credits.js?v=2"></script>
+  <script src="destinations-data.js?v=3"></script>
   <script src="experiencia-2/vendor/onnxruntime/ort.min.js?v=1"></script>
   <script src="experiencia-2/vendor/selfie-segmentation/selfie_segmentation.js?v=1"></script>
-  <script src="experiencia-2/mobile.js?v=13"></script>
+  <script src="experiencia-2/mobile.js?v=14"></script>
   <script src="analytics.js?v=2"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "purpose": "Evidência dos metadados de autoria e licença consultados no Wikimedia Commons para os fundos das experiências Você Está Aqui.",
   "consulted_on": "2026-10-07",
-  "generated_at_utc": "2026-10-07T20:06:52.082300+00:00",
+  "generated_at_utc": "2026-10-07T20:31:31.730455+00:00",
   "api_endpoint": "https://commons.wikimedia.org/w/api.php",
   "request_parameters": {
     "action": "query",
@@ -38,13 +38,121 @@
     "File:Panoramic view of Oia, Santorini island (Thira), Greece.jpg",
     "File:Skyscrapers of Shinjuku 2009 January.jpg",
     "File:Venezia aerial view.jpg",
-    "File:Tuscany landscape west of Siena.jpg"
+    "File:Tuscany landscape west of Siena.jpg",
+    "File:Panoramic view on the illuminated 7th arrondissement of Paris at sunset in France.jpg",
+    "File:Lisbon OldCity Panorama.jpg",
+    "File:Brooklyn Bridge and the Lower Manhattan skyline from Pebble Beach, New York.jpg",
+    "File:Redentor Over Clouds 1.jpg",
+    "File:Rome Colosseum exterior panorama.jpg",
+    "File:BlankMap-World.svg"
   ],
-  "response_sha256": "fb5a7b0d9a9c44ef2b706b89a9f671b3f7562c310b0702c4902323ddacf9f19e",
+  "response_sha256": "af8cee22fc534b10b27db189448183a268957db7462e0c97464949858178a8c0",
   "raw_api_response": {
     "batchcomplete": true,
     "query": {
       "pages": [
+        {
+          "pageid": 1361680,
+          "ns": 6,
+          "title": "File:BlankMap-World.svg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2021-08-14T09:25:37Z",
+              "user": "Seryo93",
+              "size": 1101801,
+              "width": 2754,
+              "height": 1398,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/BlankMap-World.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:BlankMap-World.svg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=1361680",
+              "sha1": "45bf62cb455555028cf0a7593ceb7beef08a6298",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2021-08-14 09:25:37",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "BlankMap-World",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "SVG blank maps of the world with national borders|Self-published work|PD-self|Graphic Lab tools|Valid SVG created with Text Editor|Files with derivative versions|Files that need updating|Most recent version|SVG maps of the world centered 10E|SVG maps with Robinson projection|Valid SVG created with Inkscape-hand:World maps",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "A detailed <a href=\"https://en.wikipedia.org/wiki/Robinson_projection\" class=\"extiw\" title=\"w:Robinson projection\">Robinson projection</a> <a href=\"//commons.wikimedia.org/wiki/Help:SVG\" title=\"Help:SVG\">SVG</a> map with grouping enabled to connect all non-contiguous parts of a country's territory for easy coloring. Smaller countries can also be represented by larger circles to show their data more clearly. A thorough description of use and other instructions relating to this can be found on the <b><a href=\"//commons.wikimedia.org/wiki/File_talk:BlankMap-World.svg/Documentation\" title=\"File talk:BlankMap-World.svg/Documentation\">instructions page</a></b>.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "12 November 2006 (original upload date)",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "Adapted from <a href=\"//commons.wikimedia.org/wiki/File:%22Political_World%22_CIA_World_Factbook_map_2005.svg\" title='File:\"Political World\" CIA World Factbook map 2005.svg'>File:\"Political World\" CIA World Factbook map 2005.svg</a> which was originally based on <a rel=\"nofollow\" class=\"external text\" href=\"https://legacy.lib.utexas.edu/maps/world_maps/world_pol_2005.pdf\">CIA's 2005 political world map</a> (a vector-based PDF file which can now be found in <a rel=\"nofollow\" class=\"external text\" href=\"https://legacy.lib.utexas.edu/maps/world.html\">Perry–Castañeda Library Map Collection</a>).",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"https://en.wikipedia.org/wiki/User:Canuckguy\" class=\"extiw\" title=\"en:User:Canuckguy\">Canuckguy</a> <small>(<a href=\"https://en.wikipedia.org/wiki/en:User_talk:Canuckguy\" class=\"extiw\" title=\"w:en:User talk:Canuckguy\">talk</a>)</small> and many others (see File history)",
+                  "source": "commons-desc-page"
+                },
+                "Permission": {
+                  "value": "<table class=\"licensetpl\" style=\"display:none\">\n<tbody><tr>\n<td><span class=\"licensetpl_short\">Public domain</span><span class=\"licensetpl_long\">Public domain</span><span class=\"licensetpl_link_req\">false</span><span class=\"licensetpl_attr_req\">false</span>\n</td></tr></tbody></table>\n<table style=\"width: 100%; clear: both; margin: 0.5em auto; background-color: var(--background-color-progressive-subtle, #f7f8ff); color: var(--color-base, #202122); border: var(--border-subtle, 2px solid #8888aa); border-spacing: 8px; padding: 0px;\" dir=\"ltr\" class=\"layouttemplate\" lang=\"en\">\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span title=\"Public domain\"><img alt=\"Public domain\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/120px-PD-icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"64\" height=\"64\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/250px-PD-icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"196\" data-file-height=\"196\"></span></span>\n</td>\n<td>I, the copyright holder of this work, release this work into the <b><a href=\"https://en.wikipedia.org/wiki/en:public_domain\" class=\"extiw\" title=\"w:en:public domain\">public domain</a></b>. This applies worldwide.<br><small>In some countries this may not be legally possible; if so:</small><br><i>I grant anyone the right to use this work <b>for any purpose</b>, without any conditions, unless such conditions are required by law.</i>\n</td></tr></tbody></table>",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseShortName": {
+                  "value": "Public domain",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Public domain",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "false",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Copyrighted": {
+                  "value": "False",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "pd",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1260939419,
+              "parentid": 1251664784,
+              "timestamp": "2026-08-14T05:46:02Z"
+            }
+          ]
+        },
         {
           "pageid": 5794297,
           "ns": 6,
@@ -1105,6 +1213,107 @@
           ]
         },
         {
+          "pageid": 42413340,
+          "ns": 6,
+          "title": "File:Lisbon OldCity Panorama.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2015-08-16T23:19:31Z",
+              "user": "Mgimelfarb",
+              "size": 6780541,
+              "width": 5598,
+              "height": 1800,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Lisbon_OldCity_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lisbon_OldCity_Panorama.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42413340",
+              "sha1": "e1859c20327abbf1f5e281757205ba9af537d36d",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2015-08-16 23:19:31",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Lisbon OldCity Panorama",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Views of Lisbon|Self-published work",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "The historic district of Lisbon, Portugal.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2015-08-13",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Mgimelfarb\" title=\"User:Mgimelfarb\">Mайкл Гиммельфарб</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1027884452,
+              "parentid": 502501660,
+              "timestamp": "2025-05-04T13:11:57Z"
+            }
+          ]
+        },
+        {
           "pageid": 45110668,
           "ns": 6,
           "title": "File:Cancun Strand Luftbild (22143397586).jpg",
@@ -1895,6 +2104,120 @@
           ]
         },
         {
+          "pageid": 97351714,
+          "ns": 6,
+          "title": "File:Rome Colosseum exterior panorama.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2020-12-07T22:59:27Z",
+              "user": "Nhartmannphotos",
+              "size": 15960020,
+              "width": 7303,
+              "height": 3423,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Rome_Colosseum_exterior_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Rome_Colosseum_exterior_panorama.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97351714",
+              "sha1": "fa0e19d2e97d872935315e29e258b2de0bcf36e5",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2020-12-07 22:59:27",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Rome Colosseum exterior panorama",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Exterior of the Colosseum|Self-published work|Files with coordinates missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "41.890361",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "12.490289",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Exterior panoramic view of the Colosseum (Flavian amphitheatre) in Rome",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2019-09-11 13:30:57",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Nhartmannphotos\" title=\"User:Nhartmannphotos\">Nicholas Hartmann</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1173933632,
+              "parentid": 618888325,
+              "timestamp": "2026-03-01T09:14:41Z"
+            }
+          ]
+        },
+        {
           "pageid": 109791131,
           "ns": 6,
           "title": "File:Skyline of Beijing CBD from the southeast (20210907094201).jpg",
@@ -2527,6 +2850,120 @@
           ]
         },
         {
+          "pageid": 152429833,
+          "ns": 6,
+          "title": "File:Redentor Over Clouds 1.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2024-09-09T16:11:24Z",
+              "user": "Donatas Dabravolskas",
+              "size": 5861163,
+              "width": 4032,
+              "height": 2688,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Redentor_Over_Clouds_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Redentor_Over_Clouds_1.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=152429833",
+              "sha1": "f9e048149d2cd2d7da6c0085a3c6f2e001b78b8c",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2024-09-09 16:11:24",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Redentor Over Clouds 1",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Self-published work|Sunrises of Brazil|Featured pictures on Wikipedia, Spanish|Featured pictures of sunrises|Nominated pictures for Wiki Loves Monuments International|Images from Wiki Loves Monuments 2024|FoP-Brazil|Cultural heritage monuments in Brazil with known IDs|Uploaded via Campaign:wlm-br|Files with coordinates missing SDC location of creation|Sea of clouds in Brazil|Images from Wiki Loves Monuments missing SDC location of creation|Images from Wiki Loves Monuments 2024 in Brazil|Cristo Redentor in 2024|Images from Wiki Loves Monuments 2024 in Brazil - First Round|Images from Wiki Loves Monuments 2024 in Brazil - Pre-selection Round|Images from Wiki Loves Monuments 2024 in Brazil - Second Round|Images from Wiki Loves Monuments 2024 in Brazil - Third Round|Featured pictures of Cristo Redentor (Rio de Janeiro)|Winners of Wiki Loves Monuments 2024 in Brazil|Featured pictures on Wikipedia, Arabic|Winners of Wiki Loves Monuments 2024|Images from Wiki Loves Monuments 2024 in Brazil - Rio de Janeiro (Rio de Janeiro)|Featured pictures from Wiki Loves Monuments Brazil 2024|Pictures of the Year/2025 (finalist)",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "quality|featured|poty|potd",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-22.951926",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-43.210498",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Statue Christ the Redeemer over the clouds",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2024-04-11 06:10:02",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Donatas_Dabravolskas&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Donatas Dabravolskas (page does not exist)\">Donatas Dabravolskas</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1281896458,
+              "parentid": 1207495462,
+              "timestamp": "2026-09-30T15:09:09Z"
+            }
+          ]
+        },
+        {
           "pageid": 169519663,
           "ns": 6,
           "title": "File:Venezia aerial view.jpg",
@@ -2751,6 +3188,221 @@
               "revid": 1092680050,
               "parentid": 1067997330,
               "timestamp": "2025-09-29T16:20:35Z"
+            }
+          ]
+        },
+        {
+          "pageid": 183966929,
+          "ns": 6,
+          "title": "File:Panoramic view on the illuminated 7th arrondissement of Paris at sunset in France.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2026-02-14T04:40:04Z",
+              "user": "Basile Morin",
+              "size": 12177993,
+              "width": 6027,
+              "height": 4020,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Panoramic_view_on_the_illuminated_7th_arrondissement_of_Paris_at_sunset_in_France.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_on_the_illuminated_7th_arrondissement_of_Paris_at_sunset_in_France.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=183966929",
+              "sha1": "f08f35502d316055c339903466ed7f6e8e2a9261",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2026-02-14 04:40:04",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Panoramic view on the illuminated 7th arrondissement of Paris at sunset in France",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Paris 7e arrondissement|Self-published work|Hôtel des Invalides from the Tour Montparnasse|Eiffel Tower from the Tour Montparnasse|La Défense from the Tour Montparnasse|Sunsets of Paris|De minimis without reason|Photographs by Basile Morin|Panoramas from the Tour Montparnasse|Night skylines in Paris|Eiffel Tower at sunset|École militaire from the Tour Montparnasse",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "quality",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Panoramic view on the illuminated <a href=\"https://en.wikipedia.org/wiki/7th_arrondissement_of_Paris\" class=\"extiw\" title=\"w:7th arrondissement of Paris\">7th arrondissement of Paris</a> with <a href=\"https://en.wikipedia.org/wiki/La_D%C3%A9fense\" class=\"extiw\" title=\"w:La Défense\">La Défense</a> district, the <a href=\"https://en.wikipedia.org/wiki/Eiffel_Tower\" class=\"extiw\" title=\"w:Eiffel Tower\">Eiffel Tower</a>, and <a href=\"https://en.wikipedia.org/wiki/Les_Invalides\" class=\"extiw\" title=\"w:Les Invalides\">the Hôtel des Invalides</a>, seen from the observatory located at the top of the <a href=\"https://en.wikipedia.org/wiki/Tour_Montparnasse\" class=\"extiw\" title=\"en:Tour Montparnasse\">Tour Montparnasse</a>, at sunset, in <a href=\"https://en.wikipedia.org/wiki/Paris\" class=\"extiw\" title=\"en:Paris\">Paris</a>, <a href=\"https://en.wikipedia.org/wiki/France\" class=\"extiw\" title=\"en:France\">France</a>.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2025-08-04 02:38:38",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Basile_Morin\" title=\"User:Basile Morin\">Basile Morin</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1256619903,
+              "parentid": 1223382707,
+              "timestamp": "2026-08-04T19:39:16Z"
+            }
+          ]
+        },
+        {
+          "pageid": 193126621,
+          "ns": 6,
+          "title": "File:Brooklyn Bridge and the Lower Manhattan skyline from Pebble Beach, New York.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2026-05-31T14:29:44Z",
+              "user": "Espandero",
+              "size": 149051650,
+              "width": 26508,
+              "height": 8836,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach,_New_York.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=193126621",
+              "sha1": "0e6aee00baff484237aa63b55cbf6978e4299f6b",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2026-05-31 14:29:44",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Brooklyn Bridge and the Lower Manhattan skyline from Pebble Beach, New York",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Jane's Carousel|Self-published work|Files with coordinates missing SDC location of creation|Panoramas of the Brooklyn Bridge|Images of the United States by Christian David",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "quality|valued",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "40.704389",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-73.990352",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "The Brooklyn Bridge and the Lower Manhattan skyline seen from Pebble Beach; the glass pavilion of Jane's Carousel sits below the bridge, with One World Trade Center at right. Brooklyn, New York City.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2026-04-17 06:49:58",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Espandero\" title=\"User:Espandero\">Christian David</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1270739082,
+              "parentid": 1233068001,
+              "timestamp": "2026-09-01T08:10:42Z"
             }
           ]
         },

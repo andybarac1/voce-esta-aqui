@@ -1,20 +1,20 @@
 const legacyDestinations = [
-  { id: "paris", name: "Paris", country: "França", flag: "🇫🇷", code: "PAR / FR", lat: 48.8584, lon: 2.2945, image: "assets/paris.jpg", alt: "Torre Eiffel em Paris" },
+  { id: "paris", name: "Paris", country: "França", flag: "🇫🇷", code: "PAR / FR", lat: 48.8584, lon: 2.2945, image: "assets/destinations/paris.jpg", alt: "Torre Eiffel em Paris" },
   { id: "china", name: "Muralha da China", short: "China", country: "China", flag: "🇨🇳", code: "PEK / CN", lat: 40.4319, lon: 116.5704, image: "assets/china.jpg", alt: "Grande Muralha da China" },
-  { id: "coliseu", name: "Coliseu", short: "Roma", country: "Itália", flag: "🇮🇹", code: "ROM / IT", lat: 41.8902, lon: 12.4922, image: "assets/coliseu.jpg", alt: "Coliseu em Roma" },
+  { id: "roma", name: "Roma", short: "Roma", country: "Itália", flag: "🇮🇹", code: "ROM / IT", lat: 41.8902, lon: 12.4922, image: "assets/destinations/roma.jpg", alt: "Coliseu em Roma" },
   { id: "dubai", name: "Dubai", country: "Emirados Árabes", flag: "🇦🇪", code: "DXB / AE", lat: 25.2048, lon: 55.2708, image: "assets/dubai.jpg", alt: "Avenida e skyline de Dubai" },
   { id: "egito", name: "Pirâmides de Gizé", short: "Egito", country: "Egito", flag: "🇪🇬", code: "CAI / EG", lat: 29.9792, lon: 31.1342, image: "assets/egito.jpg", alt: "Pirâmides de Gizé no Egito" },
   { id: "fuji", name: "Monte Fuji", short: "Fuji", country: "Japão", flag: "🇯🇵", code: "FJI / JP", lat: 35.3606, lon: 138.7274, image: "assets/fuji.jpg", alt: "Monte Fuji no Japão" },
   { id: "hollywood", name: "Hollywood", country: "Estados Unidos", flag: "🇺🇸", code: "LAX / US", lat: 34.1341, lon: -118.3215, image: "assets/hollywood.jpg", alt: "Letreiro de Hollywood em Los Angeles" },
   { id: "italia", name: "Torre de Pisa", short: "Pisa", country: "Itália", flag: "🇮🇹", code: "PSA / IT", lat: 43.7229, lon: 10.3966, image: "assets/italia.jpg", alt: "Torre inclinada de Pisa" },
   { id: "jerusalem", name: "Jerusalém", country: "Israel", flag: "🇮🇱", code: "JRS / IL", lat: 31.7683, lon: 35.2137, dx: -.0833, dy: .1643, image: "assets/jerusalem.jpg", alt: "Cidade de Jerusalém" },
-  { id: "lisboa", name: "Lisboa", country: "Portugal", flag: "🇵🇹", code: "LIS / PT", lat: 38.7223, lon: -9.1393, image: "assets/lisboa.jpg", alt: "Praça do Comércio em Lisboa" },
+  { id: "lisboa", name: "Lisboa", country: "Portugal", flag: "🇵🇹", code: "LIS / PT", lat: 38.7223, lon: -9.1393, image: "assets/destinations/lisboa.jpg", alt: "Panorama de Lisboa" },
   { id: "machu-picchu", name: "Machu Picchu", country: "Peru", flag: "🇵🇪", code: "CUZ / PE", lat: -13.1631, lon: -72.545, image: "assets/machu-picchu.jpg", alt: "Ruínas de Machu Picchu" },
   { id: "madrid", name: "Madri", country: "Espanha", flag: "🇪🇸", code: "MAD / ES", lat: 40.4168, lon: -3.7038, image: "assets/madrid.jpg", alt: "Palácio de Cibeles em Madri" },
   { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", flag: "🇧🇷", code: "SAO / BR", lat: -23.5614, lon: -46.6559, image: "assets/masp-sp.jpg", alt: "Museu de Arte de São Paulo" },
   { id: "moscou", name: "Moscou", country: "Rússia", flag: "🇷🇺", code: "MOW / RU", lat: 55.7558, lon: 37.6173, image: "assets/moscou.jpg", alt: "Catedral de São Basílio em Moscou" },
-  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", flag: "🇺🇸", code: "NYC / US", lat: 40.6892, lon: -74.0445, image: "assets/nova-yorke.jpg", alt: "Estátua da Liberdade em Nova York" },
-  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", flag: "🇧🇷", code: "RIO / BR", lat: -22.9519, lon: -43.2105, image: "assets/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
+  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", flag: "🇺🇸", code: "NYC / US", lat: 40.6892, lon: -74.0445, image: "assets/destinations/nova-yorke.jpg", alt: "Ponte do Brooklyn e Manhattan" },
+  { id: "rio-de-janeiro", name: "Rio de Janeiro", short: "Rio", country: "Brasil", flag: "🇧🇷", code: "RIO / BR", lat: -22.9519, lon: -43.2105, image: "assets/destinations/rio-de-janeiro.jpg", alt: "Cristo Redentor no Rio de Janeiro" },
   { id: "savana-africana", name: "Savana Africana", short: "Savana", country: "Quênia", flag: "🇰🇪", code: "NBO / KE", lat: -1.2921, lon: 36.8219, image: "assets/savana-africana.jpg", alt: "Girafas em uma savana africana" }
 ];
 
@@ -47,11 +47,11 @@ const elements = {
   viewport: $("#mapViewport"), canvas: $("#mapCanvas"), pins: $("#pinsLayer"), photo: $("#destinationPhoto"),
   flash: $("#photoFlash"), index: $("#photoIndex"), name: $("#destinationName"), country: $("#destinationCountry"),
   code: $("#destinationCode"), phrase: $("#ticketPhrase"), status: $("#mapStatus"), dialog: $("#boothDialog"),
-  instructions: $("#phoneInstructions"), instructionBackground: $("#instructionBackground"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"),
+  instructions: $("#phoneInstructions"), instructionBackground: $("#instructionBackground"), instructionImageCredit: $("#instructionImageCredit"), phoneTitle: $("#phoneTitle"), scene: $("#phoneScene"), background: $("#phoneBackground"), phoneImageCredit: $("#phoneImageCredit"),
   sceneTimer: $("#sceneTimer"), sceneProgress: $("#sceneProgress"), popup: $("#countdownPopup"), prepTimer: $("#prepTimer"),
   end: $("#phoneEnd"), closeButton: $("#closeBoothButton"), readyPrompt: $("#readyPrompt"), readyTimer: $("#readyTimer"),
   restartPrompt: $("#restartPrompt"), restartTimer: $("#restartTimer"), scenarioPrompt: $("#scenarioPrompt"),
-  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), scenarioPromptFact: $("#scenarioPromptFact"), scenarioPromptPhoto: $("#scenarioPromptPhoto"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
+  scenarioPromptName: $("#scenarioPromptName"), scenarioPromptFlag: $("#scenarioPromptFlag"), scenarioPromptTimer: $("#scenarioPromptTimer"), scenarioPromptFact: $("#scenarioPromptFact"), scenarioPromptPhoto: $("#scenarioPromptPhoto"), scenarioImageCredit: $("#scenarioImageCredit"), globalBackdrop: $("#globalPromptBackdrop"), dialogBackdrop: $("#dialogPromptBackdrop"), idleTip: $("#idleTip"), tipText: $("#tipText")
 };
 
 let selected = null;
@@ -167,6 +167,7 @@ function scheduleScenarioPrompt() {
   elements.scenarioPromptFact.textContent = selected.fact || destinationPhrases[selected.id] || "TODO LUGAR PODE SER O COMEÇO DE UMA NOVA HISTÓRIA.";
   elements.scenarioPromptPhoto.src = selected.image;
   elements.scenarioPromptPhoto.alt = selected.alt;
+  window.MPFImageCredits?.apply(elements.scenarioImageCredit, selected.id);
   const iso = countryIso(selected);
   elements.scenarioPromptFlag.innerHTML = iso ? `<img src="assets/flags/${iso}.svg" alt="Bandeira de ${selected.country}">` : `<b aria-hidden="true">✦</b>`;
   elements.scenarioPromptTimer.textContent = remaining;
@@ -286,6 +287,8 @@ function openExperience() {
   elements.background.src = selected.image;
   elements.background.alt = selected.alt;
   elements.instructionBackground.src = selected.image;
+  window.MPFImageCredits?.apply(elements.instructionImageCredit, selected.id);
+  window.MPFImageCredits?.apply(elements.phoneImageCredit, selected.id);
   elements.instructions.hidden = false;
   elements.scene.hidden = true;
   elements.popup.hidden = true;

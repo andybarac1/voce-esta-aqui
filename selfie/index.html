@@ -41,7 +41,7 @@
         <div class="thumbnail-rail destination-grid" id="thumbnailRail" aria-label="Galeria com todos os destinos"></div>
       </section>
       <div class="gallery-support" aria-hidden="true">
-        <img id="destinationPhoto" src="assets/paris.jpg" alt=""><div id="photoFlash"></div><span id="photoIndex"></span><span id="destinationName">PARIS</span><span id="destinationCountry">FRANÇA</span><span id="destinationCode">PAR</span><span id="portraitTicketName">PARIS</span><span id="ticketPhrase"></span>
+        <img id="destinationPhoto" src="assets/destinations/paris.jpg" alt=""><div id="photoFlash"></div><span id="photoIndex"></span><span id="destinationName">PARIS</span><span id="destinationCountry">FRANÇA</span><span id="destinationCode">PAR</span><span id="portraitTicketName">PARIS</span><span id="ticketPhrase"></span>
       </div>
     </main>
   </div>
@@ -55,10 +55,11 @@
 
   <dialog class="booth" id="boothDialog">
     <div class="phone-experience">
-      <img class="instruction-background" id="instructionBackground" src="assets/paris.jpg" alt="">
+      <img class="instruction-background" id="instructionBackground" src="assets/destinations/paris.jpg" alt="">
       <div class="dialog-prompt-backdrop" id="dialogPromptBackdrop" hidden></div>
       <button class="close-button phone-close" id="closeBoothButton" type="button" aria-label="Fechar experiência">FECHAR ×</button>
       <section class="phone-instructions" id="phoneInstructions">
+        <span class="image-credit" id="instructionImageCredit"></span>
         <p class="step">PREPARE O SEU CELULAR</p>
         <h2 id="phoneTitle">AUTORRETRATO EM PARIS</h2>
         <p class="phone-lead">A TV SERÁ O SEU CENÁRIO. A FOTO É FEITA COM A CÂMERA DO SEU PRÓPRIO CELULAR.</p>
@@ -73,7 +74,8 @@
         </div>
       </section>
       <section class="phone-scene" id="phoneScene" hidden>
-        <img id="phoneBackground" src="assets/paris.jpg" alt="Torre Eiffel em Paris">
+        <img id="phoneBackground" src="assets/destinations/paris.jpg" alt="Torre Eiffel em Paris">
+        <span class="image-credit" id="phoneImageCredit"></span>
         <div class="scene-countdown"><strong id="sceneTimer">15</strong><span>S</span></div>
         <div class="scene-progress"><span id="sceneProgress"></span></div>
       </section>
@@ -98,7 +100,7 @@
   <div class="global-prompt-backdrop" id="globalPromptBackdrop" hidden></div>
   <aside class="scenario-prompt" id="scenarioPrompt" hidden>
     <small class="scenario-prompt-timer"><b id="scenarioPromptTimer">10</b>S</small>
-    <div class="scenario-photo"><img id="scenarioPromptPhoto" src="assets/paris.jpg" alt="Torre Eiffel em Paris"></div>
+    <div class="scenario-photo"><img id="scenarioPromptPhoto" src="assets/destinations/paris.jpg" alt="Torre Eiffel em Paris"><span class="image-credit" id="scenarioImageCredit"></span></div>
     <div class="scenario-destination"><span id="scenarioPromptFlag" aria-hidden="true">🇫🇷</span><strong id="scenarioPromptName">PARIS</strong></div>
     <p class="scenario-fact" id="scenarioPromptFact">PARIS TEM MAIS DE 130 MUSEUS — E A TORRE EIFFEL AINDA ROUBA A CENA.</p>
     <div class="scenario-instructions">
@@ -119,11 +121,11 @@
     </div>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/licensing/wikimedia-credits.js?v=20261007"></script>
-  <script src="credits.js?v=1"></script>
-  <script src="destinations-data.js?v=2"></script>
-  <script src="app.js?v=19"></script>
-  <script src="selfie/gallery-adapter.js?v=4"></script>
+  <script src="assets/licensing/wikimedia-credits.js?v=20261007-2"></script>
+  <script src="credits.js?v=2"></script>
+  <script src="destinations-data.js?v=3"></script>
+  <script src="app.js?v=20"></script>
+  <script src="selfie/gallery-adapter.js?v=5"></script>
   <script src="analytics.js?v=2"></script>
 </body>
 </html>

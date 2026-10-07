@@ -1,20 +1,20 @@
 const legacyDestinations = [
-  { id: "paris", name: "Paris", country: "França", code: "PAR", image: "assets/paris.jpg" },
+  { id: "paris", name: "Paris", country: "França", code: "PAR", image: "assets/destinations/paris.jpg" },
   { id: "china", name: "Muralha da China", country: "China", code: "PEK", image: "assets/china.jpg" },
-  { id: "coliseu", name: "Coliseu", country: "Itália", code: "ROM", image: "assets/coliseu.jpg" },
+  { id: "roma", name: "Roma", country: "Itália", code: "ROM", image: "assets/destinations/roma.jpg" },
   { id: "dubai", name: "Dubai", country: "Emirados Árabes", code: "DXB", image: "assets/dubai.jpg" },
   { id: "egito", name: "Pirâmides de Gizé", country: "Egito", code: "CAI", image: "assets/egito.jpg" },
   { id: "fuji", name: "Monte Fuji", country: "Japão", code: "FJI", image: "assets/fuji.jpg" },
   { id: "hollywood", name: "Hollywood", country: "Estados Unidos", code: "LAX", image: "assets/hollywood.jpg" },
   { id: "italia", name: "Torre de Pisa", country: "Itália", code: "PSA", image: "assets/italia.jpg" },
   { id: "jerusalem", name: "Jerusalém", country: "Israel", code: "JRS", image: "assets/jerusalem.jpg" },
-  { id: "lisboa", name: "Lisboa", country: "Portugal", code: "LIS", image: "assets/lisboa.jpg" },
+  { id: "lisboa", name: "Lisboa", country: "Portugal", code: "LIS", image: "assets/destinations/lisboa.jpg" },
   { id: "machu-picchu", name: "Machu Picchu", country: "Peru", code: "CUZ", image: "assets/machu-picchu.jpg" },
   { id: "madrid", name: "Madri", country: "Espanha", code: "MAD", image: "assets/madrid.jpg" },
   { id: "masp-sp", name: "MASP", country: "São Paulo, Brasil", code: "SAO", image: "assets/masp-sp.jpg" },
   { id: "moscou", name: "Moscou", country: "Rússia", code: "MOW", image: "assets/moscou.jpg" },
-  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC", image: "assets/nova-yorke.jpg" },
-  { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", code: "RIO", image: "assets/rio-de-janeiro.jpg" },
+  { id: "nova-yorke", name: "Nova York", country: "Estados Unidos", code: "NYC", image: "assets/destinations/nova-yorke.jpg" },
+  { id: "rio-de-janeiro", name: "Rio de Janeiro", country: "Brasil", code: "RIO", image: "assets/destinations/rio-de-janeiro.jpg" },
   { id: "savana-africana", name: "Savana Africana", country: "Quênia", code: "NBO", image: "assets/savana-africana.jpg" }
 ];
 
@@ -24,7 +24,7 @@ const $ = selector => document.querySelector(selector);
 const steps = ["#sessionLoading", "#reasonStep", "#cameraStep", "#processingStep", "#editorStep", "#endStep", "#errorStep"];
 const elements = {
   reasonStep: $("#reasonStep"), reason: $("#travelReason"), reasonCount: $("#reasonCount"), reasonContinue: $("#reasonContinue"),
-  destinationImage: $("#mobileDestinationImage"), destinationName: $("#mobileDestinationName"), cameraDestinationImage: $("#cameraDestinationImage"),
+  destinationImage: $("#mobileDestinationImage"), destinationName: $("#mobileDestinationName"), destinationCredit: $("#mobileDestinationCredit"), cameraDestinationImage: $("#cameraDestinationImage"), cameraDestinationCredit: $("#cameraDestinationCredit"),
   cameraInput: $("#cameraInput"), galleryInput: $("#galleryInput"), canvas: $("#resultCanvas"),
   share: $("#shareButton"), resetPortrait: $("#resetPortrait"), download: $("#downloadButton"), finish: $("#finishButton"), toast: $("#mobileToast")
 };
@@ -68,6 +68,8 @@ async function begin() {
     elements.destinationImage.src = destination.image;
     elements.cameraDestinationImage.src = destination.image;
     elements.destinationName.textContent = destination.name.toUpperCase();
+    window.MPFImageCredits?.apply(elements.destinationCredit, destination.id);
+    window.MPFImageCredits?.apply(elements.cameraDestinationCredit, destination.id);
     await Promise.all([
       loadImage(destination.image),
       loadImage("assets/exhibition-logo-pink.svg?v=4"),
@@ -297,6 +299,29 @@ function wrapText(context, text, x, y, maxWidth, lineHeight, maxLines = 3) {
   return Math.min(lines.length, maxLines);
 }
 
+function drawImageCredit(context, destinationId) {
+  const credit = window.MPFImageCredits?.find(destinationId);
+  if (!credit) return;
+  const label = `FOTO: ${credit.author} · ${credit.license}`;
+  let fontSize = 17;
+  context.save();
+  context.font = `700 ${fontSize}px "Courier New", monospace`;
+  while (context.measureText(label).width > 920 && fontSize > 11) {
+    fontSize -= 1;
+    context.font = `700 ${fontSize}px "Courier New", monospace`;
+  }
+  const width = Math.ceil(context.measureText(label).width) + 22;
+  const x = 1112 - width;
+  const y = 1092;
+  context.fillStyle = "rgba(23,23,25,.78)";
+  context.fillRect(x, y, width, fontSize + 17);
+  context.fillStyle = "#ffffff";
+  context.textAlign = "left";
+  context.textBaseline = "top";
+  context.fillText(label, x + 11, y + 8);
+  context.restore();
+}
+
 async function composePolaroid(updateBlob = true) {
   if (!sourceCanvas || !destination) return;
   if (updateBlob) renderedBlob = null;
@@ -320,6 +345,7 @@ async function composePolaroid(updateBlob = true) {
   context.fillRect(70, 70, 1060, 1060);
   drawPortrait(context, cutout, 70, 70, 1060, 1060);
   context.restore();
+  drawImageCredit(context, destination.id);
 
   context.fillStyle = "#171719";
   context.font = '400 64px "Reenie Beanie", "Courier New", monospace';

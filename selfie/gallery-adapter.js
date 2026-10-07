@@ -25,6 +25,11 @@ for (const [index, destination] of destinations.entries()) {
   button.dataset.id = destination.id;
   button.setAttribute("aria-label", `${destination.name}, ${destination.country}`);
   button.innerHTML = `<img src="${destination.image}" alt=""><span class="gallery-thumb-copy"><strong>${destination.name}</strong><small>${destination.country}</small></span>`;
+  const imageCredit = document.createElement("span");
+  imageCredit.className = "gallery-image-credit";
+  imageCredit.textContent = window.MPFImageCredits?.compactLabel(destination.id) || "";
+  imageCredit.hidden = !imageCredit.textContent;
+  button.append(imageCredit);
   button.querySelector("small").append(countryFlag(destination));
   button.addEventListener("click", () => syncGallery(destination, true));
   galleryRail.append(button);
