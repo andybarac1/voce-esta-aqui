@@ -1,0 +1,2874 @@
+{
+  "purpose": "Evidência dos metadados de autoria e licença consultados no Wikimedia Commons para os fundos das experiências Você Está Aqui.",
+  "consulted_on": "2026-10-07",
+  "generated_at_utc": "2026-10-07T20:06:52.082300+00:00",
+  "api_endpoint": "https://commons.wikimedia.org/w/api.php",
+  "request_parameters": {
+    "action": "query",
+    "format": "json",
+    "formatversion": "2",
+    "redirects": "1",
+    "prop": "imageinfo|revisions",
+    "iiprop": "timestamp|user|url|size|sha1|extmetadata",
+    "rvprop": "ids|timestamp"
+  },
+  "requested_titles": [
+    "File:Amazon CIAT (5).jpg",
+    "File:Abismo Anhumas, Bonito, MS.JPG",
+    "File:Parque Nacional Chapada Diamantina Rafael Cristo Watanabe 04.jpg",
+    "File:Panorama de Noronha-Praia do Sancho.jpg",
+    "File:IG - Panoramic view near the start of the Brazilian trail at Iguazu Falls, 2023.jpg",
+    "File:Dunas Jericoacoara.jpg",
+    "File:Lençóis Maranhenses 2018.jpg",
+    "File:Maragogi Alagoas Brasil.jpg",
+    "File:As montanhas da planície.jpg",
+    "File:Porto de Galinhas-003.jpg",
+    "File:Salvador BA (cropped) 2.jpg",
+    "File:Swiss Alps.jpg",
+    "File:Athens Acropolis at Daybreak.jpg",
+    "File:Evening light over Barcelona.jpg",
+    "File:La City vista desde Puerto Madero.jpg",
+    "File:Giza Pyramids Panorama.jpg",
+    "File:Cancun Strand Luftbild (22143397586).jpg",
+    "File:London Skyline (125508655).jpeg",
+    "File:Machu Picchu, Peru (2018).jpg",
+    "File:Aerial shot of a small island on a coral reef in the Maldives.jpg",
+    "File:Miami Skyline 2020.jpg",
+    "File:Skyline of Beijing CBD from the southeast (20210907094201).jpg",
+    "File:Panoramic view of Oia, Santorini island (Thira), Greece.jpg",
+    "File:Skyscrapers of Shinjuku 2009 January.jpg",
+    "File:Venezia aerial view.jpg",
+    "File:Tuscany landscape west of Siena.jpg"
+  ],
+  "response_sha256": "fb5a7b0d9a9c44ef2b706b89a9f671b3f7562c310b0702c4902323ddacf9f19e",
+  "raw_api_response": {
+    "batchcomplete": true,
+    "query": {
+      "pages": [
+        {
+          "pageid": 5794297,
+          "ns": 6,
+          "title": "File:Skyscrapers of Shinjuku 2009 January.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2009-01-26T04:24:34Z",
+              "user": "Morio",
+              "size": 793917,
+              "width": 2560,
+              "height": 1364,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=5794297",
+              "sha1": "3ead42a0636f87ba688f7685c89c7d2fe0c9f4e2",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2009-01-26 04:24:34",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Skyscrapers of Shinjuku 2009 January",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "GFDL|Mode Gakuen Cocoon Tower|License migration redundant|Self-published work|Images with extracted images|FoP-Japan|Cityscapes in Tokyo|2009 in Shinjuku|Files with coordinates missing SDC location of creation|Photos taken by Morio/Cityscapes/Tokyo/Shinjuku|Views of skyscrapers in Nishi-Shinjuku and Mount Fuji from Bunkyo Civic Center",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "35.707900",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "139.752177",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "View of Shinjuku skyscrapers and Mount Fuji as seen from the Bunkyo Civic Center in Tokyo",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2009-01-25",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Morio\" title=\"User:Morio\">Morio</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "http://creativecommons.org/licenses/by-sa/3.0/",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1259029254,
+              "parentid": 1259029227,
+              "timestamp": "2026-08-09T20:50:21Z"
+            }
+          ]
+        },
+        {
+          "pageid": 6991144,
+          "ns": 6,
+          "title": "File:Maragogi Alagoas Brasil.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2009-06-10T21:24:28Z",
+              "user": "Lunan",
+              "size": 164176,
+              "width": 640,
+              "height": 480,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Maragogi_Alagoas_Brasil.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Maragogi_Alagoas_Brasil.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=6991144",
+              "sha1": "f485199bfba7bbcdee4c565682faf64bd0347582",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2009-06-10 21:24:28",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Maragogi Alagoas Brasil",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Canon PowerShot A400|Maragogi|Flickr images reviewed by FlickreviewR|Flickr images missing SDC creator",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Cidade de Maragogi, Alagoas, Brasil.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2007-05-01",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/chalanger/480701102/\">Flickr</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/chalanger/\">Tiago Leite</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1080859867,
+              "parentid": 904695855,
+              "timestamp": "2025-09-04T18:48:02Z"
+            }
+          ]
+        },
+        {
+          "pageid": 7050043,
+          "ns": 6,
+          "title": "File:Swiss Alps.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2009-06-17T18:41:35Z",
+              "user": "Devil Dancer",
+              "size": 2092650,
+              "width": 3264,
+              "height": 2448,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Swiss_Alps.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Swiss_Alps.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=7050043",
+              "sha1": "7aa87a76fc3e83dccdd097a21460fb129b8202d0",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2009-06-17 18:41:35",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Swiss Alps",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Alps of Switzerland|Plateau Rosa|Taken with Canon PowerShot S5 IS|Images with annotations|Self-published work|Snow in Switzerland|January 2009 in the canton of Valais|Switzerland photographs taken on 2009-01-09|Mountains of Zermatt",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Alps view from Matterhorn Glacier Paradise. 3883 meters = 12.736 ft height.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2009-01-09",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Devil_Dancer&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Devil Dancer (page does not exist)\">Devil Dancer</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1273631234,
+              "parentid": 1080991907,
+              "timestamp": "2026-09-07T17:27:38Z"
+            }
+          ]
+        },
+        {
+          "pageid": 12566717,
+          "ns": 6,
+          "title": "File:Tuscany landscape west of Siena.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2011-01-03T19:55:41Z",
+              "user": "NorbertNagel",
+              "size": 3230049,
+              "width": 2592,
+              "height": 1944,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Tuscany_landscape_west_of_Siena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tuscany_landscape_west_of_Siena.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=12566717",
+              "sha1": "c2a6ffff4832b618118ccdf36865cfc231aea5ac",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2011-01-03 19:55:41",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Tuscany landscape west of Siena",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Canon PowerShot S2 IS|Views of Tuscany|Self-published work|Files with coordinates missing SDC location of creation|Italy photographs taken on 2008-07-18",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "43.177400",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "11.142600",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Tuscany landscape west of Siena with agricultural area",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2008-07-18",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:NorbertNagel\" title=\"User:NorbertNagel\">Norbert Nagel, Mörfelden-Walldorf, Germany</a>",
+                  "source": "commons-desc-page"
+                },
+                "Permission": {
+                  "value": "<div class=\"responsive-license-cc layouttemplate licensetpl\" dir=\"ltr\" lang=\"en\"><div class=\"rlicense-icons\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"w:en:Creative Commons\"><img alt=\"w:en:Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/120px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"36\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/250px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"744\" data-file-height=\"300\"></span></span><br>\n<span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"attribution\"><img alt=\"attribution\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/40px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/60px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"share alike\"><img alt=\"share alike\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/40px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/60px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span></div><div class=\"rlicense-text\"><div class=\"rlicense-declaration\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.en\" class=\"extiw\" title=\"creativecommons:by-sa/3.0/deed.en\">Attribution-Share Alike 3.0 Unported</a> license.</div><div class=\"rlicense-desc\" style=\"text-align:start;\" lang=\"en\">\n<dl><dd>You are free:\n<ul><li><b>to share</b> – to copy, distribute and transmit the work</li>\n<li><b>to remix</b> – to adapt the work</li></ul></dd>\n<dd>Under the following conditions:\n<ul><li><b>attribution</b> – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</li>\n<li><b>share alike</b> – If you remix, transform, or build upon the material, you must distribute your contributions under the <a href=\"https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses\" class=\"extiw\" title=\"ccorg:share-your-work/licensing-considerations/compatible-licenses\">same or compatible license</a> as the original.</li></ul></dd></dl></div><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/3.0</span><span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 3.0 </span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 3.0 </span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></div></div> - „Attribution-Sharealike“ 3.0 (Namensnennung und Weitergabe unter gleichen Bedingungen 3.0)",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1123170846,
+              "parentid": 1059393606,
+              "timestamp": "2025-11-30T04:06:09Z"
+            }
+          ]
+        },
+        {
+          "pageid": 25773685,
+          "ns": 6,
+          "title": "File:Panoramic view of Oia, Santorini island (Thira), Greece.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2013-12-01T12:26:09Z",
+              "user": "NorbertNagel",
+              "size": 2694724,
+              "width": 3000,
+              "height": 1134,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Panoramic_view_of_Oia%2C_Santorini_island_%28Thira%29%2C_Greece.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Oia,_Santorini_island_(Thira),_Greece.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=25773685",
+              "sha1": "2a562d47ef6682b943a6d03db85704c7311381d7",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2013-12-01 12:26:09",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Panoramic view of Oia, Santorini island (Thira), Greece",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Nikon D200|Self-published work|Featured pictures on Wikipedia, Indonesian|Featured pictures of cityscapes|Panoramics of Oia|Photographs by Mstyslav Chernov|Featured pictures of Oia, Greece",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "featured|potd",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Panoramic view of Oia, Santorini island (Thira), Greece.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2008-11-02 10:25:10",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\">Self-photographed</span>, <a rel=\"nofollow\" class=\"external free\" href=\"http://mstyslav-chernov.com/\">http://mstyslav-chernov.com/</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "Mstyslav Chernov",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1175194916,
+              "parentid": 1028633016,
+              "timestamp": "2026-03-03T12:45:28Z"
+            }
+          ]
+        },
+        {
+          "pageid": 26650394,
+          "ns": 6,
+          "title": "File:La City vista desde Puerto Madero.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2013-06-14T07:20:50Z",
+              "user": "Flickr upload bot",
+              "size": 2073206,
+              "width": 2048,
+              "height": 1367,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/La_City_vista_desde_Puerto_Madero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:La_City_vista_desde_Puerto_Madero.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26650394",
+              "sha1": "3bec39fe2127b2fcd27e29b7c1eac0cf5dea742b",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2013-06-14 07:20:50",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "La City vista desde Puerto Madero",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Nikon D800E|Buildings in San Nicolás, Buenos Aires|Flickr images uploaded by Flickr upload bot|October 2012 in Buenos Aires|October 2012 Argentina photographs|Skylines of Buenos Aires|Files from Jimmy Baikovicius Flickr stream",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Partial view of the Buenos Aires financial district from Puerto Madero.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2012-10-22 10:35:18",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/7221539@N06/8118777132\">Vista desde Puerto Madero</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//www.flickr.com/people/7221539@N06\" class=\"extiw\" title=\"flickruser:7221539@N06\">Jimmy Baikovicius</a>",
+                  "source": "commons-desc-page"
+                },
+                "Permission": {
+                  "value": "<table id=\"FlickrReview\" style=\"width:100%; margin:0.3em auto; text-align:start; background-color:var(--background-color-success-subtle,#d5fdf4); padding: 3px; border:1px solid var(--border-color-base,#a2a9b1); color:inherit;\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/60px-Checked_copyright_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"50\" height=\"48\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/120px-Checked_copyright_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"160\" data-file-height=\"153\"></span></span>\n</td>\n<td>This image, which was originally posted to <b><a href=\"https://en.wikipedia.org/wiki/Flickr\" class=\"extiw\" title=\"en:Flickr\">Flickr</a></b>, was uploaded to Commons using <b><a href=\"//commons.wikimedia.org/wiki/User:Flickr_upload_bot\" title=\"User:Flickr upload bot\">Flickr upload bot</a></b> on 14 June 2013, 07:20 by <span id=\"flickr_upload_bot_reviewer\"><b><a href=\"//commons.wikimedia.org/wiki/User:Sherlock4000\" title=\"User:Sherlock4000\">Sherlock4000</a></b></span>. On that date, it was confirmed to be licensed under the terms of the license indicated.\n</td>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Flickr_dots.svg/60px-Flickr_dots.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"50\" height=\"50\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Flickr_dots.svg/120px-Flickr_dots.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"512\" data-file-height=\"512\"></span></span>\n</td></tr></tbody></table>\n<div class=\"responsive-license-cc layouttemplate licensetpl\" dir=\"ltr\" lang=\"en\"><div class=\"rlicense-icons\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"w:en:Creative Commons\"><img alt=\"w:en:Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/120px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"36\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/250px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"744\" data-file-height=\"300\"></span></span><br>\n<span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"attribution\"><img alt=\"attribution\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/40px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/60px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"share alike\"><img alt=\"share alike\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/40px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/60px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span></div><div class=\"rlicense-text\"><div class=\"rlicense-declaration\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"//creativecommons.org/licenses/by-sa/2.0/deed.en\" class=\"extiw\" title=\"creativecommons:by-sa/2.0/deed.en\">Attribution-Share Alike 2.0 Generic</a> license.</div><div class=\"rlicense-desc\" style=\"text-align:start;\" lang=\"en\">\n<dl><dd>You are free:\n<ul><li><b>to share</b> – to copy, distribute and transmit the work</li>\n<li><b>to remix</b> – to adapt the work</li></ul></dd>\n<dd>Under the following conditions:\n<ul><li><b>attribution</b> – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</li>\n<li><b>share alike</b> – If you remix, transform, or build upon the material, you must distribute your contributions under the <a href=\"https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses\" class=\"extiw\" title=\"ccorg:share-your-work/licensing-considerations/compatible-licenses\">same or compatible license</a> as the original.</li></ul></dd></dl></div><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/2.0</span><span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 2.0 </span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 2.0 </span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></div></div>",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1248368080,
+              "parentid": 1162371288,
+              "timestamp": "2026-07-16T15:12:22Z"
+            }
+          ]
+        },
+        {
+          "pageid": 28394053,
+          "ns": 6,
+          "title": "File:Amazon CIAT (5).jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2013-09-19T12:25:51Z",
+              "user": "Chronus",
+              "size": 5721473,
+              "width": 4288,
+              "height": 2848,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Amazon_CIAT_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Amazon_CIAT_(5).jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=28394053",
+              "sha1": "c296a47591baf94afdc6fc8a5c877de2b9ce5b10",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2013-09-19 12:25:51",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Amazon CIAT (5)",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Nikon D300|Flickr images reviewed by trusted users|Shadows of clouds|Flickr images missing SDC creator|Flickr images missing SDC source of file|Aerial photographs of Amazonas (Brazil)|Aerial photographs of the Amazon Rainforest",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Aerial view of the Amazon Rainforest, near Manaus, the capital of the Brazilian state of Amazonas.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2011-04-19 10:17:23",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/ciat/5641594952/in/set-72157631885298620\">Flickr</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "Neil Palmer/<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/ciat/\">CIAT</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1169582777,
+              "parentid": 987901030,
+              "timestamp": "2026-02-21T00:41:38Z"
+            }
+          ]
+        },
+        {
+          "pageid": 33121050,
+          "ns": 6,
+          "title": "File:Porto de Galinhas-003.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2014-06-01T01:35:54Z",
+              "user": "Cleferson Comarela",
+              "size": 1801771,
+              "width": 2000,
+              "height": 1500,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Porto_de_Galinhas-003.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Porto_de_Galinhas-003.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=33121050",
+              "sha1": "079b67bcda69977386dd6c20041c5c772bc22a1c",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2014-06-01 01:35:54",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Porto de Galinhas-003",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with DJI FC200|Praia de Porto de Galinhas|Self-published work|Images from Wiki Loves Earth 2014 in Brazil|Images from Wiki Loves Earth 2014|Uploaded via Campaign:wle-br|Files with coordinates missing SDC location of creation|Brazil photographs taken on 2014-04-25|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-8.508333",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-34.999722",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Praia de Porto de Galinhas, em Pernambuco",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2014-04-25 06:01:25",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cleferson_Comarela&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cleferson Comarela (page does not exist)\">Cleferson Comarela</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1235364563,
+              "parentid": 1186245215,
+              "timestamp": "2026-06-21T07:29:24Z"
+            }
+          ]
+        },
+        {
+          "pageid": 40235651,
+          "ns": 6,
+          "title": "File:Dunas Jericoacoara.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2015-05-16T01:12:09Z",
+              "user": "Cibarnabé",
+              "size": 4239409,
+              "width": 3136,
+              "height": 1913,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Dunas_Jericoacoara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Dunas_Jericoacoara.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=40235651",
+              "sha1": "12005954a2f8acb0daca65737872c4c54b84830a",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2015-05-16 01:12:09",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Dunas Jericoacoara",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Parque Nacional de Jericoacoara|Dunes of Brazil|Self-published work|Images from Wiki Loves Earth 2015 in Brazil|Images from Wiki Loves Earth 2015|Uploaded via Campaign:wle-br|Brazil photographs taken on 2010-03-07|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Dunas de areia.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2010-03-07 10:29:59",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cibarnab%C3%A9&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cibarnabé (page does not exist)\">Cibarnabé</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1236315641,
+              "parentid": 1214926983,
+              "timestamp": "2026-06-22T16:06:04Z"
+            }
+          ]
+        },
+        {
+          "pageid": 40451662,
+          "ns": 6,
+          "title": "File:Abismo Anhumas, Bonito, MS.JPG",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2015-05-25T19:56:31Z",
+              "user": "Caioribeirovilela",
+              "size": 4559338,
+              "width": 3888,
+              "height": 2592,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Abismo_Anhumas%2C_Bonito%2C_MS.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Abismo_Anhumas,_Bonito,_MS.JPG",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=40451662",
+              "sha1": "53b15eb4a71fa07350f3d4ab44299ff2adaebe8d",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2015-05-25 19:56:31",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Abismo Anhumas, Bonito, MS",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Abismo Anhumas|Self-published work|Light beams|Images from Wiki Loves Earth 2015 in Brazil|Images from Wiki Loves Earth 2015|Uploaded via Campaign:wle-br|Brazil photographs taken on 2009-12-13|Light spot|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Interior do abismo Anhumas iluminado por raios solares através de claraboia natural.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2009-12-13 11:05:22",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Caioribeirovilela&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Caioribeirovilela (page does not exist)\">Caio Vilela</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1236080847,
+              "parentid": 780018262,
+              "timestamp": "2026-06-22T08:39:09Z"
+            }
+          ]
+        },
+        {
+          "pageid": 45110668,
+          "ns": 6,
+          "title": "File:Cancun Strand Luftbild (22143397586).jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2015-11-19T17:40:28Z",
+              "user": "Dronepicr",
+              "size": 1968842,
+              "width": 3992,
+              "height": 2242,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Cancun_Strand_Luftbild_%2822143397586%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cancun_Strand_Luftbild_(22143397586).jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=45110668",
+              "sha1": "d6af57d499aa20691f1e3e4e7d83e4a0dae822eb",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2015-11-19 17:40:28",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Cancun Strand Luftbild (22143397586)",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with DJI FC300X|Flickr images reviewed by FlickreviewR|Files with coordinates missing SDC location of creation|Mexico photographs taken on 2015-06-28|Beaches of Cancún|Hotel zone in Cancún|Aerial photographs of Cancún|Files from dronepicr Flickr stream",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "21.130497",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-86.746728",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Luftbildaufnahmen von Cancun.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2015-06-28 17:47",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/132646954@N02/22143397586/\">Cancun Strand Luftbild</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/132646954@N02\">dronepicr</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1074426677,
+              "parentid": 960009243,
+              "timestamp": "2025-08-18T19:19:55Z"
+            }
+          ]
+        },
+        {
+          "pageid": 49629962,
+          "ns": 6,
+          "title": "File:As montanhas da planície.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2024-05-19T01:25:36Z",
+              "user": "Chronus",
+              "size": 4800074,
+              "width": 3264,
+              "height": 2176,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/As_montanhas_da_plan%C3%ADcie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:As_montanhas_da_plan%C3%ADcie.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=49629962",
+              "sha1": "76daa3ba222444657ad48b289657c8801fedbd0c",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2024-05-19 01:25:36",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "As montanhas da planície",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Pantanal|Taken with Sony DSC-H9|Nature of Mato Grosso do Sul|Serra do Amolar|Self-published work|Uploaded via Campaign:wle-br|Images from Wiki Loves Earth 2016 in Brazil|Images from Wiki Loves Earth 2016|Files with coordinates missing SDC location of creation|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-18.101944",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-57.488333",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Serra do Amolar",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2013-09",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ale_Bertassoni&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ale Bertassoni (page does not exist)\">Ale Bertassoni</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1066638016,
+              "parentid": 877407696,
+              "timestamp": "2025-08-05T06:25:59Z"
+            }
+          ]
+        },
+        {
+          "pageid": 69292579,
+          "ns": 6,
+          "title": "File:Machu Picchu, Peru (2018).jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2018-05-20T02:17:37Z",
+              "user": "Edubucher",
+              "size": 1929017,
+              "width": 3000,
+              "height": 2250,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru_(2018).jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=69292579",
+              "sha1": "7346b24a890ac81c916ad9c85b09acb909c549ea",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2018-05-20 02:17:37",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Machu Picchu, Peru (2018)",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Views of Machu Picchu with Huayna Picchu in the background|Files with coordinates missing SDC location of creation|Flickr images reviewed by FlickreviewR 2",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-13.286728",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-72.323513",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "If you want to use this image on your website please credit to <a rel=\"nofollow\" class=\"external text\" href=\"https://zielonamapa.pl\">zielonamapa.pl</a> with a „do-follow” attribute. Please be respectful to my terms and conditions.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2018-05-18 12:38",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/147010603@N08/27318237937/\">Machu Picchu, Peru</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/147010603@N08\">Zielonamapa.pl</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1283308891,
+              "parentid": 1032139603,
+              "timestamp": "2026-10-05T03:28:27Z"
+            }
+          ]
+        },
+        {
+          "pageid": 70322608,
+          "ns": 6,
+          "title": "File:Lençóis Maranhenses 2018.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2018-06-28T15:27:37Z",
+              "user": "Julius Dadalti",
+              "size": 19011039,
+              "width": 5061,
+              "height": 6720,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Len%C3%A7%C3%B3is_Maranhenses_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Len%C3%A7%C3%B3is_Maranhenses_2018.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=70322608",
+              "sha1": "6c69a66ec7c2d751bcc1fce5a35652951cc7e381",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2018-06-28 15:27:37",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Lençóis Maranhenses 2018",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Taken with Canon EOS 5D Mark IV|Self-published work|Featured pictures on Wikipedia, English|Images with extracted images|Featured pictures on Wikipedia, Vietnamese|Images from Wiki Loves Earth 2018|Uploaded via Campaign:wle-br|Featured pictures of Maranhão|Featured pictures of national parks of Brazil|Images from Wiki Loves Earth 2018 in Brazil|Clouds and blue sky in Brazil|Brazil photographs taken on 2018-06-20|Seascapes of Brazil|Featured pictures from Wiki Loves Earth 2018 in Brazil|Featured pictures of landscapes in Brazil|Pictures of the Year/2023 (finalist)|Aerial photographs of Lençóis Maranhenses",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "quality|featured|potd|poty",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Fresh water collecting in the valleys between sand dunes in the <a href=\"https://en.wikipedia.org/wiki/Len%C3%A7%C3%B3is_Maranhenses_National_Park\" class=\"extiw\" title=\"en:Lençóis Maranhenses National Park\">Lençóis Maranhenses National Park</a> in Brazil. A layer of rock beneath the sand prevents the rain water from dissipating during the rainy season, resulting in a broad expanse of lagoons.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2018-06-20 10:55:28",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Julius_Dadalti&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Julius Dadalti (page does not exist)\">Julius Dadalti</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1186527309,
+              "parentid": 1138951286,
+              "timestamp": "2026-03-25T03:08:40Z"
+            }
+          ]
+        },
+        {
+          "pageid": 74181523,
+          "ns": 6,
+          "title": "File:London Skyline (125508655).jpeg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2018-11-06T12:09:08Z",
+              "user": "Rodrigo.Argenton",
+              "size": 771336,
+              "width": 2048,
+              "height": 1152,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/London_Skyline_%28125508655%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74181523",
+              "sha1": "25a4edbec6ebd332d79f2d30c6977a1d4ea5f5cd",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2018-11-06 12:09:08",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "<div class=\"fn\">\nLondon Skyline</div>",
+                  "source": "commons-desc-page"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Images with annotations|Tower Bridge at night|Photos imported with import-500px|Files with coordinates missing SDC location of creation (51° N, 1° W)|Aerial photographs of Tower Bridge",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "51.507995",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-0.087719",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Artist": {
+                  "value": "<div class=\"fn value\">\n<a rel=\"nofollow\" class=\"external text\" href=\"https://500px.com/igrigorik\">Ilya Grigorik</a></div>",
+                  "source": "commons-desc-page"
+                },
+                "ImageDescription": {
+                  "value": "<div class=\"description\">\n500px provided description: London Skyline [#sunset ,#architecture ,#cityscape ,#london ,#uk ,#skyline ,#financial district ,#thames ,#london bridge ,#london shard]</div>",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "24 June 2015, 01:57:31 (UTC)",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "Imported from <a rel=\"nofollow\" class=\"external text\" href=\"https://500px.com/photo/125508655/london-skyline-by-ilya-grigorik\">500px</a> (<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/201807id_/https://drscdn.500px.org/photo/125508655/m%3D2048/v2?webp=true&amp;sig=b6a10ce4cdbca71333bcb0c830a9c90abbeee5fb96afe15b7befb28e2f0fe62a\">archived version</a>) by <a rel=\"nofollow\" class=\"external text\" href=\"https://www.archiveteam.org/index.php?title=500px\">the Archive Team</a>. (<a href=\"https://iw.toolforge.org/import-500px/photo/125508655\" class=\"extiw\" title=\"toolforge:import-500px/photo/125508655\">detail page</a>)",
+                  "source": "commons-desc-page"
+                },
+                "Permission": {
+                  "value": "<div class=\"responsive-license-cc layouttemplate licensetpl\" dir=\"ltr\" lang=\"en\"><div class=\"rlicense-icons\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"w:en:Creative Commons\"><img alt=\"w:en:Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/120px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"36\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/250px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"744\" data-file-height=\"300\"></span></span><br>\n<span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"attribution\"><img alt=\"attribution\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/40px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/60px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"share alike\"><img alt=\"share alike\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/40px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/60px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span></div><div class=\"rlicense-text\"><div class=\"rlicense-declaration\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.en\" class=\"extiw\" title=\"creativecommons:by-sa/3.0/deed.en\">Attribution-Share Alike 3.0 Unported</a> license.</div><div class=\"rlicense-desc\" style=\"text-align:start;\" lang=\"en\">\n<dl><dd>You are free:\n<ul><li><b>to share</b> – to copy, distribute and transmit the work</li>\n<li><b>to remix</b> – to adapt the work</li></ul></dd>\n<dd>Under the following conditions:\n<ul><li><b>attribution</b> – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</li>\n<li><b>share alike</b> – If you remix, transform, or build upon the material, you must distribute your contributions under the <a href=\"https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses\" class=\"extiw\" title=\"ccorg:share-your-work/licensing-considerations/compatible-licenses\">same or compatible license</a> as the original.</li></ul></dd></dl></div><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/3.0</span><span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 3.0 </span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 3.0 </span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></div></div>",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 3.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 3.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-3.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1274940581,
+              "parentid": 1240771643,
+              "timestamp": "2026-09-11T02:06:55Z"
+            }
+          ]
+        },
+        {
+          "pageid": 87684967,
+          "ns": 6,
+          "title": "File:Miami Skyline 2020.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2020-03-04T22:49:20Z",
+              "user": "Chris6d",
+              "size": 2482253,
+              "width": 3400,
+              "height": 2661,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Miami_Skyline_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Miami_Skyline_2020.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=87684967",
+              "sha1": "76a0c075d59ba61029f6b372fa66854751e1e9d0",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2020-03-04 22:49:20",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Miami Skyline 2020",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Skyscrapers in Miami, Florida|2020 in Miami|Self-published work|Files with coordinates missing SDC location of creation|Miami, Florida skyline in the 2020s|Boats in Miami, Florida",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "25.778497",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-80.185142",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "View of the lower Miami skyline from Bayfront Park in February 2020. Photo by Chris6d.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2020-02-05",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Chris6d\" title=\"User:Chris6d\">Chris6d</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1250769893,
+              "parentid": 1141826044,
+              "timestamp": "2026-07-23T04:35:20Z"
+            }
+          ]
+        },
+        {
+          "pageid": 95613332,
+          "ns": 6,
+          "title": "File:Evening light over Barcelona.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2020-10-29T19:42:53Z",
+              "user": "Kroger4",
+              "size": 3469930,
+              "width": 5995,
+              "height": 2799,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Evening_light_over_Barcelona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=95613332",
+              "sha1": "575cc6b4dafb2fb872e1190b93e84c9d8367a148",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2020-10-29 19:42:53",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Evening light over Barcelona",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Aerial photographs of Barcelona|Files with coordinates missing SDC location of creation|Flickr images reviewed by FlickreviewR 2|Photographs by Mike McBey",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "41.395756",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "2.154006",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "With part of the Port of Barcelona in the foreground and Montserrat Mountain at top left",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2015-10-08 18:23:56",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/158652122@N02/50128616537/\">https://www.flickr.com/photos/158652122@N02/50128616537/</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "M McBey",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1236591117,
+              "parentid": 1175894478,
+              "timestamp": "2026-06-23T00:27:27Z"
+            }
+          ]
+        },
+        {
+          "pageid": 109791131,
+          "ns": 6,
+          "title": "File:Skyline of Beijing CBD from the southeast (20210907094201).jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2021-09-07T12:28:42Z",
+              "user": "N509FZ",
+              "size": 9231307,
+              "width": 6143,
+              "height": 4095,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Skyline_of_Beijing_CBD_from_the_southeast_%2820210907094201%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Skyline_of_Beijing_CBD_from_the_southeast_(20210907094201).jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=109791131",
+              "sha1": "d54c39d0368f5703b6f358c3da63c042ef1c6a00",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2021-09-07 12:28:42",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Skyline of Beijing CBD from the southeast (20210907094201)",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Beijing Central Business District|Self-published work|Files with coordinates missing SDC location of creation|September 2021 in Beijing|Beijing photographs taken on 2021-09-07|Skylines of Beijing",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "39.899289",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "116.505119",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "And here comes G915.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2021-09-07 09:42:01",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:N509FZ\" title=\"User:N509FZ\">N509FZ</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1183291685,
+              "parentid": 1003619828,
+              "timestamp": "2026-03-18T23:52:09Z"
+            }
+          ]
+        },
+        {
+          "pageid": 130456394,
+          "ns": 6,
+          "title": "File:Aerial shot of a small island on a coral reef in the Maldives.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2023-04-07T11:10:17Z",
+              "user": "HistoriaSalutis",
+              "size": 4361182,
+              "width": 3756,
+              "height": 1872,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Aerial_shot_of_a_small_island_on_a_coral_reef_in_the_Maldives.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Aerial_shot_of_a_small_island_on_a_coral_reef_in_the_Maldives.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=130456394",
+              "sha1": "8cd3b181743369838f64a215de92da3b995731d9",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2023-04-07 11:10:17",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Aerial shot of a small island on a coral reef in the Maldives",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Islands of the Maldives|Self-published work|Aerial photographs of the Maldives|Coral reefs of the Maldives",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Aerial shot of a small island on a coral reef in the Maldives, Indian Ocean, Asia",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2007-11-21 11:07:30",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:HistoriaSalutis\" title=\"User:HistoriaSalutis\">Dr. Ondřej Havelka (cestovatel)</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1034660644,
+              "parentid": 782649364,
+              "timestamp": "2025-05-23T19:03:31Z"
+            }
+          ]
+        },
+        {
+          "pageid": 134553617,
+          "ns": 6,
+          "title": "File:Salvador BA (cropped) 2.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2023-07-17T22:12:02Z",
+              "user": "Chronus",
+              "size": 1350131,
+              "width": 2126,
+              "height": 949,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Salvador_BA_%28cropped%29_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Salvador_BA_(cropped)_2.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=134553617",
+              "sha1": "b848090d162a42b64734494763d54501b7287338",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2023-07-17 22:12:02",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Salvador BA (cropped) 2",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Forte de Santo Antônio da Barra|Avenida Sete de Setembro (Salvador)|Images from Fotos GOVBA|Avenida Oceânica|Morro do Cristo|Farol da Barra|Ponta de Santo Antônio|Morro Ipiranga|Extracted images|Aerial photographs of Salvador (Bahia)|Skylines of Salvador (Bahia)|Aerial photographs of lighthouses",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Imagem aérea do Farol da Barra, em Salvador, Bahia, Brasil.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2009-02-05",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/agecombahia/4359343097/\">Flickr</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/agecombahia/\">Fotos Gov/Ba</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 2.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 2.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/2.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-2.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1228409557,
+              "parentid": 1062941310,
+              "timestamp": "2026-06-09T09:27:29Z"
+            }
+          ]
+        },
+        {
+          "pageid": 134805350,
+          "ns": 6,
+          "title": "File:Giza Pyramids Panorama.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2023-07-23T05:02:52Z",
+              "user": "Ibinbar",
+              "size": 3625235,
+              "width": 3120,
+              "height": 1760,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Giza_Pyramids_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Giza_Pyramids_Panorama.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=134805350",
+              "sha1": "b674d59ed8f66cc36c6159fcd017d44a4a9b31f8",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2023-07-23 05:02:52",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Giza Pyramids Panorama",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Protected areas of Egypt|Self-published work|Images from Wiki Loves Earth 2023|Images from Wiki Loves Earth 2023 in Egypt|Uploaded via Campaign:wle-eg|Images from Wiki Loves Earth missing SDC location of creation|Unreviewed Images from Wiki Loves Earth 2021 in Egypt",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Panorama showing the three pyramids of Giza <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikimedia.org/wiki/File:Giza_Pyramids_Panorama.jpg#ooui-php-4\" title=\"Edit this at Structured Data on Commons\"><img alt=\"Edit this at Structured Data on Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2023-07-18 08:41:49",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ibinbar&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ibinbar (page does not exist)\">Benjamin Inbar</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1273858639,
+              "parentid": 1202339545,
+              "timestamp": "2026-09-08T09:34:39Z"
+            }
+          ]
+        },
+        {
+          "pageid": 135835012,
+          "ns": 6,
+          "title": "File:Parque Nacional Chapada Diamantina Rafael Cristo Watanabe 04.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2023-08-11T20:38:52Z",
+              "user": "Rafael Cristo Watanabe",
+              "size": 10031687,
+              "width": 5184,
+              "height": 2768,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Parque_Nacional_Chapada_Diamantina_Rafael_Cristo_Watanabe_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_Chapada_Diamantina_Rafael_Cristo_Watanabe_04.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=135835012",
+              "sha1": "991918e65a18c5d7c1595a6d75ac13956095999a",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2023-08-11 20:38:52",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Parque Nacional Chapada Diamantina Rafael Cristo Watanabe 04",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Morro do Pai Inácio|Parque Nacional da Chapada Diamantina|Self-published work|Images from Wiki Loves Earth 2023 Human Rights and Environment Special Nomination|Uploaded via Campaign:wle-br|Files with coordinates missing SDC location of creation|Images from Wiki Loves Earth 2023 in Brazil - Bahia|Images from Wiki Loves Earth 2023|Images from Wiki Loves Earth 2023 in Brazil|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-12.880278",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-41.372222",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Morro do Pai Inácio. Lençóis, Chapada Diamantina.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2023-04-08 18:45:37",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rafael_Cristo_Watanabe&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rafael Cristo Watanabe (page does not exist)\">Rafael Cristo Watanabe</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1084411997,
+              "parentid": 865364347,
+              "timestamp": "2025-09-12T04:31:56Z"
+            }
+          ]
+        },
+        {
+          "pageid": 150610457,
+          "ns": 6,
+          "title": "File:Panorama de Noronha-Praia do Sancho.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2024-07-22T03:10:21Z",
+              "user": "Hansfotos",
+              "size": 23916836,
+              "width": 5315,
+              "height": 2990,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Panorama_de_Noronha-Praia_do_Sancho.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Panorama_de_Noronha-Praia_do_Sancho.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=150610457",
+              "sha1": "df4845a04f5705837c685c6a5fa72d1c0477c9d5",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2024-07-22 03:10:21",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Panorama de Noronha-Praia do Sancho",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Self-published work|Uploaded via Campaign:wle-br|Images from Wiki Loves Earth 2024 in Brazil - Pernambuco|Images from Wiki Loves Earth 2024|Images from Wiki Loves Earth 2024 in Brazil|Images from Wiki Loves Earth missing SDC depicts|Images from Wiki Loves Earth missing SDC location of creation|Beaches of Parque Nacional Marinho de Fernando de Noronha",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Parque Nacional Marinho de Fernando de Noronha de nível Federal, localizado em Fernando de Noronha (PE)",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2023-11-28 10:03:14",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Hansfotos&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Hansfotos (page does not exist)\">Hansfotos</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1248271287,
+              "parentid": 1234878640,
+              "timestamp": "2026-07-16T06:20:23Z"
+            }
+          ]
+        },
+        {
+          "pageid": 169519663,
+          "ns": 6,
+          "title": "File:Venezia aerial view.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2025-07-09T05:20:50Z",
+              "user": "Kallerna",
+              "size": 3685052,
+              "width": 5666,
+              "height": 3170,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Venezia_aerial_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=169519663",
+              "sha1": "09cb272e79ee5888fded26f1848fbb04ab0a46da",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2025-07-09 05:20:50",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Venezia aerial view",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Harbour of Venice|Self-published work|Images with extracted images|Aerial photographs of Venice|Files with coordinates missing SDC location of creation|July 2025 in Venice|Aerial photographs of Venetian lagoon",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "37.754714",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "20.880672",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Aerial view of <a href=\"//commons.wikimedia.org/wiki/Venice\" class=\"mw-redirect\" title=\"Venice\">Venice</a>, <a href=\"//commons.wikimedia.org/wiki/Stazione_di_Venezia_Santa_Lucia\" title=\"Stazione di Venezia Santa Lucia\">railway station Santa Lucia</a> and port, Canale della Giudecca, <a href=\"//commons.wikimedia.org/wiki/Giudecca_a_Venezia\" title=\"Giudecca a Venezia\">island Giudecca</a>",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2025-07-08 15:23:32",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "<a href=\"//commons.wikimedia.org/wiki/User:Kallerna\" title=\"User:Kallerna\">kallerna</a>",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1202706684,
+              "parentid": 1153416761,
+              "timestamp": "2026-04-24T08:39:30Z"
+            }
+          ]
+        },
+        {
+          "pageid": 169986080,
+          "ns": 6,
+          "title": "File:Athens Acropolis at Daybreak.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2025-07-14T19:49:01Z",
+              "user": "Юрий Д.К.",
+              "size": 5874009,
+              "width": 6004,
+              "height": 3377,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Athens_Acropolis_at_Daybreak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:Athens_Acropolis_at_Daybreak.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=169986080",
+              "sha1": "9f7606fd39b55e05fd9c01f96f4042a5bec14ce6",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2025-07-14 19:49:01",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "Athens Acropolis at Daybreak",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Acropolis of Athens|Views of Athens|Flickr images missing SDC creator|Flickr images missing SDC source of file|Files with coordinates missing SDC location of creation|Flickr images reviewed by FlickreviewR 2|Photos in Flickr Explore|May 2025 in Athens|Clouds at sunrise in Greece|Blue sunrises of Greece|Sunrises of Athens|Taken with Sony ILCE-6700|Sunrises in 2025|Greece photographs taken on 2025-05-28|Photographs by Andrew Parlette",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "37.967577",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "23.722165",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "The first hints of sunrise brushed the Athens skyline, molten gold pressing against the lingering blues of night. From our perch on Philopappou Hill, the Acropolis stood quietly opposite, still flood-lit from the evening.\n<p>A small band of us had gathered in the hotel lobby before dawn and climbed the hill as blue hour faded. We’d been here the previous evening, taking in views all the way to the Aegean, but this time our gaze turned east toward Lycabettus Hill and the ancient structures of the Odeon and Parthenon.\n</p>\nClouds hid the sun itself, yet their cover only intensified the drama: a brilliant band of color along the horizon while the flood-lit marble slipped from artificial glow into the warmth of daybreak. We read a psalm in near silence, offering thanks to God for a new morning, enjoying the sweep of color across the ancient stone and the city we explored over the previous few days.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "Taken on 28 May 2025, 05:49:08",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/aparlette/54649540651/\">https://www.flickr.com/photos/aparlette/54649540651/</a>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "Andrew Parlette",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1092680050,
+              "parentid": 1067997330,
+              "timestamp": "2025-09-29T16:20:35Z"
+            }
+          ]
+        },
+        {
+          "pageid": 197021912,
+          "ns": 6,
+          "title": "File:IG - Panoramic view near the start of the Brazilian trail at Iguazu Falls, 2023.jpg",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "timestamp": "2026-08-08T09:52:39Z",
+              "user": "JosepMGracia",
+              "size": 8060546,
+              "width": 4288,
+              "height": 2848,
+              "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/IG_-_Panoramic_view_near_the_start_of_the_Brazilian_trail_at_Iguazu_Falls%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+              "descriptionurl": "https://commons.wikimedia.org/wiki/File:IG_-_Panoramic_view_near_the_start_of_the_Brazilian_trail_at_Iguazu_Falls,_2023.jpg",
+              "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=197021912",
+              "sha1": "01bb7462a39c2d5423abbe1e7ff06eb695ba1996",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2026-08-08 09:52:39",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "IG - Panoramic view near the start of the Brazilian trail at Iguazu Falls, 2023",
+                  "source": "mediawiki-metadata"
+                },
+                "CommonsMetadataExtension": {
+                  "value": 1.2,
+                  "source": "extension",
+                  "hidden": ""
+                },
+                "Categories": {
+                  "value": "Uploaded with OpenRefine|Panoramics of Iguazu Falls from the Brazilian side|Files with coordinates missing SDC location of creation|Views of Iguazu Falls from Trilha das Cataratas",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "Assessments": {
+                  "value": "",
+                  "source": "commons-categories",
+                  "hidden": ""
+                },
+                "GPSLatitude": {
+                  "value": "-25.684120",
+                  "source": "commons-desc-page"
+                },
+                "GPSLongitude": {
+                  "value": "-54.438420",
+                  "source": "commons-desc-page"
+                },
+                "GPSMapDatum": {
+                  "value": "WGS-84",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "ImageDescription": {
+                  "value": "Panoramic view of Iguazu Falls from near the start of the viewpoint trail on the Brazilian side.",
+                  "source": "commons-desc-page"
+                },
+                "DateTimeOriginal": {
+                  "value": "2023-08",
+                  "source": "commons-desc-page"
+                },
+                "Credit": {
+                  "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                  "source": "commons-desc-page"
+                },
+                "Artist": {
+                  "value": "Josep M. Gracia",
+                  "source": "commons-desc-page"
+                },
+                "LicenseShortName": {
+                  "value": "CC BY-SA 4.0",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "UsageTerms": {
+                  "value": "Creative Commons Attribution-Share Alike 4.0",
+                  "source": "commons-desc-page"
+                },
+                "AttributionRequired": {
+                  "value": "true",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "LicenseUrl": {
+                  "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                  "source": "commons-desc-page"
+                },
+                "Copyrighted": {
+                  "value": "True",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "Restrictions": {
+                  "value": "",
+                  "source": "commons-desc-page",
+                  "hidden": ""
+                },
+                "License": {
+                  "value": "cc-by-sa-4.0",
+                  "source": "commons-templates",
+                  "hidden": ""
+                }
+              }
+            }
+          ],
+          "revisions": [
+            {
+              "revid": 1263577522,
+              "parentid": 1260093994,
+              "timestamp": "2026-08-19T03:14:09Z"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

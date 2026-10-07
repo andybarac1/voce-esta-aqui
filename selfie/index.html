@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css?v=17">
   <link rel="stylesheet" href="experiencia-2/styles.css?v=8">
   <link rel="stylesheet" href="selfie/styles.css?v=4">
+  <link rel="stylesheet" href="credits.css?v=1">
 </head>
 <body class="tv-page autorretrato-gallery">
   <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência de autorretrato">
@@ -28,7 +29,10 @@
         <img class="exhibition-logo" src="assets/exhibition-logo-white.svg?v=2" alt="Selo circular oficial da exposição Martin Parr — Mundo Pequeno">
       </div>
       <div class="tv-title"><p>EXPERIÊNCIA 01 / GALERIA</p><h1>VOCÊ ESTÁ AQUI.</h1></div>
-      <button class="outline-button fullscreen-button" id="fullscreenButton" type="button">⛶ &nbsp; TELA CHEIA</button>
+      <div class="tv-header-actions">
+        <button class="outline-button credits-button" data-open-credits type="button">CRÉDITOS DAS IMAGENS</button>
+        <button class="outline-button fullscreen-button" id="fullscreenButton" type="button">⛶ &nbsp; TELA CHEIA</button>
+      </div>
     </header>
 
     <main class="gallery-screen destination-grid-screen" id="galleryScreen">
@@ -106,7 +110,17 @@
     <button id="scenarioPromptButton" type="button">EMBARCAR NESTE CENÁRIO <b>→</b></button>
   </aside>
   <aside class="idle-tip route-idle-tip" id="idleTip"><button id="closeTipButton" type="button">×</button><span>DICA</span><strong id="tipText"></strong></aside>
+  <dialog class="credits-dialog" id="creditsDialog" aria-labelledby="creditsTitle">
+    <div class="credits-panel">
+      <header class="credits-header"><div><p>WIKIMEDIA COMMONS</p><h2 id="creditsTitle">CRÉDITOS DAS IMAGENS</h2></div><button class="credits-close" data-close-credits type="button">FECHAR ×</button></header>
+      <p class="credits-intro">Autor, licença e página de origem dos fundos utilizados nas experiências.</p>
+      <section class="credits-list" data-credits-list></section>
+      <p class="credits-footer">METADADOS DE LICENÇA CONSULTADOS EM 07/10/2026.</p>
+    </div>
+  </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/licensing/wikimedia-credits.js?v=20261007"></script>
+  <script src="credits.js?v=1"></script>
   <script src="destinations-data.js?v=2"></script>
   <script src="app.js?v=19"></script>
   <script src="selfie/gallery-adapter.js?v=4"></script>

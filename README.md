@@ -6,6 +6,7 @@ Aplicações de tela grande da exposição Martin Parr — Mundo Pequeno. A assi
 
 - `/selfie/` — Experiência 1 — Autorretrato: seleção por galeria; a TV exibe o cenário em tela cheia e o visitante faz o autorretrato com o próprio celular.
 - `/polaroid/` — Experiência 2 — Meu próximo destino: seleção por galeria, continuação por QR code no celular e criação de uma lembrança com recorte de fundo, legenda, enquadramento, download e compartilhamento.
+- `/creditos/` — créditos completos das imagens do Wikimedia Commons, com autor, licença e página de origem.
 - `/` e `/experiencia-2/` redirecionam para as novas rotas.
 
 ## Executar localmente

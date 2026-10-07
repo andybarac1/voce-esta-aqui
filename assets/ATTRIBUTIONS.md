@@ -1,32 +1,32 @@
-# Créditos das imagens de destinos
+# Créditos das imagens do Wikimedia Commons
 
-As novas imagens desta atualização foram obtidas no Wikimedia Commons e mantêm as licenças indicadas em suas páginas de origem. As imagens foram redimensionadas para uso nas experiências interativas.
+Metadados consultados em 07/10/2026. As imagens foram redimensionadas e recortadas para uso nas experiências interativas.
 
-- Amazônia — [Amazon CIAT (5)](https://commons.wikimedia.org/wiki/File:Amazon_CIAT_(5).jpg)
-- Bonito — [Abismo Anhumas, Bonito, MS](https://commons.wikimedia.org/wiki/File:Abismo_Anhumas,_Bonito,_MS.JPG)
-- Chapada Diamantina — [Parque Nacional Chapada Diamantina](https://commons.wikimedia.org/wiki/File:Parque_Nacional_Chapada_Diamantina_Rafael_Cristo_Watanabe_04.jpg)
-- Fernando de Noronha — [Panorama de Noronha — Praia do Sancho](https://commons.wikimedia.org/wiki/File:Panorama_de_Noronha-Praia_do_Sancho.jpg)
-- Foz do Iguaçu — [Panoramic view at Iguazu Falls](https://commons.wikimedia.org/wiki/File:IG_-_Panoramic_view_near_the_start_of_the_Brazilian_trail_at_Iguazu_Falls,_2023.jpg)
-- Jericoacoara — [Dunas Jericoacoara](https://commons.wikimedia.org/wiki/File:Dunas_Jericoacoara.jpg)
-- Lençóis Maranhenses — [Lençóis Maranhenses 2018](https://commons.wikimedia.org/wiki/File:Lençóis_Maranhenses_2018.jpg)
-- Maragogi — [Maragogi, Alagoas, Brasil](https://commons.wikimedia.org/wiki/File:Maragogi_Alagoas_Brasil.jpg)
-- Pantanal — [As montanhas da planície](https://commons.wikimedia.org/wiki/File:As_montanhas_da_planície.jpg)
-- Porto de Galinhas — [Porto de Galinhas 003](https://commons.wikimedia.org/wiki/File:Porto_de_Galinhas-003.jpg)
-- Salvador — [Salvador BA](https://commons.wikimedia.org/wiki/File:Salvador_BA_(cropped)_2.jpg)
-- Alpes Suíços — [Swiss Alps](https://commons.wikimedia.org/wiki/File:Swiss_Alps.jpg)
-- Atenas — [Athens Acropolis at Daybreak](https://commons.wikimedia.org/wiki/File:Athens_Acropolis_at_Daybreak.jpg)
-- Barcelona — [Evening light over Barcelona](https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg)
-- Buenos Aires — [La City vista desde Puerto Madero](https://commons.wikimedia.org/wiki/File:La_City_vista_desde_Puerto_Madero.jpg)
-- Pirâmides de Gizé — [Giza Pyramids Panorama](https://commons.wikimedia.org/wiki/File:Giza_Pyramids_Panorama.jpg), fotografia de Benjamin Inbar, CC BY-SA 4.0
-- Cancún — [Cancun Strand Luftbild](https://commons.wikimedia.org/wiki/File:Cancun_Strand_Luftbild_(22143397586).jpg)
-- Londres — [London Skyline](https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg)
-- Machu Picchu — [Machu Picchu, Peru (2018)](https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru_(2018).jpg)
-- Maldivas — [Aerial shot of a small island on a coral reef](https://commons.wikimedia.org/wiki/File:Aerial_shot_of_a_small_island_on_a_coral_reef_in_the_Maldives.jpg)
-- Orlando e Miami — [Miami Skyline 2020](https://commons.wikimedia.org/wiki/File:Miami_Skyline_2020.jpg)
-- Pequim — [Skyline of Beijing CBD](https://commons.wikimedia.org/wiki/File:Skyline_of_Beijing_CBD_from_the_southeast_(20210907094201).jpg)
-- Santorini — [Panoramic view of Oia](https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Oia,_Santorini_island_(Thira),_Greece.jpg)
-- Tóquio — [Skyscrapers of Shinjuku](https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg)
-- Veneza — [Venezia aerial view](https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg)
-- Toscana — [Tuscany landscape west of Siena](https://commons.wikimedia.org/wiki/File:Tuscany_landscape_west_of_Siena.jpg), fotografia de Norbert Nagel, CC BY-SA 3.0.
+- **Amazônia** — Amazon CIAT (5).jpg. Autor: Neil Palmer/CIAT. Licença: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Amazon_CIAT_(5).jpg).
+- **Bonito** — Abismo Anhumas, Bonito, MS.JPG. Autor: Caio Vilela. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Abismo_Anhumas,_Bonito,_MS.JPG).
+- **Chapada Diamantina** — Parque Nacional Chapada Diamantina Rafael Cristo Watanabe 04.jpg. Autor: Rafael Cristo Watanabe. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Parque_Nacional_Chapada_Diamantina_Rafael_Cristo_Watanabe_04.jpg).
+- **Fernando de Noronha** — Panorama de Noronha-Praia do Sancho.jpg. Autor: Hansfotos. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Panorama_de_Noronha-Praia_do_Sancho.jpg).
+- **Foz do Iguaçu** — IG - Panoramic view near the start of the Brazilian trail at Iguazu Falls, 2023.jpg. Autor: Josep M. Gracia. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:IG_-_Panoramic_view_near_the_start_of_the_Brazilian_trail_at_Iguazu_Falls,_2023.jpg).
+- **Jericoacoara** — Dunas Jericoacoara.jpg. Autor: Cibarnabé. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Dunas_Jericoacoara.jpg).
+- **Lençóis Maranhenses** — Lençóis Maranhenses 2018.jpg. Autor: Julius Dadalti. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Len%C3%A7%C3%B3is_Maranhenses_2018.jpg).
+- **Maragogi** — Maragogi Alagoas Brasil.jpg. Autor: Tiago Leite. Licença: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Maragogi_Alagoas_Brasil.jpg).
+- **Pantanal** — As montanhas da planície.jpg. Autor: Ale Bertassoni. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:As_montanhas_da_plan%C3%ADcie.jpg).
+- **Porto de Galinhas** — Porto de Galinhas-003.jpg. Autor: Cleferson Comarela. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Porto_de_Galinhas-003.jpg).
+- **Salvador** — Salvador BA (cropped) 2.jpg. Autor: Fotos Gov/Ba. Licença: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Salvador_BA_(cropped)_2.jpg).
+- **Alpes Suíços** — Swiss Alps.jpg. Autor: Devil Dancer. Licença: [CC BY 3.0](https://creativecommons.org/licenses/by/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Swiss_Alps.jpg).
+- **Atenas** — Athens Acropolis at Daybreak.jpg. Autor: Andrew Parlette. Licença: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Athens_Acropolis_at_Daybreak.jpg).
+- **Barcelona** — Evening light over Barcelona.jpg. Autor: M McBey. Licença: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg).
+- **Buenos Aires** — La City vista desde Puerto Madero.jpg. Autor: Jimmy Baikovicius. Licença: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:La_City_vista_desde_Puerto_Madero.jpg).
+- **Pirâmides de Gizé** — Giza Pyramids Panorama.jpg. Autor: Benjamin Inbar. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Giza_Pyramids_Panorama.jpg).
+- **Cancún** — Cancun Strand Luftbild (22143397586).jpg. Autor: dronepicr. Licença: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Cancun_Strand_Luftbild_(22143397586).jpg).
+- **Londres** — London Skyline (125508655).jpeg. Autor: Ilya Grigorik. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg).
+- **Machu Picchu** — Machu Picchu, Peru (2018).jpg. Autor: Zielonamapa.pl. Licença: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru_(2018).jpg).
+- **Maldivas** — Aerial shot of a small island on a coral reef in the Maldives.jpg. Autor: Dr. Ondřej Havelka (cestovatel). Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Aerial_shot_of_a_small_island_on_a_coral_reef_in_the_Maldives.jpg).
+- **Orlando e Miami** — Miami Skyline 2020.jpg. Autor: Chris6d. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Miami_Skyline_2020.jpg).
+- **Pequim** — Skyline of Beijing CBD from the southeast (20210907094201).jpg. Autor: N509FZ. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Skyline_of_Beijing_CBD_from_the_southeast_(20210907094201).jpg).
+- **Santorini** — Panoramic view of Oia, Santorini island (Thira), Greece.jpg. Autor: Mstyslav Chernov. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Oia,_Santorini_island_(Thira),_Greece.jpg).
+- **Tóquio** — Skyscrapers of Shinjuku 2009 January.jpg. Autor: Morio. Licença: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/). [Página de origem](https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg).
+- **Veneza** — Venezia aerial view.jpg. Autor: kallerna. Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg).
+- **Toscana** — Tuscany landscape west of Siena.jpg. Autor: Norbert Nagel, Mörfelden-Walldorf, Germany. Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). [Página de origem](https://commons.wikimedia.org/wiki/File:Tuscany_landscape_west_of_Siena.jpg).
 
-Os fundos já existentes no projeto (Paris, Lisboa, Nova York, Rio de Janeiro e Roma) foram preservados.
+A resposta da API usada na consulta está arquivada em `assets/licensing/wikimedia-api-evidence-2026-10-07.json`.

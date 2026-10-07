@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css?v=17">
   <link rel="stylesheet" href="experiencia-2/styles.css?v=8">
   <link rel="stylesheet" href="polaroid/styles.css?v=6">
+  <link rel="stylesheet" href="credits.css?v=1">
 </head>
 <body class="tv-page polaroid-gallery" data-mobile-path="polaroid/mobile.html">
   <button class="opening-splash" id="openingSplash" type="button" aria-label="Toque para começar a experiência Meu próximo destino">
@@ -27,6 +28,7 @@
       <div class="brand-lockup" aria-label="Martin Parr — Mundo Pequeno"><img class="exhibition-logo" src="assets/exhibition-logo-white.svg?v=2" alt="Selo circular oficial da exposição Martin Parr — Mundo Pequeno"></div>
       <div class="headline"><p class="eyebrow">EXPERIÊNCIA 02 / GALERIA</p><h1>VOCÊ ESTÁ AQUI.</h1></div>
       <div class="topbar-actions">
+        <button class="reset-button credits-button" data-open-credits type="button">CRÉDITOS DAS IMAGENS</button>
         <button class="icon-button" id="fullscreenButton" type="button" aria-label="Ativar tela cheia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
       </div>
     </header>
@@ -77,7 +79,17 @@
       <p>VIAGEM EM ANDAMENTO</p><h2>BOA VIAGEM!</h2><strong>A EXPERIÊNCIA CONTINUA NO SEU CELULAR.<br>OBRIGADO POR ESTAR AQUI.</strong><small>PREPARANDO PARA O PRÓXIMO VISITANTE…</small>
     </section>
   </div>
+  <dialog class="credits-dialog" id="creditsDialog" aria-labelledby="creditsTitle">
+    <div class="credits-panel">
+      <header class="credits-header"><div><p>WIKIMEDIA COMMONS</p><h2 id="creditsTitle">CRÉDITOS DAS IMAGENS</h2></div><button class="credits-close" data-close-credits type="button">FECHAR ×</button></header>
+      <p class="credits-intro">Autor, licença e página de origem dos fundos utilizados nas experiências.</p>
+      <section class="credits-list" data-credits-list></section>
+      <p class="credits-footer">METADADOS DE LICENÇA CONSULTADOS EM 07/10/2026.</p>
+    </div>
+  </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/licensing/wikimedia-credits.js?v=20261007"></script>
+  <script src="credits.js?v=1"></script>
   <script src="experiencia-2/vendor/qrcode.js"></script>
   <script src="destinations-data.js?v=2"></script>
   <script src="experiencia-2/app.js?v=6"></script>
