@@ -33,7 +33,6 @@ const transferParams = new URLSearchParams(location.search);
 const destinationId = transferParams.get("destination");
 let destination = null;
 let sourceCanvas = null;
-let objectUrl = null;
 let renderFrame = null;
 let renderedBlob = null;
 let personMaskCanvas = null;
@@ -72,7 +71,7 @@ async function begin() {
     window.MPFImageCredits?.apply(elements.cameraDestinationCredit, destination.id);
     await Promise.all([
       loadImage(destination.image),
-      loadImage("assets/exhibition-logo-pink.svg?v=4"),
+      loadImage("assets/exhibition-logo-white.svg?v=2"),
       document.fonts?.load('400 64px "Reenie Beanie"') || Promise.resolve()
     ]);
     await initSegmentationEngine();
@@ -172,8 +171,7 @@ function segmentPersonWithMediaPipe() {
 async function segmentPersonWithModnet() {
   const sourceWidth = sourceCanvas.width;
   const sourceHeight = sourceCanvas.height;
-  let scale = 512 / Math.min(sourceWidth, sourceHeight);
-  if (Math.max(sourceWidth, sourceHeight) * scale > 896) scale = 896 / Math.max(sourceWidth, sourceHeight);
+  const scale = Math.min(1, 512 / Math.max(sourceWidth, sourceHeight));
   const modelWidth = Math.max(32, Math.round(sourceWidth * scale / 32) * 32);
   const modelHeight = Math.max(32, Math.round(sourceHeight * scale / 32) * 32);
   const inputCanvas = document.createElement("canvas");
@@ -193,34 +191,39 @@ async function segmentPersonWithModnet() {
     input[planeSize * 2 + pixel] = rgba[rgbaIndex + 2] / 127.5 - 1;
   }
   const inputName = modnetSession.inputNames[0];
-  const result = await modnetSession.run({
-    [inputName]: new ort.Tensor("float32", input, [1, 3, modelHeight, modelWidth])
-  });
-  const matteTensor = result[modnetSession.outputNames[0]];
-  const matteHeight = matteTensor.dims[matteTensor.dims.length - 2];
-  const matteWidth = matteTensor.dims[matteTensor.dims.length - 1];
-  const matteCanvas = document.createElement("canvas");
-  matteCanvas.width = matteWidth;
-  matteCanvas.height = matteHeight;
-  const matteContext = matteCanvas.getContext("2d");
-  const matteImage = matteContext.createImageData(matteWidth, matteHeight);
-  for (let pixel = 0; pixel < matteWidth * matteHeight; pixel++) {
-    const value = Math.round(Math.max(0, Math.min(1, matteTensor.data[pixel])) * 255);
-    const index = pixel * 4;
-    matteImage.data[index] = value;
-    matteImage.data[index + 1] = value;
-    matteImage.data[index + 2] = value;
-    matteImage.data[index + 3] = 255;
+  const inputTensor = new ort.Tensor("float32", input, [1, 3, modelHeight, modelWidth]);
+  let result;
+  try {
+    result = await modnetSession.run({ [inputName]: inputTensor });
+    const matteTensor = result[modnetSession.outputNames[0]];
+    const matteHeight = matteTensor.dims[matteTensor.dims.length - 2];
+    const matteWidth = matteTensor.dims[matteTensor.dims.length - 1];
+    const matteCanvas = document.createElement("canvas");
+    matteCanvas.width = matteWidth;
+    matteCanvas.height = matteHeight;
+    const matteContext = matteCanvas.getContext("2d");
+    const matteImage = matteContext.createImageData(matteWidth, matteHeight);
+    for (let pixel = 0; pixel < matteWidth * matteHeight; pixel++) {
+      const value = Math.round(Math.max(0, Math.min(1, matteTensor.data[pixel])) * 255);
+      const index = pixel * 4;
+      matteImage.data[index] = value;
+      matteImage.data[index + 1] = value;
+      matteImage.data[index + 2] = value;
+      matteImage.data[index + 3] = 255;
+    }
+    matteContext.putImageData(matteImage, 0, 0);
+    const mask = document.createElement("canvas");
+    mask.width = sourceWidth;
+    mask.height = sourceHeight;
+    const maskContext = mask.getContext("2d");
+    maskContext.imageSmoothingEnabled = true;
+    maskContext.imageSmoothingQuality = "high";
+    maskContext.drawImage(matteCanvas, 0, 0, sourceWidth, sourceHeight);
+    return mask;
+  } finally {
+    inputTensor.dispose?.();
+    if (result) Object.values(result).forEach(tensor => tensor.dispose?.());
   }
-  matteContext.putImageData(matteImage, 0, 0);
-  const mask = document.createElement("canvas");
-  mask.width = sourceWidth;
-  mask.height = sourceHeight;
-  const maskContext = mask.getContext("2d");
-  maskContext.imageSmoothingEnabled = true;
-  maskContext.imageSmoothingQuality = "high";
-  maskContext.drawImage(matteCanvas, 0, 0, sourceWidth, sourceHeight);
-  return mask;
 }
 
 async function segmentPerson() {
@@ -322,12 +325,24 @@ function drawImageCredit(context, destinationId) {
   context.restore();
 }
 
+function drawBlackExhibitionLogo(context, image, x, y, size) {
+  const logoCanvas = document.createElement("canvas");
+  logoCanvas.width = size;
+  logoCanvas.height = size;
+  const logoContext = logoCanvas.getContext("2d");
+  logoContext.drawImage(image, 0, 0, size, size);
+  logoContext.globalCompositeOperation = "source-in";
+  logoContext.fillStyle = "#171719";
+  logoContext.fillRect(0, 0, size, size);
+  context.drawImage(logoCanvas, x, y);
+}
+
 async function composePolaroid(updateBlob = true) {
   if (!sourceCanvas || !destination) return;
   if (updateBlob) renderedBlob = null;
   const context = elements.canvas.getContext("2d");
   const background = await loadImage(destination.image);
-  const exhibitionLogo = await loadImage("assets/exhibition-logo-pink.svg?v=4");
+  const exhibitionLogo = await loadImage("assets/exhibition-logo-white.svg?v=2");
   const cutout = cutoutCanvas || createCutout(54);
 
   context.clearRect(0, 0, 1200, 1500);
@@ -359,13 +374,7 @@ async function composePolaroid(updateBlob = true) {
   context.font = "700 21px Courier New, monospace";
   context.fillText("CENTRO CULTURAL FIESP", 84, 1450);
   context.fillText("GALERIA DE FOTOS", 84, 1476);
-  context.save();
-  context.fillStyle = "#171719";
-  context.beginPath();
-  context.arc(1063, 1405, 72, 0, Math.PI * 2);
-  context.fill();
-  context.restore();
-  context.drawImage(exhibitionLogo, 1000, 1342, 126, 126);
+  drawBlackExhibitionLogo(context, exhibitionLogo, 928, 1280, 190);
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }
 
@@ -455,19 +464,75 @@ function handlePointerEnd(event) {
   }
 }
 
+async function readImageDimensions(file) {
+  const bytes = new Uint8Array(await file.slice(0, 524288).arrayBuffer());
+  if (bytes.length >= 24 && bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e && bytes[3] === 0x47) {
+    const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+    return { width: view.getUint32(16), height: view.getUint32(20) };
+  }
+  if (bytes.length >= 4 && bytes[0] === 0xff && bytes[1] === 0xd8) {
+    let offset = 2;
+    while (offset + 8 < bytes.length) {
+      if (bytes[offset] !== 0xff) { offset += 1; continue; }
+      const marker = bytes[offset + 1];
+      if (marker === 0xd8 || marker === 0xd9) { offset += 2; continue; }
+      const length = (bytes[offset + 2] << 8) + bytes[offset + 3];
+      if (length < 2 || offset + length + 2 > bytes.length) break;
+      if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
+        return {
+          height: (bytes[offset + 5] << 8) + bytes[offset + 6],
+          width: (bytes[offset + 7] << 8) + bytes[offset + 8]
+        };
+      }
+      offset += length + 2;
+    }
+  }
+  return null;
+}
+
+async function decodePhotoToCanvas(file, maxDimension = 900) {
+  const dimensions = await readImageDimensions(file).catch(() => null);
+  if (dimensions && window.createImageBitmap) {
+    const scale = Math.min(1, maxDimension / Math.max(dimensions.width, dimensions.height));
+    const bitmap = await createImageBitmap(file, {
+      imageOrientation: "from-image",
+      resizeWidth: Math.max(1, Math.round(dimensions.width * scale)),
+      resizeHeight: Math.max(1, Math.round(dimensions.height * scale)),
+      resizeQuality: "high"
+    });
+    const canvas = document.createElement("canvas");
+    canvas.width = bitmap.width;
+    canvas.height = bitmap.height;
+    canvas.getContext("2d").drawImage(bitmap, 0, 0);
+    bitmap.close?.();
+    return canvas;
+  }
+
+  const temporaryUrl = URL.createObjectURL(file);
+  try {
+    const image = await new Promise((resolve, reject) => {
+      const candidate = new Image();
+      candidate.onload = () => resolve(candidate);
+      candidate.onerror = reject;
+      candidate.src = temporaryUrl;
+    });
+    const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+    canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+    canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
+    image.src = "";
+    return canvas;
+  } finally {
+    URL.revokeObjectURL(temporaryUrl);
+  }
+}
+
 async function handlePhoto(file) {
   if (!file || !file.type.startsWith("image/")) return toast("ESCOLHA UMA IMAGEM VÁLIDA.");
   showStep("#processingStep");
   try {
-    if (objectUrl) URL.revokeObjectURL(objectUrl);
-    objectUrl = URL.createObjectURL(file);
-    const image = await loadImage(objectUrl);
-    const maxDimension = 1000;
-    const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
-    sourceCanvas = document.createElement("canvas");
-    sourceCanvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
-    sourceCanvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
-    sourceCanvas.getContext("2d").drawImage(image, 0, 0, sourceCanvas.width, sourceCanvas.height);
+    sourceCanvas = await decodePhotoToCanvas(file);
     personMaskCanvas = null;
     cutoutCanvas = null;
     personMaskCanvas = await segmentPerson();
@@ -556,6 +621,4 @@ elements.canvas.addEventListener("pointermove", handlePointerMove);
 elements.canvas.addEventListener("pointerup", handlePointerEnd);
 elements.canvas.addEventListener("pointercancel", handlePointerEnd);
 elements.finish.addEventListener("click", finishExperience);
-window.addEventListener("beforeunload", () => { if (objectUrl) URL.revokeObjectURL(objectUrl); });
-
 begin();

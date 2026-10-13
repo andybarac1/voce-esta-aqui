@@ -8,10 +8,13 @@
     send_page_view: true
   });
 
-  const tag = document.createElement("script");
-  tag.async = true;
-  tag.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.append(tag);
+  const isOfflineKiosk = ["127.0.0.1", "localhost"].includes(location.hostname);
+  if (!isOfflineKiosk) {
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.append(tag);
+  }
 
   const path = location.pathname;
   const experience = path.includes("/polaroid") || path.includes("/experiencia-2") ? "polaroid" : "autorretrato";
