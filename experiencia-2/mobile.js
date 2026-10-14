@@ -464,6 +464,38 @@ function handlePointerEnd(event) {
   }
 }
 
+function readExifOrientation(bytes, markerOffset, segmentLength) {
+  const segmentStart = markerOffset + 4;
+  const segmentEnd = Math.min(bytes.length, markerOffset + 2 + segmentLength);
+  if (segmentStart + 14 > segmentEnd) return null;
+  if (bytes[segmentStart] !== 0x45 || bytes[segmentStart + 1] !== 0x78 ||
+      bytes[segmentStart + 2] !== 0x69 || bytes[segmentStart + 3] !== 0x66 ||
+      bytes[segmentStart + 4] !== 0 || bytes[segmentStart + 5] !== 0) return null;
+
+  const tiffStart = segmentStart + 6;
+  const littleEndian = bytes[tiffStart] === 0x49 && bytes[tiffStart + 1] === 0x49;
+  const bigEndian = bytes[tiffStart] === 0x4d && bytes[tiffStart + 1] === 0x4d;
+  if (!littleEndian && !bigEndian) return null;
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const readUint16 = offset => offset + 2 <= segmentEnd ? view.getUint16(offset, littleEndian) : null;
+  const readUint32 = offset => offset + 4 <= segmentEnd ? view.getUint32(offset, littleEndian) : null;
+  if (readUint16(tiffStart + 2) !== 0x2a) return null;
+  const directoryOffset = readUint32(tiffStart + 4);
+  if (directoryOffset === null) return null;
+  const directoryStart = tiffStart + directoryOffset;
+  const entryCount = readUint16(directoryStart);
+  if (entryCount === null) return null;
+
+  for (let index = 0; index < entryCount; index++) {
+    const entryOffset = directoryStart + 2 + index * 12;
+    if (entryOffset + 12 > segmentEnd) break;
+    if (readUint16(entryOffset) !== 0x0112) continue;
+    const orientation = readUint16(entryOffset + 8);
+    return orientation >= 1 && orientation <= 8 ? orientation : null;
+  }
+  return null;
+}
+
 async function readImageDimensions(file) {
   const bytes = new Uint8Array(await file.slice(0, 524288).arrayBuffer());
   if (bytes.length >= 24 && bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e && bytes[3] === 0x47) {
@@ -471,6 +503,7 @@ async function readImageDimensions(file) {
     return { width: view.getUint32(16), height: view.getUint32(20) };
   }
   if (bytes.length >= 4 && bytes[0] === 0xff && bytes[1] === 0xd8) {
+    let orientation = 1;
     let offset = 2;
     while (offset + 8 < bytes.length) {
       if (bytes[offset] !== 0xff) { offset += 1; continue; }
@@ -478,11 +511,17 @@ async function readImageDimensions(file) {
       if (marker === 0xd8 || marker === 0xd9) { offset += 2; continue; }
       const length = (bytes[offset + 2] << 8) + bytes[offset + 3];
       if (length < 2 || offset + length + 2 > bytes.length) break;
+      if (marker === 0xe1) {
+        const exifOrientation = readExifOrientation(bytes, offset, length);
+        if (exifOrientation) orientation = exifOrientation;
+      }
       if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
-        return {
-          height: (bytes[offset + 5] << 8) + bytes[offset + 6],
-          width: (bytes[offset + 7] << 8) + bytes[offset + 8]
-        };
+        const encodedHeight = (bytes[offset + 5] << 8) + bytes[offset + 6];
+        const encodedWidth = (bytes[offset + 7] << 8) + bytes[offset + 8];
+        const swapsAxes = orientation >= 5 && orientation <= 8;
+        return swapsAxes
+          ? { width: encodedHeight, height: encodedWidth }
+          : { width: encodedWidth, height: encodedHeight };
       }
       offset += length + 2;
     }
@@ -490,24 +529,7 @@ async function readImageDimensions(file) {
   return null;
 }
 
-async function decodePhotoToCanvas(file, maxDimension = 900) {
-  const dimensions = await readImageDimensions(file).catch(() => null);
-  if (dimensions && window.createImageBitmap) {
-    const scale = Math.min(1, maxDimension / Math.max(dimensions.width, dimensions.height));
-    const bitmap = await createImageBitmap(file, {
-      imageOrientation: "from-image",
-      resizeWidth: Math.max(1, Math.round(dimensions.width * scale)),
-      resizeHeight: Math.max(1, Math.round(dimensions.height * scale)),
-      resizeQuality: "high"
-    });
-    const canvas = document.createElement("canvas");
-    canvas.width = bitmap.width;
-    canvas.height = bitmap.height;
-    canvas.getContext("2d").drawImage(bitmap, 0, 0);
-    bitmap.close?.();
-    return canvas;
-  }
-
+async function decodePhotoWithImageElement(file, maxDimension) {
   const temporaryUrl = URL.createObjectURL(file);
   try {
     const image = await new Promise((resolve, reject) => {
@@ -526,6 +548,37 @@ async function decodePhotoToCanvas(file, maxDimension = 900) {
   } finally {
     URL.revokeObjectURL(temporaryUrl);
   }
+}
+
+async function decodePhotoToCanvas(file, maxDimension = 900) {
+  const dimensions = await readImageDimensions(file).catch(() => null);
+  if (dimensions && window.createImageBitmap) {
+    let bitmap = null;
+    try {
+      const scale = Math.min(1, maxDimension / Math.max(dimensions.width, dimensions.height));
+      bitmap = await createImageBitmap(file, {
+        imageOrientation: "from-image",
+        resizeWidth: Math.max(1, Math.round(dimensions.width * scale)),
+        resizeHeight: Math.max(1, Math.round(dimensions.height * scale)),
+        resizeQuality: "high"
+      });
+      const expectedRatio = dimensions.width / dimensions.height;
+      const decodedRatio = bitmap.width / bitmap.height;
+      if (Math.abs(expectedRatio - decodedRatio) / expectedRatio > .02) {
+        throw new Error("A orientação da foto não foi preservada pelo navegador.");
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = bitmap.width;
+      canvas.height = bitmap.height;
+      canvas.getContext("2d").drawImage(bitmap, 0, 0);
+      return canvas;
+    } catch (error) {
+      console.warn("Redimensionamento otimizado indisponível; usando decodificação compatível.", error);
+    } finally {
+      bitmap?.close?.();
+    }
+  }
+  return decodePhotoWithImageElement(file, maxDimension);
 }
 
 async function handlePhoto(file) {
