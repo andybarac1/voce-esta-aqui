@@ -369,12 +369,20 @@ async function composePolaroid(updateBlob = true) {
   context.fillText(`${destination.name.toUpperCase()} · ${destination.country.toUpperCase()}`, 84, 1322);
   context.font = "700 20px Courier New, monospace";
   context.fillText("Curadoria João Kulcsár", 84, 1358);
-  context.fillText("Visitação, terça a domingo, 10h às 20h", 84, 1386);
+  context.fillText("Visitação: terça a domingo, 10h às 20h", 84, 1386);
   context.fillText("Até 4 de abril de 2027", 84, 1412);
   context.font = "700 21px Courier New, monospace";
   context.fillText("CENTRO CULTURAL FIESP", 84, 1450);
   context.fillText("GALERIA DE FOTOS", 84, 1476);
-  drawBlackExhibitionLogo(context, exhibitionLogo, 928, 1280, 190);
+  const logoSize = 300;
+  const polaroidMargin = 70;
+  drawBlackExhibitionLogo(
+    context,
+    exhibitionLogo,
+    1200 - polaroidMargin - logoSize,
+    1500 - polaroidMargin - logoSize,
+    logoSize
+  );
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
 }
 
