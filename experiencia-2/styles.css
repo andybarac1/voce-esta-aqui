@@ -169,8 +169,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .polaroid-stage { position: relative; min-height: 58dvh; display: grid; place-items: center; padding: 20px 20px 62px; background: var(--aqua); }
 .polaroid-stage canvas { display: block; width: min(100%, 420px); max-height: 58dvh; object-fit: contain; box-shadow: 10px 12px 0 rgba(23,23,25,.22); touch-action: none; cursor: grab; }
 .polaroid-stage canvas.is-dragging { cursor: grabbing; }
-.gesture-hint { position: absolute; left: 20px; right: 20px; bottom: 13px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 8px; font-weight: 700; letter-spacing: .04em; }
-.gesture-hint button { min-height: 30px; padding: 0 10px; border: 1.5px solid var(--ink); background: var(--paper); font-size: 8px; font-weight: 700; cursor: pointer; }
+.gesture-hint { position: absolute; left: 20px; right: 20px; bottom: 13px; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--ink); font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+.gesture-hint button { min-height: 30px; padding: 0 10px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); font-size: 8px; font-weight: 700; cursor: pointer; }
 .editor-panel { flex: 1; padding: 18px 20px 30px; background: var(--ink); }
 .editor-panel h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -.06em; }
 .editor-panel > p { margin: 0 0 14px; font-size: 11px; line-height: 1.35; }

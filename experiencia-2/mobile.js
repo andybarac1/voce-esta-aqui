@@ -375,12 +375,12 @@ async function composePolaroid(updateBlob = true) {
   context.fillText("CENTRO CULTURAL FIESP", 84, 1450);
   context.fillText("GALERIA DE FOTOS", 84, 1476);
   const logoSize = 300;
-  const polaroidMargin = 70;
+  const logoArea = { x: 760, y: 1130, width: 370, height: 370 };
   drawBlackExhibitionLogo(
     context,
     exhibitionLogo,
-    1200 - polaroidMargin - logoSize,
-    1500 - polaroidMargin - logoSize,
+    logoArea.x + (logoArea.width - logoSize) / 2,
+    logoArea.y + (logoArea.height - logoSize) / 2,
     logoSize
   );
   if (updateBlob) elements.canvas.toBlob(blob => { renderedBlob = blob; }, "image/jpeg", .94);
